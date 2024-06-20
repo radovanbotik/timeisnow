@@ -16,9 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`relative h-screen w-full leading-[1.5] [&_*]:border [&_*]:border-red-500`}
-      >
+      <body className={`relative h-screen w-full leading-[1.5]`}>
         {/* <Banner /> */}
         <Navigation />
         {/* <TextCircle /> */}

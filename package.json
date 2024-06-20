@@ -12,6 +12,7 @@
     "@gsap/react": "^2.1.1",
     "@headlessui/react": "^2.0.4",
     "@heroicons/react": "^2.1.4",
+    "@tailwindcss/container-queries": "^0.1.1",
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
     "gsap-trial": "^3.12.5",

@@ -19,6 +19,10 @@ const config: Config = {
       },
     },
   },
-  plugins: ["prettier-plugin-tailwindcss", require("@tailwindcss/forms")],
+  plugins: [
+    "prettier-plugin-tailwindcss",
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/container-queries"),
+  ],
 };
 export default config;
