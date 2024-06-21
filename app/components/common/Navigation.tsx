@@ -8,6 +8,7 @@ import Image from "next/image";
 import { drukWide, itcMachine, youth } from "@/app/lib/fonts";
 import logo150 from "../../../public/assets/logo/logodark150.png";
 import { Container } from "../layout/Container";
+import Container3D from "../layout/Container3D";
 
 const navigation = [
   { name: "News", href: "#" },
@@ -20,59 +21,61 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <header className={`bg-white ${drukWide.className} my-8`}>
-      <Container className="py-5">
-        <nav
-          // className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-          className="flex items-center justify-between"
-          aria-label="Global"
-        >
-          <a href="#">
-            <span className="sr-only">Your Company</span>
-            <Image
-              src={logo150}
-              alt="Logo of Time is now music label"
-              width={75}
-              height={16.5}
-            />
-            {/* <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" /> */}
-          </a>
-          <div className="flex lg:hidden">
-            <button
-              type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-              onClick={() => setMobileMenuOpen(true)}
-            >
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
-          <div className="hidden lg:flex lg:gap-6">
-            {navigation.map((item, i) => (
-              <div key={item.name} className="space-x-6">
-                <a href={item.href}>
-                  <span className="text-sm font-semibold uppercase tracking-tighter text-gray-900">
-                    {item.name}
-                  </span>
-                </a>
-                <span className="self-center text-sm font-semibold uppercase tracking-tighter text-gray-900">
-                  {" "}
-                  /{" "}
-                </span>
-              </div>
-            ))}
-            <button className="space-x-1">
-              <span>
-                <span className="text-sm font-semibold uppercase tracking-tighter text-gray-900">
-                  More
-                </span>
-              </span>
-              <PlusIcon
-                className="inline h-5 w-5 -translate-y-0.5 text-sm text-gray-900"
-                aria-hidden="true"
+      <Container>
+        <Container3D className="px-8 py-5">
+          <nav
+            // className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+            className="flex items-center justify-between"
+            aria-label="Global"
+          >
+            <a href="#">
+              <span className="sr-only">Your Company</span>
+              <Image
+                src={logo150}
+                alt="Logo of Time is now music label"
+                width={75}
+                height={16.5}
               />
-            </button>
-          </div>
-        </nav>
+              {/* <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" /> */}
+            </a>
+            <div className="flex lg:hidden">
+              <button
+                type="button"
+                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                onClick={() => setMobileMenuOpen(true)}
+              >
+                <span className="sr-only">Open main menu</span>
+                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
+            <div className="hidden lg:flex lg:gap-6">
+              {navigation.map((item, i) => (
+                <div key={item.name} className="space-x-6">
+                  <a href={item.href}>
+                    <span className="text-sm font-semibold uppercase tracking-tighter">
+                      {item.name}
+                    </span>
+                  </a>
+                  <span className="self-center text-sm font-semibold uppercase tracking-tighter">
+                    {" "}
+                    /{" "}
+                  </span>
+                </div>
+              ))}
+              <button className="space-x-1">
+                <span>
+                  <span className="text-sm font-semibold uppercase tracking-tighter">
+                    More
+                  </span>
+                </span>
+                <PlusIcon
+                  className="inline h-5 w-5 -translate-y-0.5 text-sm"
+                  aria-hidden="true"
+                />
+              </button>
+            </div>
+          </nav>
+        </Container3D>
       </Container>
       <Dialog
         className="lg:hidden"

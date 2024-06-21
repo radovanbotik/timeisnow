@@ -208,7 +208,7 @@ function Aside({ className, data }: { className?: string; data: Article[] }) {
 
 function CardBig({ className, data }: { className?: string; data: Article }) {
   return (
-    <div className={cn("group py-4 pr-8 hover:bg-white/10", className)}>
+    <div className={cn("group pr-8 hover:bg-white/10", className)}>
       <div className="flex flex-col gap-8 pl-8 lg:flex-row">
         <div className="lg:w-2/3">
           <div className="relative aspect-square rounded-sm border">
@@ -252,9 +252,9 @@ function CardBig({ className, data }: { className?: string; data: Article }) {
 export default function Highlight() {
   return (
     <div>
-      <div className="flex w-full flex-col gap-8 border-b py-4 sm:flex-row">
+      <div className="flex w-full flex-col gap-16 border-b sm:flex-row sm:gap-8 sm:border-0">
         <CardBig className="lg:w-2/3" data={article} />
-        <Aside className="my-4 lg:w-1/3" data={articles.slice(0, 5)} />
+        <Aside className="lg:w-1/3" data={articles.slice(0, 5)} />
       </div>
     </div>
   );

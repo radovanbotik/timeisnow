@@ -335,7 +335,7 @@ export default function ReleaseSlider() {
         loop={true}
         spaceBetween={10}
         modules={[Navigation, Autoplay]}
-        className="h-52 w-full sm:h-64"
+        className="h-64 w-full py-1"
         ref={instance}
       >
         {releases.map((release, i) => (
@@ -360,15 +360,15 @@ export default function ReleaseSlider() {
               </div>
 
               <div className="w-full px-2">
-                {/* <Button className="w-full p-0">Check</Button> */}
-                <div>
+                <Button className="mt-1 w-full p-0 lg:mt-2">Check</Button>
+                {/* <div>
                   <h5 className="inline-block w-fit group-hover:shadow-[0_1px_0_0_rgb(0,0,0)]">
                     <a href={release.href}>
                       <span>{release.title}</span>
                     </a>
                   </h5>
                   <sup className="ml-2">{`[${release.catalog}]`}</sup>
-                </div>
+                </div> */}
                 <div>
                   {/* <div className="lg:inline-block">
                   <span className="mr-1 text-xs">by</span>

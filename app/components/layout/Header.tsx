@@ -208,10 +208,10 @@ function FeaturedRelease({
       <div className="pl-10">
         <FeaturedReleaseImage data={featuredRelease} />
       </div>
-      <div className="relative z-10 -mt-9 pl-48 text-end">
+      <div className="relative z-10 -mt-9 pl-10 text-end">
         <h1
           className="inline-block"
-          style={{ textShadow: "0px 0px 5px rgba(0,0,0,0.3)" }}
+          // style={{ textShadow: "0px 0px 5px rgba(0,0,0,0.3)" }}
         >
           <a href={data.href} className="">
             {data.title}
@@ -332,7 +332,7 @@ function RecentReleases({
 
 export default function Header() {
   return (
-    <section className="flex flex-col lg:flex-row">
+    <section className="flex flex-col gap-10 lg:flex-row">
       <FeaturedRelease data={featuredRelease} />
       <RecentReleases data={recentReleases} />
     </section>

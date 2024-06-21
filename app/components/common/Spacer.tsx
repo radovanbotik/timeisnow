@@ -1,17 +1,22 @@
+import { cn } from "@/app/lib/helpers";
+
 export default function Spacer() {
+  const skewLeft =
+    "after:rounded-tr-sm after:absolute after:h-[calc(100%+2px)]  after:border-2 after:border-black after:top-[5px] after:-right-[calc(16px-2px)] after:w-[calc(16px-2px)] after:skew-y-[45deg]";
+  const skewRight =
+    "before:absolute before:w-[calc(100%+1px)] before:-right-[7px] before:h-[14px] before:-bottom-[14px] before:border-2 before:border-black before:-skew-x-[-45deg] ";
+
   return (
-    <div>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste iure
-      nesciunt dolor ducimus ipsa, fugiat corporis quas nisi nihil eum molestias
-      explicabo ullam neque ea corrupti aperiam nobis velit? Modi et aliquid
-      totam rem laboriosam illum nam sint provident. Molestiae animi voluptates
-      ipsa inventore illum nulla cupiditate quo nemo dicta ipsum alias
-      consectetur molestias at praesentium placeat quod hic amet, neque
-      veritatis esse. Dolor, praesentium. Explicabo sapiente libero neque beatae
-      aperiam repudiandae harum. Consequatur laudantium voluptate inventore
-      tempore a. Assumenda repellat vel architecto, placeat expedita
-      voluptatibus quasi eveniet, neque qui earum cum reprehenderit recusandae,
-      debitis impedit dolores quam porro dolor.
+    <div
+      className={cn(
+        skewLeft,
+        skewRight,
+        "relative min-h-10 w-full border-2 border-black p-4",
+      )}
+    >
+      <div className="h-full w-full text-6xl font-bold lg:text-4xl">
+        HIGHLIGHTS:
+      </div>
     </div>
   );
 }
