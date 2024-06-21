@@ -179,32 +179,32 @@ const articles: Article[] = [
 
 function CardBig({ className, data }: { className?: string; data: Article }) {
   return (
-    <div className={cn("group", className)}>
-      <div className="gap-2 pl-8 sm:flex">
-        <div className="sm:w-2/3">
+    <div className={cn("group py-4 pr-8 hover:bg-white/10", className)}>
+      <div className="flex flex-col gap-8 pl-8 lg:flex-row">
+        <div className="lg:w-2/3">
           <div className="relative aspect-square rounded-sm border">
             <a href={data.href} aria-hidden={true}>
               <Image
                 src={data.imageUrl}
                 alt={`Image of ${data.title}`}
-                sizes="(max-width: 768px) 320px, 512px"
+                sizes="(max-width: 512px) 320px, 512px"
                 fill
               />
             </a>
           </div>
         </div>
-        <div className="relative flex flex-col sm:w-1/3">
-          <h2>
+        <div className="relative flex flex-col lg:w-1/3">
+          <h2 className="w-fit">
             <a
               href={data.href}
-              className="after:absolute after:inset-0"
+              className="w-fit after:absolute after:inset-0"
               aria-label={data.title}
             >
               {data.title}
             </a>
           </h2>
-          <p>{data.subtitle}</p>
-          <div className="mt-1">
+          <p className="mt-4 line-clamp-6">{data.subtitle}</p>
+          <div className="mt-4">
             <h6>
               <span className="uppercase">Shop</span>
               <span className="mx-2">|</span>
@@ -219,50 +219,10 @@ function CardBig({ className, data }: { className?: string; data: Article }) {
     </div>
   );
 }
-function CardMid({ className, data }: { className?: string; data: Article }) {
-  return (
-    <div className={cn("", className)}>
-      <div className="flex h-full w-full flex-col lg:ml-8 lg:pl-8">
-        <div className="">
-          <div className="relative aspect-square rounded-sm border">
-            <a href={data.href} aria-hidden={true}>
-              <Image
-                src={data.imageUrl}
-                alt={`Image of ${data.title}`}
-                sizes="(max-width: 768px) 320px, 512px"
-                fill
-              />
-            </a>
-          </div>
-        </div>
-        <div className="relative flex flex-col">
-          <h2>
-            <a
-              href={data.href}
-              className="after:absolute after:inset-0"
-              aria-label={data.title}
-            >
-              {data.title}
-            </a>
-          </h2>
-          <p>{data.subtitle}</p>
-          <div className="mt-1">
-            <h6>
-              <span className="uppercase">Shop</span>
-              <span className="mx-2">|</span>
-              <span className="uppercase">Read</span>
-              <span className="mx-2">&#x2022;</span>
-              <span>{data.date}</span>
-            </h6>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+
 function CardSmall({ className, data }: { className?: string; data: Article }) {
   return (
-    <div className="relative isolate flex flex-col gap-8 lg:flex-row">
+    <div className="relative isolate flex flex-col gap-8 px-8 py-4 hover:bg-white/10 lg:flex-row">
       {/* <div className="w-10">icon</div> */}
       <div className="relative aspect-[5/4] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
         <a href={data.href} aria-hidden={true} className="h-full w-full">
@@ -276,20 +236,16 @@ function CardSmall({ className, data }: { className?: string; data: Article }) {
       </div>
       <div>
         <div className="flex items-center gap-x-4 text-xs">
-          <time dateTime={data.date} className="text-gray-500">
-            {data.date}
-          </time>
+          <time dateTime={data.date}>{data.date}</time>
         </div>
         <div className="group relative max-w-xl">
-          <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+          <h3 className="mt-3 text-lg font-semibold leading-6">
             <a href={data.href}>
               <span className="absolute inset-0" />
               {data.title}
             </a>
           </h3>
-          <p className="mt-5 text-sm leading-6 text-gray-600">
-            {data.subtitle}
-          </p>
+          <p className="mt-5 text-sm leading-6">{data.subtitle}</p>
         </div>
       </div>
     </div>
@@ -323,40 +279,81 @@ function Aside({ className, data }: { className?: string; data: Article[] }) {
     </div>
   );
 }
-function AsidePlaceholder({
-  className,
-  data,
-}: {
-  className?: string;
-  data: Article[];
-}) {
-  return (
-    <div className={cn("flex h-full w-full flex-wrap", className)}>
-      <div className="relative flex h-full w-full flex-grow-0 flex-col py-8 pl-8 pr-8 lg:ml-8 lg:border-l">
-        <div className="h-full w-full bg-black"></div>
-        {/* <h4>Articles</h4>
-        <ul className="space-y-3">
-          {data.map((article, i) => (
-            <li key={article.id}>
-              <h3 className="inline-block w-fit break-words group-hover:shadow-[0_1px_0_0_rgb(0,0,0)]">
-                <a href={article.href}>
-                  <span>{article.title}</span>
-                </a>
-              </h3>
-              <h6>
-                <span>{article.date}</span>
-              </h6>
-            </li>
-          ))}
-        </ul> */}
-      </div>
-    </div>
-  );
-}
+// function AsidePlaceholder({
+//   className,
+//   data,
+// }: {
+//   className?: string;
+//   data: Article[];
+// }) {
+//   return (
+//     <div className={cn("flex h-full w-full flex-wrap", className)}>
+//       <div className="relative flex h-full w-full flex-grow-0 flex-col py-8 pl-8 pr-8 lg:ml-8 lg:border-l">
+//         <div className="h-full w-full bg-black"></div>
+//         {/* <h4>Articles</h4>
+//         <ul className="space-y-3">
+//           {data.map((article, i) => (
+//             <li key={article.id}>
+//               <h3 className="inline-block w-fit break-words group-hover:shadow-[0_1px_0_0_rgb(0,0,0)]">
+//                 <a href={article.href}>
+//                   <span>{article.title}</span>
+//                 </a>
+//               </h3>
+//               <h6>
+//                 <span>{article.date}</span>
+//               </h6>
+//             </li>
+//           ))}
+//         </ul> */}
+//       </div>
+//     </div>
+//   );
+// }
+// function CardMid({ className, data }: { className?: string; data: Article }) {
+//   return (
+//     <div className={cn("", className)}>
+//       <div className="flex h-full w-full flex-col lg:ml-8 lg:pl-8">
+//         <div className="">
+//           <div className="relative aspect-square rounded-sm border">
+//             <a href={data.href} aria-hidden={true}>
+//               <Image
+//                 src={data.imageUrl}
+//                 alt={`Image of ${data.title}`}
+//                 sizes="(max-width: 768px) 320px, 512px"
+//                 fill
+//               />
+//             </a>
+//           </div>
+//         </div>
+//         <div className="relative flex flex-col">
+//           <h2>
+//             <a
+//               href={data.href}
+//               className="after:absolute after:inset-0"
+//               aria-label={data.title}
+//             >
+//               {data.title}
+//             </a>
+//           </h2>
+//           <p>{data.subtitle}</p>
+//           <div className="mt-1">
+//             <h6>
+//               <span className="uppercase">Shop</span>
+//               <span className="mx-2">|</span>
+//               <span className="uppercase">Read</span>
+//               <span className="mx-2">&#x2022;</span>
+//               <span>{data.date}</span>
+//             </h6>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
 export default function News() {
   return (
-    <div className="w-full border-b">
+    <div className="w-full">
       <Container3D className="my-4 px-6 py-2">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste iure
         nesciunt dolor ducimus ipsa, fugiat corporis quas nisi nihil eum
@@ -371,14 +368,9 @@ export default function News() {
         recusandae, debitis impedit dolores quam porro dolor.
       </Container3D>
 
-      <div className="grid w-full grid-cols-1 flex-col flex-wrap border-b py-4 sm:flex-row lg:grid-cols-[66.7%_33.3%]">
-        <CardBig className="border-b py-4" data={article} />
-        <Aside className="my-4" data={articles.slice(0, 5)} />
-        <div className="mt-4 flex flex-col flex-wrap gap-24 p-8 sm:flex-row">
-          <CardMid className="flex-1 lg:border-l" data={article} />
-          <CardMid className="flex-1 lg:border-l" data={article} />
-        </div>
-        <AsidePlaceholder className="my-4" data={articles} />
+      <div className="flex w-full flex-col gap-8 border-b py-4 sm:flex-row">
+        <CardBig className="lg:w-2/3" data={article} />
+        <Aside className="my-4 lg:w-1/3" data={articles.slice(0, 5)} />
       </div>
       <div>
         <ul className="mt-8 space-y-8 lg:space-y-8">

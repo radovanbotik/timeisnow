@@ -17,7 +17,9 @@ export default function Page() {
         <ReleaseSlider />
       </Container>
       <Container>
-        <News />
+        <Container3D className="px-8 py-8">
+          <News />
+        </Container3D>
       </Container>
     </>
   );
