@@ -217,6 +217,11 @@ function FeaturedRelease({
             {data.title}
           </a>
         </h1>
+        <p className="lg:text-lg">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
+          perferendis. Quidem neque veritatis enim deleniti? Natus architecto
+          perspiciatis sunt fugit?
+        </p>
       </div>
     </div>
   );

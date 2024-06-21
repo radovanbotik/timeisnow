@@ -9,6 +9,8 @@ import { Navigation, Autoplay } from "swiper/modules";
 import { Release } from "@/app/lib/types";
 import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import Button from "../common/Button";
+import Container3D from "./Container3D";
 
 const releases: Release[] = [
   {
@@ -321,7 +323,7 @@ export default function ReleaseSlider() {
   const instance = useRef<SwiperRef>(null);
 
   return (
-    <div className="relative flex h-64 w-full flex-col">
+    <div className="relative flex h-52 w-full flex-col sm:h-64">
       <h4>Other releases:</h4>
       <Swiper
         // navigation={true}
@@ -339,31 +341,35 @@ export default function ReleaseSlider() {
         {releases.map((release, i) => (
           <SwiperSlide
             key={release.id}
-            className="group relative flex h-full w-40 flex-col hover:bg-black/10"
+            className="group relative flex h-full w-48 flex-col hover:bg-black/10"
           >
-            <div className="relative aspect-square h-full w-full">
-              <a href={release.href}>
-                <Image
-                  src={release.imageUrl}
-                  alt={`Artwork for release ${release.title}`}
-                  fill
-                  sizes="160px"
-                />
-              </a>
-              <div className="pointer pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
-              <div className="pointer pointer-events-none absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-black/40 to-transparent"></div>
-            </div>
-            <div className="w-full px-2">
-              <div>
-                <h5 className="inline-block w-fit group-hover:shadow-[0_1px_0_0_rgb(0,0,0)]">
+            <Container3D className="h-full w-full">
+              <div className="p-1">
+                <div className="relative aspect-square h-full w-full">
                   <a href={release.href}>
-                    <span>{release.title}</span>
+                    <Image
+                      src={release.imageUrl}
+                      alt={`Artwork for release ${release.title}`}
+                      fill
+                      sizes="160px"
+                    />
                   </a>
-                </h5>
-                <sup className="ml-2">{`[${release.catalog}]`}</sup>
+                  <div className="pointer pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                  <div className="pointer pointer-events-none absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-black/40 to-transparent"></div>
+                </div>
               </div>
-              <div>
-                {/* <div className="lg:inline-block">
+
+              <div className="w-full px-2">
+                <div>
+                  <h5 className="inline-block w-fit group-hover:shadow-[0_1px_0_0_rgb(0,0,0)]">
+                    <a href={release.href}>
+                      <span>{release.title}</span>
+                    </a>
+                  </h5>
+                  <sup className="ml-2">{`[${release.catalog}]`}</sup>
+                </div>
+                <div>
+                  {/* <div className="lg:inline-block">
                   <span className="mr-1 text-xs">by</span>
                   {release.artists.map((artist, i) => (
                     <h6 key={artist} className="inline-block">
@@ -377,15 +383,17 @@ export default function ReleaseSlider() {
                     </h6>
                   ))}
                 </div> */}
-                {/* <div className="lg:inline-block">
+                  {/* <div className="lg:inline-block">
                   <h6>
                     <span>Tracks: {release.tracks.length}</span>
                     <span className="mx-2">|</span>
                     <span>{release.releaseDate}</span>
                   </h6>
                 </div> */}
+                </div>
               </div>
-            </div>
+            </Container3D>
+            {/* <Button className="mx-2 my-1">Check</Button> */}
           </SwiperSlide>
         ))}
       </Swiper>
