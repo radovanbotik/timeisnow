@@ -2,5 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
+/* add font-primary */
+
+@layer base {
+  h1 {
+    @apply mb-4 text-2xl font-bold tracking-tighter text-white group-hover:shadow-[inset_0_-30px_0_0_rgba(0,0,0,0.7)] md:text-6xl;
+  }
+
+  h2 {
+    @apply mb-2 text-xl font-bold group-hover:shadow-[inset_0_-20px_0_0_rgb(0,0,0,0.7)] md:text-3xl;
+  }
+
+  h3 {
+    @apply text-lg font-bold md:text-2xl;
+  }
+
+  h4 {
+    @apply text-base font-bold md:text-lg;
+  }
+
+  h5 {
+    @apply text-xs font-bold md:text-sm;
+  }
+
+  h6 {
+    @apply text-xs font-bold leading-[1.4] md:text-xs;
+  }
+
+  body {
+    @apply text-sm md:text-base;
+  }
 }
+
+/* @layer utilities {
+} */

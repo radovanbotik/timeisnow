@@ -16,3 +16,13 @@ export type Track = {
   BPM: number;
   key: string;
 };
+
+export type Article = {
+  id: number;
+  title: string;
+  subtitle: string;
+  content: string;
+  imageUrl: string;
+  href: string;
+  date: string;
+};
