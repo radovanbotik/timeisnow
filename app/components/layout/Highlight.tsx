@@ -177,6 +177,35 @@ const articles: Article[] = [
   },
 ];
 
+function Aside({ className, data }: { className?: string; data: Article[] }) {
+  return (
+    <div className={cn("flex h-full w-full flex-wrap", className)}>
+      <div className="relative flex h-full w-full flex-grow-0 flex-col pl-8 pr-8 lg:ml-8 lg:border-l">
+        <h4>Articles</h4>
+        <ul className="space-y-3">
+          {data.map((article, i) => (
+            <li key={article.id}>
+              <h3 className="inline-block w-fit break-words group-hover:shadow-[0_1px_0_0_rgb(0,0,0)]">
+                <a href={article.href}>
+                  <span>{article.title}</span>
+                </a>
+              </h3>
+              <h6>
+                <span>{article.date}</span>
+                {/* <span className="mx-2">|</span>
+                  <span>{release.releaseDate}</span> */}
+              </h6>
+            </li>
+          ))}
+        </ul>
+        {/* <p className="h-full w-full break-words">
+            asideaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          </p> */}
+      </div>
+    </div>
+  );
+}
+
 function CardBig({ className, data }: { className?: string; data: Article }) {
   return (
     <div className={cn("group py-4 pr-8 hover:bg-white/10", className)}>
@@ -220,147 +249,13 @@ function CardBig({ className, data }: { className?: string; data: Article }) {
   );
 }
 
-function CardSmall({ className, data }: { className?: string; data: Article }) {
+export default function Highlight() {
   return (
-    <div className="relative isolate flex flex-col gap-8 px-8 py-4 hover:bg-white/10 lg:flex-row">
-      {/* <div className="w-10">icon</div> */}
-      <div className="relative aspect-[5/4] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-        <a href={data.href} aria-hidden={true} className="h-full w-full">
-          <Image
-            src={data.imageUrl}
-            alt={`Image of ${data.title}`}
-            sizes="(max-width: 768px) 1024px, 256px"
-            fill
-          />
-        </a>
+    <div>
+      <div className="flex w-full flex-col gap-8 border-b py-4 sm:flex-row">
+        <CardBig className="lg:w-2/3" data={article} />
+        <Aside className="my-4 lg:w-1/3" data={articles.slice(0, 5)} />
       </div>
-      <div>
-        <div className="flex items-center gap-x-4 text-xs">
-          <time dateTime={data.date}>{data.date}</time>
-        </div>
-        <div className="group relative max-w-xl">
-          <h3 className="mt-3 text-lg font-semibold leading-6">
-            <a href={data.href}>
-              <span className="absolute inset-0" />
-              {data.title}
-            </a>
-          </h3>
-          <p className="mt-5 text-sm leading-6">{data.subtitle}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-function Aside({ className, data }: { className?: string; data: Article[] }) {
-  return (
-    <div className={cn("flex h-full w-full flex-wrap", className)}>
-      <div className="relative flex h-full w-full flex-grow-0 flex-col pl-8 pr-8 lg:ml-8 lg:border-l">
-        <h4>Articles</h4>
-        <ul className="space-y-3">
-          {data.map((article, i) => (
-            <li key={article.id}>
-              <h3 className="inline-block w-fit break-words group-hover:shadow-[0_1px_0_0_rgb(0,0,0)]">
-                <a href={article.href}>
-                  <span>{article.title}</span>
-                </a>
-              </h3>
-              <h6>
-                <span>{article.date}</span>
-                {/* <span className="mx-2">|</span>
-                <span>{release.releaseDate}</span> */}
-              </h6>
-            </li>
-          ))}
-        </ul>
-        {/* <p className="h-full w-full break-words">
-          asideaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        </p> */}
-      </div>
-    </div>
-  );
-}
-// function AsidePlaceholder({
-//   className,
-//   data,
-// }: {
-//   className?: string;
-//   data: Article[];
-// }) {
-//   return (
-//     <div className={cn("flex h-full w-full flex-wrap", className)}>
-//       <div className="relative flex h-full w-full flex-grow-0 flex-col py-8 pl-8 pr-8 lg:ml-8 lg:border-l">
-//         <div className="h-full w-full bg-black"></div>
-//         {/* <h4>Articles</h4>
-//         <ul className="space-y-3">
-//           {data.map((article, i) => (
-//             <li key={article.id}>
-//               <h3 className="inline-block w-fit break-words group-hover:shadow-[0_1px_0_0_rgb(0,0,0)]">
-//                 <a href={article.href}>
-//                   <span>{article.title}</span>
-//                 </a>
-//               </h3>
-//               <h6>
-//                 <span>{article.date}</span>
-//               </h6>
-//             </li>
-//           ))}
-//         </ul> */}
-//       </div>
-//     </div>
-//   );
-// }
-// function CardMid({ className, data }: { className?: string; data: Article }) {
-//   return (
-//     <div className={cn("", className)}>
-//       <div className="flex h-full w-full flex-col lg:ml-8 lg:pl-8">
-//         <div className="">
-//           <div className="relative aspect-square rounded-sm border">
-//             <a href={data.href} aria-hidden={true}>
-//               <Image
-//                 src={data.imageUrl}
-//                 alt={`Image of ${data.title}`}
-//                 sizes="(max-width: 768px) 320px, 512px"
-//                 fill
-//               />
-//             </a>
-//           </div>
-//         </div>
-//         <div className="relative flex flex-col">
-//           <h2>
-//             <a
-//               href={data.href}
-//               className="after:absolute after:inset-0"
-//               aria-label={data.title}
-//             >
-//               {data.title}
-//             </a>
-//           </h2>
-//           <p>{data.subtitle}</p>
-//           <div className="mt-1">
-//             <h6>
-//               <span className="uppercase">Shop</span>
-//               <span className="mx-2">|</span>
-//               <span className="uppercase">Read</span>
-//               <span className="mx-2">&#x2022;</span>
-//               <span>{data.date}</span>
-//             </h6>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-export default function News() {
-  return (
-    <div className="w-full">
-      <ul className="mt-4 space-y-8 lg:space-y-8">
-        {articles.slice(0, 3).map((article) => (
-          <li key={article.id}>
-            <CardSmall data={article} />
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }

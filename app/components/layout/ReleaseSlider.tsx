@@ -323,8 +323,8 @@ export default function ReleaseSlider() {
   const instance = useRef<SwiperRef>(null);
 
   return (
-    <div className="relative flex h-52 w-full flex-col sm:h-64">
-      <h4>Other releases:</h4>
+    <div className="relative flex h-full w-full flex-col">
+      <h4 className="mb-4">Other releases:</h4>
       <Swiper
         // navigation={true}
         slidesPerView={"auto"}
@@ -335,7 +335,7 @@ export default function ReleaseSlider() {
         loop={true}
         spaceBetween={10}
         modules={[Navigation, Autoplay]}
-        className="h-full w-full"
+        className="h-52 w-full sm:h-64"
         ref={instance}
       >
         {releases.map((release, i) => (
@@ -360,6 +360,7 @@ export default function ReleaseSlider() {
               </div>
 
               <div className="w-full px-2">
+                {/* <Button className="w-full p-0">Check</Button> */}
                 <div>
                   <h5 className="inline-block w-fit group-hover:shadow-[0_1px_0_0_rgb(0,0,0)]">
                     <a href={release.href}>
@@ -393,7 +394,6 @@ export default function ReleaseSlider() {
                 </div>
               </div>
             </Container3D>
-            {/* <Button className="mx-2 my-1">Check</Button> */}
           </SwiperSlide>
         ))}
       </Swiper>
