@@ -205,10 +205,10 @@ function FeaturedRelease({
         className,
       )}
     >
-      <div className="pl-10">
+      <div className="pl-10 sm:pl-0">
         <FeaturedReleaseImage data={featuredRelease} />
       </div>
-      <div className="relative z-10 -mt-9 pl-10 text-end">
+      <div className="relative z-10 -mt-5 pl-10 text-end sm:pl-0 lg:-mt-10">
         <h1
           className="inline-block"
           // style={{ textShadow: "0px 0px 5px rgba(0,0,0,0.3)" }}

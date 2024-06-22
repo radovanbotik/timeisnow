@@ -9,6 +9,7 @@ import { drukWide, itcMachine, youth } from "@/app/lib/fonts";
 import logo150 from "../../../public/assets/logo/logodark150.png";
 import { Container } from "../layout/Container";
 import Container3D from "../layout/Container3D";
+import NavLink from "./NavLink";
 
 const navigation = [
   { name: "News", href: "#" },
@@ -51,7 +52,7 @@ export default function Navigation() {
             <div className="hidden lg:flex lg:gap-6">
               {navigation.map((item, i) => (
                 <div key={item.name} className="space-x-6">
-                  <a href={item.href}>
+                  <a href={item.href} className="hover:text-violet-600">
                     <span className="text-sm font-semibold uppercase tracking-tighter">
                       {item.name}
                     </span>
@@ -62,6 +63,7 @@ export default function Navigation() {
                   </span>
                 </div>
               ))}
+              {/* <NavLink data={{ href: "#", name: "try me" }} /> */}
               <button className="space-x-1">
                 <span>
                   <span className="text-sm font-semibold uppercase tracking-tighter">

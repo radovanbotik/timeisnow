@@ -224,7 +224,7 @@ function CardSmall({ className, data }: { className?: string; data: Article }) {
   return (
     <div className="relative isolate flex flex-col gap-8 px-8 py-4 hover:bg-white/10 lg:flex-row">
       {/* <div className="w-10">icon</div> */}
-      <div className="relative aspect-[5/4] border border-black sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
+      <div className="relative aspect-[5/4] border border-black sm:aspect-[2/1] lg:aspect-square lg:w-40 lg:shrink-0">
         <a href={data.href} aria-hidden={true} className="h-full w-full">
           <Image
             src={data.imageUrl}
