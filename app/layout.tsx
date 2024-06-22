@@ -3,6 +3,10 @@ import "./globals.css";
 import Navigation from "./components/common/Navigation";
 import { drukWide, helvetica, itcMachine, youth } from "./lib/fonts";
 import Footer from "./components/common/Footer";
+import Cursor from "./components/common/Cursors";
+import TextCircle from "./components/common/TextCircle";
+import FullBleed from "./components/layout/FullBleed";
+import Marquee from "./components/common/Marquee";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,10 +21,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="relative">
       <body
-        className={`relative h-screen w-full leading-[1.5] ${youth.className}`}
+        className={`relative h-full w-full leading-[1.5] ${youth.className} cursor-none overflow-x-hidden selection:bg-black selection:text-white`}
       >
+        <Cursor />
+        <FullBleed>
+          <Marquee />
+        </FullBleed>
+
         <Navigation />
         <div className="relative">{children}</div>
         <Footer />

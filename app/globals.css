@@ -10,15 +10,15 @@
   }
 
   h2 {
-    @apply mb-2 text-xl font-bold group-hover:shadow-[inset_0_-20px_0_0_rgba(109,40,217,1)] md:text-3xl;
+    @apply mb-4 text-xl font-bold capitalize group-hover:shadow-[inset_0_-20px_0_0_rgba(109,40,217,1)] md:text-4xl;
   }
 
   h3 {
-    @apply text-lg font-bold md:text-2xl;
+    @apply mb-8 text-lg font-bold uppercase md:text-2xl;
   }
 
   h4 {
-    @apply text-base font-bold text-black/90 md:text-lg;
+    @apply mb-1 text-base font-bold uppercase text-black/90 md:text-lg;
   }
 
   h5 {
@@ -26,21 +26,26 @@
   }
 
   h6 {
-    @apply text-xs font-bold leading-[1.4] tracking-widest text-black/60 md:text-xs;
+    @apply text-xs font-bold uppercase leading-[1.4] tracking-widest text-black/60 md:text-xs;
   }
 
   body {
-    @apply cursor-[url('../public/assets/cursor/cursor85.png'),auto] text-sm md:text-base;
+    /* @apply cursor-[url('../public/assets/cursor/cursor85.png'),auto] text-sm md:text-base; */
   }
   a,
   button {
-    @apply cursor-[url('../public/assets/cursor/cursor85.png'),auto];
+    /* @apply cursor-[url('../public/assets/cursor/cursor85.png'),auto]; */
+    @apply cursor-none;
   }
 }
 
 @layer utilities {
   .text-stroke {
     -webkit-text-stroke: 2px black;
+  }
+
+  .clip-30 {
+    clip-path: polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%);
   }
 }
 
@@ -49,7 +54,6 @@
   scrollbar-color: #ffffff #000000;
 }
 
-/* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 20px;
 }

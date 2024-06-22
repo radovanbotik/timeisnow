@@ -1,71 +1,37 @@
 "use client";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-
+import { cn } from "@/app/lib/helpers";
 import Link from "next/link";
-import { useRef } from "react";
+import { usePathname } from "next/navigation";
+import { ComponentPropsWithoutRef } from "react";
+
+type Props = ComponentPropsWithoutRef<typeof Link>;
 
 export default function NavLink({
-  data,
-}: {
-  data: { href: string; name: string };
-}) {
-  const container = useRef<HTMLElement | any>();
-  const initialText = useRef<HTMLElement | any>();
-  const flippedText = useRef<HTMLElement | any>();
+  href,
+  children,
+  className,
+  ...props
+}: Props) {
+  const pathname = usePathname();
 
-  function moveUp(target: HTMLElement) {
-    gsap.to(target, {
-      yPercent: -100,
-    });
-  }
-  function moveToBaseline(target: HTMLElement) {
-    gsap.to(target, {
-      yPercent: 0,
-    });
+  function isActive(href: string) {
+    if (href.length === 1) {
+      return href === pathname;
+    }
+    return pathname.split("/")[1] === href;
   }
 
   return (
-    <div
-      className="relative overflow-hidden"
-      ref={container}
-      onMouseEnter={(e) => {
-        // console.log([...initialText.current.children]);
-        [...initialText.current.children].map((span) => {
-          gsap.to(span, {
-            yPercent: -100,
-            duration: 1,
-          });
-        });
-      }}
-      //   onMouseLeave={(e) => {
-      //     console.log(e.currentTarget);
-      //     moveToBaseline(e.currentTarget);
-      //   }}
+    <Link
+      href={href}
+      className={cn(
+        isActive(href.toString()) && "text-violet-600",
+        "hover:text-violet-600",
+        className,
+      )}
+      {...props}
     >
-      <Link href={data.href} className="inline-block hover:text-violet-600">
-        <span
-          className="inline-block text-sm font-semibold uppercase tracking-tighter"
-          ref={initialText}
-        >
-          {data.name.split("").map((character, i) => (
-            <span key={i} className="inline-block">
-              {character}
-            </span>
-          ))}
-        </span>
-      </Link>
-      {/* <Link
-        href={data.href}
-        className="absolute inset-0 translate-y-full hover:text-violet-600"
-      >
-        <span
-          className="text-sm font-semibold uppercase tracking-tighter"
-          ref={flippedText}
-        >
-          {data.name}
-        </span>
-      </Link> */}
-    </div>
+      {children}
+    </Link>
   );
 }

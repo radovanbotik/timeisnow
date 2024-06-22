@@ -4,6 +4,7 @@ import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Container3D from "./Container3D";
 import Button from "../common/Button";
+import { drukWide } from "@/app/lib/fonts";
 
 const article: Article = {
   id: 1,
@@ -180,16 +181,16 @@ const articles: Article[] = [
 function Aside({ className, data }: { className?: string; data: Article[] }) {
   return (
     <div className={cn("flex h-full w-full flex-wrap", className)}>
-      <div className="relative flex h-full w-full flex-grow-0 flex-col pl-8 pr-8 lg:ml-8 lg:border-l">
-        <h4>Articles</h4>
+      <div className="relative flex h-full w-full flex-grow-0 flex-col pl-8 lg:border-l">
+        <h3 className={`${drukWide.className} `}>Articles</h3>
         <ul className="space-y-3">
           {data.map((article, i) => (
             <li key={article.id}>
-              <h3 className="inline-block w-fit break-words group-hover:shadow-[0_1px_0_0_rgb(0,0,0)]">
+              <h4 className="inline-block w-fit break-words group-hover:shadow-[0_1px_0_0_rgb(0,0,0)]">
                 <a href={article.href}>
                   <span>{article.title}</span>
                 </a>
-              </h3>
+              </h4>
               <h6>
                 <span>{article.date}</span>
                 {/* <span className="mx-2">|</span>
@@ -208,10 +209,10 @@ function Aside({ className, data }: { className?: string; data: Article[] }) {
 
 function CardBig({ className, data }: { className?: string; data: Article }) {
   return (
-    <div className={cn("group pr-8 hover:bg-white/10", className)}>
-      <div className="flex flex-col gap-8 pl-8 lg:flex-row">
-        <div className="lg:w-2/3">
-          <div className="relative aspect-square rounded-sm border">
+    <div className={cn("group hover:bg-white/10", className)}>
+      <div className="flex h-full flex-col gap-8 pl-8 lg:flex-row">
+        <div className="h-full w-full lg:basis-2/3">
+          <div className="relative aspect-square max-w-lg rounded-sm border">
             <a href={data.href} aria-hidden={true}>
               <Image
                 src={data.imageUrl}
@@ -222,7 +223,7 @@ function CardBig({ className, data }: { className?: string; data: Article }) {
             </a>
           </div>
         </div>
-        <div className="relative flex flex-col lg:w-1/3">
+        <div className="relative flex h-full flex-col gap-4 lg:basis-1/3">
           <h2 className="w-fit">
             <a
               href={data.href}
@@ -232,8 +233,8 @@ function CardBig({ className, data }: { className?: string; data: Article }) {
               {data.title}
             </a>
           </h2>
-          <p className="mt-4 line-clamp-6">{data.subtitle}</p>
-          <div className="mt-4">
+          <p className="line-clamp-6">{data.subtitle}</p>
+          <div className="">
             <h6>
               <span className="uppercase">Shop</span>
               <span className="mx-2">|</span>
@@ -242,7 +243,7 @@ function CardBig({ className, data }: { className?: string; data: Article }) {
               <span>{data.date}</span>
             </h6>
           </div>
-          <Button className="mt-4 w-full">CHECK</Button>
+          <Button className="w-full">CHECK</Button>
         </div>
       </div>
     </div>
@@ -252,9 +253,9 @@ function CardBig({ className, data }: { className?: string; data: Article }) {
 export default function Highlight() {
   return (
     <div>
-      <div className="flex w-full flex-col gap-16 border-b sm:flex-row sm:gap-8 sm:border-0">
-        <CardBig className="lg:w-2/3" data={article} />
-        <Aside className="lg:w-1/3" data={articles.slice(0, 5)} />
+      <div className="flex w-full flex-col gap-8 sm:flex-row lg:gap-24">
+        <CardBig className="lg:basis-2/3" data={article} />
+        <Aside className="lg:basis-1/3" data={articles.slice(0, 5)} />
       </div>
     </div>
   );

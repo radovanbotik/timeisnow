@@ -1,3 +1,4 @@
+import { drukWide, itcMachine } from "@/app/lib/fonts";
 import { cn } from "@/app/lib/helpers";
 import { Release } from "@/app/lib/types";
 import Image from "next/image";
@@ -210,7 +211,7 @@ function FeaturedRelease({
       </div>
       <div className="relative z-10 -mt-5 pl-10 text-end sm:pl-0 lg:-mt-10">
         <h1
-          className="inline-block"
+          className={`inline-block ${itcMachine.className}`}
           // style={{ textShadow: "0px 0px 5px rgba(0,0,0,0.3)" }}
         >
           <a href={data.href} className="">
@@ -243,10 +244,13 @@ function RecentReleases({
         className,
       )}
     >
-      <h4 className="leading-none lg:ml-10">Recent releases</h4>
+      <h3 className={`leading-none lg:ml-10`}>Recent releases</h3>
       <ol className="list-none">
         {data.map((release, i) => (
-          <li className="group relative flex w-full flex-row gap-2 border-b-2 pb-4 pt-4 first-of-type:pt-0 last-of-type:border-b-0 last-of-type:pb-0 lg:flex-row-reverse">
+          <li
+            key={release.id}
+            className="group relative flex w-full flex-row gap-2 border-b-2 pb-4 pt-4 first-of-type:pt-0 last-of-type:border-b-0 last-of-type:pb-0 lg:flex-row-reverse"
+          >
             {/* Release image */}
             <div className="mb-auto rounded-sm border border-black">
               <div className="hidden w-24 lg:block">
@@ -291,11 +295,11 @@ function RecentReleases({
               </div>
               <div className="w-full">
                 <div>
-                  <h3 className="inline-block w-fit group-hover:shadow-[0_1px_0_0_rgb(0,0,0)]">
+                  <h4 className="inline-block w-fit group-hover:shadow-[0_1px_0_0_rgb(0,0,0)]">
                     <a href={release.href}>
                       <span>{release.title}</span>
                     </a>
-                  </h3>
+                  </h4>
                   <sup className="ml-2">{`[${release.catalog}]`}</sup>
                 </div>
                 <div>

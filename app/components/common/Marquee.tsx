@@ -2,7 +2,7 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { drukWide } from "@/app/lib/fonts";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -29,7 +29,7 @@ export default function Marquee() {
     requestAnimationFrame(animate);
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     requestAnimationFrame(animate);
   }, []);
 

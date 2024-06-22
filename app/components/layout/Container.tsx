@@ -12,7 +12,7 @@ export const Container = forwardRef<
         className,
       )}
     >
-      <div className="mx-auto max-w-5xl">{children}</div>
+      <div className="relative mx-auto max-w-5xl">{children}</div>
     </div>
   );
 });

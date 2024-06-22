@@ -11,6 +11,7 @@ import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import Button from "../common/Button";
 import Container3D from "./Container3D";
+import { drukWide } from "@/app/lib/fonts";
 
 const releases: Release[] = [
   {
@@ -324,7 +325,7 @@ export default function ReleaseSlider() {
 
   return (
     <div className="relative flex h-full w-full flex-col">
-      <h4 className="mb-4">Other releases:</h4>
+      <h3 className={`mb-4 uppercase ${drukWide.className}`}>We released</h3>
       <Swiper
         // navigation={true}
         slidesPerView={"auto"}
@@ -335,13 +336,13 @@ export default function ReleaseSlider() {
         loop={true}
         spaceBetween={10}
         modules={[Navigation, Autoplay]}
-        className="h-64 w-full py-1"
+        className="!h-64 !w-full py-1"
         ref={instance}
       >
         {releases.map((release, i) => (
           <SwiperSlide
             key={release.id}
-            className="group relative flex h-full w-48 flex-col hover:bg-black/10"
+            className="group !relative !flex !h-full !w-48 flex-col hover:bg-black/10"
           >
             <Container3D className="h-full w-full">
               <div className="p-1">
