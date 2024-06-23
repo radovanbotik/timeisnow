@@ -55,7 +55,6 @@ export default function Slideover({
                           alt="Logo of Time is now music label"
                           width={75}
                           height={16.5}
-                          sizes="75px"
                         />
                       </a>
                     </DialogTitle>

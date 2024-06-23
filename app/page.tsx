@@ -11,36 +11,47 @@ import Marquee from "./components/common/Marquee";
 import About from "./components/layout/About";
 import PinnedMarquee from "./components/common/PinnedMarquee";
 import SplitScreen from "./components/layout/SplitScreen";
+import GridHeader from "./components/layout/GridHeader";
 
 export default function Page() {
   return (
     <>
       <Container>
         <Container3D className="px-8 py-8">
+          <GridHeader />
+        </Container3D>
+      </Container>
+
+      <Container>
+        <ReleaseSlider />
+      </Container>
+
+      <Container>
+        <Container3D className="px-8 py-8">
           <About />
         </Container3D>
       </Container>
+
       <Container>
         <Container3D className="px-8 py-8">
           <SplitScreen />
         </Container3D>
       </Container>
+
       {/* <Container>
         <Container3D className="px-8 py-8">
           <Header />
         </Container3D>
       </Container> */}
-      <Container>
-        <ReleaseSlider />
-      </Container>
-      <Container>
+
+      {/* <Container>
         <Container3D className="px-8 py-8">
           <Highlight />
         </Container3D>
-      </Container>
-      {/* <FullBleed> */}
+      </Container> */}
+
       <PinnedMarquee />
-      {/* </FullBleed> */}
+
       <Container>
         <Container3D className="px-8 py-0">
           <News />

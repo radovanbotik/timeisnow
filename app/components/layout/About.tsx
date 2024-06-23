@@ -65,8 +65,7 @@ export default function About() {
           alt="graphik"
           width={250}
           height={433}
-          sizes="125px, (max-width: 512px) 250px"
-          className="absolute -bottom-20 right-0 z-10 w-[125px] translate-y-1/2 md:bottom-0 md:w-[250px]"
+          className="absolute -bottom-20 right-0 z-10 h-auto w-[125px] translate-y-1/2 md:bottom-0 md:w-[250px]"
         />
       </div>
     </>
