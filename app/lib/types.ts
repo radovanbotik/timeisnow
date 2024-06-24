@@ -26,3 +26,21 @@ export type Article = {
   href: string;
   date: string;
 };
+
+// COLORS
+
+type RGB = `rgb(${number}, ${number}, ${number})`;
+type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
+type HEX = `#${string}`;
+export type Color = RGB | RGBA | HEX | string;
+
+//POSITION
+
+export type Position =
+  | "top-left"
+  | "top-right"
+  | "center"
+  | "center-left"
+  | "center-right"
+  | "bottom-right"
+  | "bottom-left";

@@ -11,7 +11,6 @@ import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import Button from "../common/Button";
 import Container3D from "./Container3D";
-import { drukWide } from "@/app/lib/fonts";
 
 const releases: Release[] = [
   {
@@ -325,7 +324,11 @@ export default function ReleaseSlider() {
 
   return (
     <div className="relative flex h-full w-full flex-col">
-      <h3 className={`mb-4 uppercase ${drukWide.className}`}>We released</h3>
+      <h3 className="font-druk mb-4 text-6xl uppercase">
+        the choice
+        <span className="font-drukCondensed mx-3">is</span>
+        yours
+      </h3>
       <Swiper
         // navigation={true}
         slidesPerView={"auto"}

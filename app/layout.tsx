@@ -1,12 +1,23 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "./components/common/Navigation";
-import { drukWide, helvetica, itcMachine, youth } from "./lib/fonts";
+import {
+  druk,
+  drukText,
+  drukWide,
+  drukTextWide,
+  drukCondensed,
+  drukXCondensed,
+  drukXXCondensed,
+  youth,
+} from "./lib/fonts";
 import Footer from "./components/common/Footer";
 import Cursor from "./components/common/Cursors";
 import TextCircle from "./components/common/TextCircle";
 import FullBleed from "./components/layout/FullBleed";
 import Marquee from "./components/common/Marquee";
+import { Container } from "./components/layout/Container";
+import Header from "./components/v2/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,18 +32,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="relative">
+    <html
+      lang="en"
+      className={`${druk.variable} ${drukText.variable} ${drukWide.variable} ${drukTextWide.variable} ${drukCondensed.variable} ${drukXCondensed.variable} ${drukXXCondensed.variable} ${youth.variable}`}
+    >
+      {/* cursor-none */}
       <body
-        className={`relative h-full w-full leading-[1.5] ${youth.className} cursor-none overflow-x-hidden selection:bg-black selection:text-white`}
+        className={`relative mx-auto h-full w-full max-w-screen-2xl overflow-x-hidden selection:bg-black selection:text-white`}
       >
-        <Cursor />
-        <FullBleed>
-          <Marquee />
-        </FullBleed>
-
-        <Navigation />
         <div className="relative">{children}</div>
-        <Footer />
       </body>
     </html>
   );

@@ -3,7 +3,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import { drukWide } from "@/app/lib/fonts";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,22 +33,22 @@ export default function Marquee() {
   }, []);
 
   return (
-    <div className="relative h-full w-full p-4" ref={container}>
+    <div className="relative my-20 h-full w-full" ref={container}>
       <div
         ref={tracks}
         className="text-stroke break relative flex flex-nowrap items-center overflow-hidden text-white"
       >
         <p
-          className={`${drukWide.className} w-full whitespace-nowrap break-keep text-center text-4xl uppercase tracking-wide lg:text-8xl lg:tracking-tighter`}
+          className={`//font-drukText font-drukCondensed lg:text-10xl w-full whitespace-nowrap break-keep text-center text-6xl uppercase`}
           ref={text1}
         >
-          TIME - IS - NOW -
+          - TIME - IS - NOW -
         </p>
         <p
-          className={`${drukWide.className} absolute left-full top-0 w-full whitespace-nowrap break-keep text-center text-4xl uppercase tracking-tighter lg:text-8xl`}
+          className={`//font-drukText font-drukCondensed lg:text-10xl absolute left-full top-0 w-full whitespace-nowrap break-keep text-center text-6xl uppercase`}
           ref={text2}
         >
-          TIME - IS - NOW -
+          - TIME - IS - NOW -
         </p>
       </div>
     </div>

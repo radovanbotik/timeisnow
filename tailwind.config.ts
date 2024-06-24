@@ -19,6 +19,25 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontSize: {
+        "10xl": "10rem",
+        "11xl": "12rem",
+        "12xl": "14rem",
+        "13xl": "16rem",
+        "14xl": "18rem",
+        "15xl": "20rem",
+      },
+      fontFamily: {
+        youth: ["var(--font-youth)"],
+        druk: ["var(--font-druk)"],
+        drukText: ["var(--font-druk-text)"],
+        drukWide: ["var(--font-druk-wide)"],
+        drukTextWide: ["var(--font-druk-text-wide)"],
+        drukCondensed: ["var(--font-druk-condensed)"],
+        drukXCondensed: ["var(--font-druk-Xcondensed)"],
+        drukXXCondensed: ["var(--font-druk-XXcondensed)"],
+      },
+      maxWidth: {},
     },
   },
   plugins: [
@@ -28,3 +47,5 @@ const config: Config = {
   ],
 };
 export default config;
+
+//  {druk,drukText,drukWide,drukTextWide,drukCondensed,drukXCondensed,drukXXCondensed}

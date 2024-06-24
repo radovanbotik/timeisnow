@@ -12,31 +12,45 @@ import About from "./components/layout/About";
 import PinnedMarquee from "./components/common/PinnedMarquee";
 import SplitScreen from "./components/layout/SplitScreen";
 import GridHeader from "./components/layout/GridHeader";
+import Hero from "./components/v2/Hero";
+import Navigation from "./components/common/Navigation";
+import NavSlider from "./components/layout/NavSlider";
 
 export default function Page() {
   return (
     <>
       <Container>
+        <Navigation />
+      </Container>
+      {/* <Container> */}
+      <Hero />
+      <Marquee />
+      <Container>
+        <NavSlider />
+      </Container>
+
+      {/* </Container> */}
+      {/* <Container>
         <Container3D className="px-8 py-8">
           <GridHeader />
         </Container3D>
-      </Container>
+      </Container> */}
 
-      <Container>
+      {/* <Container>
         <ReleaseSlider />
-      </Container>
+      </Container> */}
 
-      <Container>
+      {/* <Container>
         <Container3D className="px-8 py-8">
           <About />
         </Container3D>
-      </Container>
+      </Container> */}
 
-      <Container>
+      {/* <Container>
         <Container3D className="px-8 py-8">
           <SplitScreen />
         </Container3D>
-      </Container>
+      </Container> */}
 
       {/* <Container>
         <Container3D className="px-8 py-8">
@@ -50,13 +64,13 @@ export default function Page() {
         </Container3D>
       </Container> */}
 
-      <PinnedMarquee />
+      {/* <PinnedMarquee /> */}
 
-      <Container>
+      {/* <Container>
         <Container3D className="px-8 py-0">
           <News />
         </Container3D>
-      </Container>
+      </Container> */}
     </>
   );
 }

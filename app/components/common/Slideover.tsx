@@ -8,7 +8,7 @@ import {
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import logo150 from "../../../public/assets/logo/logodark150.png";
-import { drukWide } from "@/app/lib/fonts";
+
 import Cancel from "@/public/assets/svg/Cancel";
 import multiply from "../../../public/assets/icons/multiply.png";
 import { navigation } from "./Navigation";
@@ -23,11 +23,7 @@ export default function Slideover({
   setOpen: (arg: boolean) => void;
 }) {
   return (
-    <Dialog
-      className={`relative z-10 ${drukWide.className}`}
-      open={open}
-      onClose={setOpen}
-    >
+    <Dialog className={`relative z-10`} open={open} onClose={setOpen}>
       <DialogBackdrop
         transition
         className="fixed inset-0 bg-black/75 bg-opacity-75 transition-opacity duration-150 ease-in-out data-[closed]:opacity-0"

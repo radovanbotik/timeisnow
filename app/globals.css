@@ -35,7 +35,7 @@
   a,
   button {
     /* @apply cursor-[url('../public/assets/cursor/cursor85.png'),auto]; */
-    @apply cursor-none;
+    /* @apply cursor-none; */
   }
 }
 
@@ -46,6 +46,17 @@
 
   .clip-30 {
     clip-path: polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%);
+  }
+  .clipX {
+    clip-path: polygon(
+      50% 0%,
+      100% 0,
+      75% 50%,
+      100% 100%,
+      0 100%,
+      25% 50%,
+      0 0
+    );
   }
 }
 

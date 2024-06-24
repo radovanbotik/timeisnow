@@ -8,11 +8,11 @@ export const Container = forwardRef<
   return (
     <div
       className={cn(
-        "mx-auto mb-16 max-w-7xl px-4 last-of-type:mb-0 sm:px-6 lg:px-8",
+        "mx-auto max-w-screen-2xl px-4 sm:px-5 lg:px-10",
         className,
       )}
     >
-      <div className="relative mx-auto max-w-5xl">{children}</div>
+      {children}
     </div>
   );
 });
