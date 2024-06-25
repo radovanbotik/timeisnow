@@ -6,27 +6,31 @@
 
 @layer base {
   h1 {
-    @apply mb-4 text-4xl font-bold tracking-tighter group-hover:shadow-[inset_0_-24px_0_0_rgba(109,40,217,1)] md:text-6xl;
+    @apply font-druk mb-4 text-4xl font-bold tracking-tighter group-hover:shadow-[inset_0_-24px_0_0_rgba(109,40,217,1)] md:text-6xl;
   }
 
   h2 {
-    @apply mb-4 text-xl font-bold capitalize group-hover:shadow-[inset_0_-20px_0_0_rgba(109,40,217,1)] md:text-4xl;
+    @apply font-druk mb-4 text-5xl font-bold uppercase group-hover:shadow-[inset_0_-20px_0_0_rgba(109,40,217,1)] md:text-8xl;
   }
 
   h3 {
-    @apply mb-8 text-lg font-bold uppercase md:text-2xl;
+    @apply font-druk mb-8 text-lg font-bold uppercase md:text-2xl;
   }
 
   h4 {
-    @apply mb-1 text-base font-bold uppercase text-black/90 md:text-lg;
+    @apply font-druk mb-1 text-5xl font-bold capitalize text-black/90 md:text-7xl;
   }
 
   h5 {
-    @apply text-xs font-bold md:text-sm;
+    @apply font-druk text-xs font-bold md:text-sm;
   }
 
   h6 {
-    @apply text-xs font-bold uppercase leading-[1.4] tracking-widest text-black/60 md:text-xs;
+    @apply font-druk text-xs font-bold uppercase leading-[1.4] tracking-widest text-black/60 md:text-xs;
+  }
+
+  p {
+    @apply font-youth;
   }
 
   body {
