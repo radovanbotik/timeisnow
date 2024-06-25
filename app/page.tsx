@@ -17,21 +17,23 @@ import Navigation from "./components/common/Navigation";
 import NavSlider from "./components/layout/NavSlider";
 import PinnedSections from "./components/v2/PinnedSections";
 import PinnedNav from "./components/v2/PinnedNav";
+import ScrollWithText from "./components/v2/ScrollWithText";
 
 export default function Page() {
   return (
     <>
-      <Container>
+      <Container className="h-12">
         <Navigation />
       </Container>
-      {/* <Container> */}
       <Hero />
-      <PinnedMarquee />
-
       <Container>
         <NavSlider />
       </Container>
       <PinnedSections />
+      <PinnedMarquee />
+      <Container>
+        <ScrollWithText />
+      </Container>
       {/* <Marquee /> */}
       {/* <PinnedNav /> */}
       {/* </Container> */}

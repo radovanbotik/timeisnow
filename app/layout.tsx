@@ -34,13 +34,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${druk.variable} ${drukText.variable} ${drukWide.variable} ${drukTextWide.variable} ${drukCondensed.variable} ${drukXCondensed.variable} ${drukXXCondensed.variable} ${youth.variable}`}
+      className={` ${druk.variable} ${drukText.variable} ${drukWide.variable} ${drukTextWide.variable} ${drukCondensed.variable} ${drukXCondensed.variable} ${drukXXCondensed.variable} ${youth.variable}`}
     >
       {/* cursor-none */}
       <body
         className={`relative mx-auto h-full w-full max-w-screen-2xl overflow-x-hidden selection:bg-black selection:text-white`}
       >
-        <div className="relative">{children}</div>
+        <div className="relative h-full w-full">{children}</div>
       </body>
     </html>
   );

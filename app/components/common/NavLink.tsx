@@ -25,7 +25,8 @@ export default function NavLink({
     <Link
       href={href}
       className={cn(
-        isActive(href.toString()) && "text-violet-600",
+        "font-drukText text-4xl",
+        isActive(href.toString()) && "text-violet-800",
         "hover:text-violet-600",
         className,
       )}

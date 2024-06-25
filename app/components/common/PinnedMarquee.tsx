@@ -10,8 +10,10 @@ gsap.registerPlugin(ScrollTrigger);
 export default function PinnedMarquee() {
   const container = useRef<HTMLElement | any>();
   const track = useRef<HTMLElement | any>();
+  const firstElement = useRef<HTMLSpanElement | null>(null);
 
   useGSAP(
+    // + firstElement.current?.offsetLeft;
     () => {
       function getScrollAmount() {
         let trackWidth = track.current.scrollWidth;
@@ -39,13 +41,35 @@ export default function PinnedMarquee() {
   );
 
   return (
-    <div className="text-stroke py-5 text-center font-druk text-12xl uppercase text-white">
-      <div ref={container}>
+    <div className="text-stroke relative isolate py-5 text-center font-druk text-12xl uppercase text-white">
+      <div ref={container} className="relative overflow-x-hidden">
         <div ref={track} className="flex flex-nowrap">
-          <span className="w-full shrink-0 uppercase">- Leave the past -</span>
-          <span className={`w-full shrink-0 uppercase`}>time is now</span>
+          <span className="w-full shrink-0 uppercase" ref={firstElement}>
+            - Leave the past -
+          </span>
+          <span className={`w-full shrink-0 uppercase`}>- time is now -</span>
         </div>
       </div>
+      {/* <div className="absolute inset-0 -z-10 flex flex-wrap gap-8 text-9xl blur-sm">
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+        <p className="font-druk leading-[0] text-black">sick fam init</p>
+      </div> */}
     </div>
   );
 }

@@ -31,9 +31,49 @@ function Card(data: {
 export default function PinnedSections() {
   const parent = useRef<HTMLElement | any>();
   const endElement = useRef<HTMLElement | any>();
+  const wordsLeft = useRef<HTMLElement | any>();
+  const wordsRight = useRef<HTMLElement | any>();
 
   useGSAP(
     () => {
+      gsap.fromTo(
+        wordsLeft.current,
+        {
+          xPercent: -100,
+          opacity: 0,
+          scale: 2,
+        },
+        {
+          xPercent: 0,
+          opacity: 100,
+          scale: 1,
+          scrollTrigger: {
+            trigger: parent.current,
+            start: "top center",
+            toggleActions: "restart restart restart restart",
+          },
+        },
+      );
+      gsap.fromTo(
+        wordsRight.current,
+        {
+          xPercent: 100,
+          opacity: 0,
+          scale: 2,
+        },
+        {
+          xPercent: 0,
+          opacity: 100,
+          scale: 1,
+          scrollTrigger: {
+            trigger: parent.current,
+            start: "top center",
+            end: "bottom top",
+            toggleActions: "restart restart restart restart",
+          },
+        },
+      );
+
       const panels = gsap.utils.toArray(".panel") as HTMLElement[];
       panels.forEach((panel, i) => {
         ScrollTrigger.create({
@@ -59,14 +99,18 @@ export default function PinnedSections() {
   return (
     <div className="relative" ref={parent}>
       <Container className="sticky top-0">
-        <div
-          ref={endElement}
-          className="grid h-screen w-full place-content-center"
-        >
-          <h2 className="">CONTENT BENEATH</h2>
+        <div className="grid h-[768px] w-full place-content-center">
+          <h2 className="relative space-x-2">
+            <span className="inline-block" ref={wordsLeft}>
+              CONTENT
+            </span>
+            <span className="inline-block" ref={wordsRight}>
+              BENEATH
+            </span>
+          </h2>
         </div>
       </Container>
-      <div className="h-full w-full flex-col gap-10 px-10 py-20">
+      <div className="h-full w-full flex-col gap-10 overflow-y-hidden px-10 py-20">
         <div className="panel relative h-[600px] w-full origin-[top_center] rotate-2 bg-transparent">
           <Container className="h-full w-full">
             <div className="flex h-full w-full flex-col overflow-hidden rounded-3xl border-4 border-black bg-white md:flex-row">
