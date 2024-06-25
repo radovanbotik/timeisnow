@@ -87,7 +87,7 @@ export default function Slideover({
                             href={item.href}
                             className="-mx-3 block rounded-lg px-3 py-5 leading-7 text-gray-900 hover:bg-violet-500"
                           >
-                            <span className="text-xl font-semibold uppercase tracking-tighter">
+                            <span className="tfont-drukCondensed font-semibold uppercase">
                               {item.name}
                             </span>
                           </NavLink>

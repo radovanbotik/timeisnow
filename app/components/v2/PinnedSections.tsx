@@ -151,7 +151,7 @@ export default function PinnedSections() {
             <div className="flex h-full w-full flex-col overflow-hidden rounded-3xl border-4 border-black bg-white md:flex-row-reverse">
               <div className="h-full w-full p-20">
                 <div className="flex h-full w-full max-w-xl flex-col justify-around">
-                  <h2>banging tunes</h2>
+                  <h2>NASTY BASS CONTENT</h2>
                   <p>
                     Subtitle and subtitle.this is also subtitle.subtitle and
                     subtitle.this is also subtitle.subtitle and subtitle.this is
@@ -186,7 +186,7 @@ export default function PinnedSections() {
             <div className="flex h-full w-full flex-col overflow-hidden rounded-3xl border-4 border-black bg-white md:flex-row-reverse">
               <div className="h-full w-full p-20">
                 <div className="flex h-full w-full max-w-xl flex-col justify-around">
-                  <h2>banging tunes</h2>
+                  <h2>RIMSHOTS AND THEM TINGS BRUV'</h2>
                   <p>
                     Subtitle and subtitle.this is also subtitle.subtitle and
                     subtitle.this is also subtitle.subtitle and subtitle.this is

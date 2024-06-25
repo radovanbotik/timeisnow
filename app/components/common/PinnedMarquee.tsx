@@ -41,35 +41,15 @@ export default function PinnedMarquee() {
   );
 
   return (
-    <div className="text-stroke relative isolate py-5 text-center font-druk text-12xl uppercase text-white">
-      <div ref={container} className="relative overflow-x-hidden">
+    <div className="text-stroke relative isolate py-20 text-center font-druk text-8xl uppercase text-white sm:text-9xl md:text-10xl lg:py-5">
+      <div ref={container} className="relative">
         <div ref={track} className="flex flex-nowrap">
           <span className="w-full shrink-0 uppercase" ref={firstElement}>
             - Leave the past -
           </span>
-          <span className={`w-full shrink-0 uppercase`}>- time is now -</span>
+          <span className="w-full shrink-0 uppercase">- time is now -</span>
         </div>
       </div>
-      {/* <div className="absolute inset-0 -z-10 flex flex-wrap gap-8 text-9xl blur-sm">
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-        <p className="font-druk leading-[0] text-black">sick fam init</p>
-      </div> */}
     </div>
   );
 }

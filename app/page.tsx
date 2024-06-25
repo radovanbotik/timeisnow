@@ -18,6 +18,7 @@ import NavSlider from "./components/layout/NavSlider";
 import PinnedSections from "./components/v2/PinnedSections";
 import PinnedNav from "./components/v2/PinnedNav";
 import ScrollWithText from "./components/v2/ScrollWithText";
+import ProgressBar from "./components/v2/ProgressBar";
 
 export default function Page() {
   return (
@@ -26,14 +27,18 @@ export default function Page() {
         <Navigation />
       </Container>
       <Hero />
+      <div className="hidden h-[50vh] lg:block"></div>
       <Container>
         <NavSlider />
       </Container>
       <PinnedSections />
-      <PinnedMarquee />
+      <div className="hidden h-[50vh] lg:block"></div>
+      <ProgressBar />
       <Container>
         <ScrollWithText />
       </Container>
+      <PinnedMarquee />
+
       {/* <Marquee /> */}
       {/* <PinnedNav /> */}
       {/* </Container> */}

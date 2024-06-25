@@ -14,7 +14,7 @@
   }
 
   h3 {
-    @apply mb-8 font-druk text-lg font-bold uppercase md:text-2xl;
+    @apply mb-8 font-druk text-lg font-bold uppercase md:text-7xl;
   }
 
   h4 {
@@ -26,7 +26,7 @@
   }
 
   h6 {
-    @apply font-druk text-xs font-bold uppercase leading-[1.4] tracking-widest text-black/60 md:text-xs;
+    @apply font-druk text-lg font-bold uppercase leading-[1.4] tracking-widest text-black/60 md:text-xl;
   }
 
   p {

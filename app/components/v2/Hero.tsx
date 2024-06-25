@@ -90,16 +90,16 @@ function Intro() {
 
   return (
     <section
-      className="flex h-full w-full flex-col content-center items-center justify-center gap-10 sm:flex-row sm:justify-between sm:gap-5"
+      className="//lg:pb-20 flex h-full w-full flex-col content-center items-center justify-center gap-10 sm:flex-row sm:justify-between sm:gap-5 lg:items-end"
       ref={container}
     >
       {/* <div className="danger-tape my-auto h-1/2 w-10 "></div> */}
-      <h1 className="w-2/3 text-center text-[clamp(4.5rem,14vw,13rem)] uppercase leading-[0.8] sm:text-start">
+      <h1 className="w-2/3 text-center text-[clamp(4.5rem,13vw,12rem)] uppercase leading-[0.8] sm:text-start">
         <span className="top-row inline-block font-drukText">leave</span>
-        <span className="top-row inline-block indent-2 font-drukXCondensed lg:indent-6">
+        <span className="top-row inline-block indent-2 font-druk lg:indent-6 lg:font-drukXCondensed">
           the
         </span>
-        <span className="top-row inline-block indent-2 font-drukXCondensed lg:indent-6">
+        <span className="top-row inline-block indent-2 font-druk lg:indent-6 lg:font-drukXCondensed">
           past
         </span>
         <br className="block sm:hidden lg:block" />
@@ -113,7 +113,7 @@ function Intro() {
           now
         </span>
       </h1>
-      <div className="//-translate-x-1/2 flex aspect-square w-1/3 justify-center">
+      <div className="//-translate-x-1/2 flex aspect-square w-1/3 items-end justify-end">
         <div className="relative overflow-hidden sm:max-w-xl">
           <Image src={pill} alt="pill" ref={image} />
         </div>
@@ -124,7 +124,7 @@ function Intro() {
 
 export default function Hero() {
   return (
-    <Container className="flex h-[calc(100vh-48px)] max-h-[768px] w-full items-center p-0 pl-0 sm:pl-0 lg:pl-0">
+    <Container className="lex h-[calc(100vh-48px)] max-h-[768px] w-full items-center p-0 pl-0 sm:pl-0 lg:h-[calc(100vh-48px)] lg:pl-0">
       <Intro />
     </Container>
   );

@@ -51,11 +51,15 @@ export default function Navigation() {
               onClick={() => setMobileMenuOpen(true)}
             >
               <span>
-                <span className="font-semibold uppercase tracking-tighter">
+                <span className="font-drukText font-semibold uppercase">
+                  {/* <span className="font-drukTextWide">M</span>
+                  <span className="font-drukWide">O</span>
+                  <span className="font-drukWide">R</span>
+                  <span className="font-drukTextWide">E</span> */}
                   More
                 </span>
               </span>
-              <PlusIcon className="box-border inline h-9 w-9 -translate-y-1 stroke-violet-800 stroke-[3px] text-violet-800" />
+              {/* <Bars3Icon className="box-border inline h-9 w-9 -translate-y-1 text-black" /> */}
             </button>
           </div>
         </nav>
