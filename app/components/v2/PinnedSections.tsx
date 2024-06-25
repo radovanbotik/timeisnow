@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
-import Button from "./Button";
+import Button from "../common/Button";
 import {
   ArrowUpRightIcon,
   ChevronRightIcon,
@@ -21,7 +21,9 @@ function Card(data: {
     buttonText: string;
     mask: "";
     mediaSrc: string;
+    mediaSrc2?: string;
   };
+  mediaPosition: "left" | "right";
 }) {
   <div className="panel"></div>;
 }
@@ -39,15 +41,15 @@ export default function PinnedSections() {
           start: "center 50%",
           end: "top bottom",
           endTrigger: endElement.current,
-          animation: gsap.to(panel, { filter: "blur(2px)", duration: 0.1 }),
+          animation: gsap.to(panel, {
+            filter: "blur(2px)",
+            delay: 1,
+          }),
           pin: true,
           pinSpacing: false,
-          markers: true,
+          // markers: true,
           id: "panel-" + i,
-          toggleActions: "play none none reverse",
-          onUpdate: (self) => {
-            console.log(self.progress.toFixed(1));
-          },
+          toggleActions: "play none reverse reverse",
         });
       });
     },
@@ -57,14 +59,17 @@ export default function PinnedSections() {
   return (
     <div className="relative" ref={parent}>
       <Container className="sticky top-0">
-        <div ref={endElement} className="grid h-96 w-full place-content-center">
+        <div
+          ref={endElement}
+          className="grid h-screen w-full place-content-center"
+        >
           <h2 className="">CONTENT BENEATH</h2>
         </div>
       </Container>
       <div className="h-full w-full flex-col gap-10 px-10 py-20">
         <div className="panel relative h-[600px] w-full origin-[top_center] rotate-2 bg-transparent">
           <Container className="h-full w-full">
-            <div className="flex h-full w-full flex-col overflow-hidden rounded-[80px] border-4 border-black bg-white md:flex-row">
+            <div className="flex h-full w-full flex-col overflow-hidden rounded-3xl border-4 border-black bg-white md:flex-row">
               <div className="h-full w-full p-20">
                 <div className="flex h-full w-full max-w-xl flex-col justify-around">
                   <h2>banging tunes</h2>
@@ -99,7 +104,7 @@ export default function PinnedSections() {
 
         <div className="panel relative h-[600px] w-full origin-[top_center] -rotate-2 bg-transparent">
           <Container className="h-full w-full">
-            <div className="flex h-full w-full flex-col overflow-hidden rounded-[80px] border-4 border-black bg-white md:flex-row-reverse">
+            <div className="flex h-full w-full flex-col overflow-hidden rounded-3xl border-4 border-black bg-white md:flex-row-reverse">
               <div className="h-full w-full p-20">
                 <div className="flex h-full w-full max-w-xl flex-col justify-around">
                   <h2>banging tunes</h2>
@@ -134,7 +139,7 @@ export default function PinnedSections() {
 
         <div className="panel relative h-[600px] w-full origin-[top_center] bg-transparent">
           <Container className="h-full w-full">
-            <div className="flex h-full w-full flex-col overflow-hidden rounded-[80px] border-4 border-black bg-white md:flex-row-reverse">
+            <div className="flex h-full w-full flex-col overflow-hidden rounded-3xl border-4 border-black bg-white md:flex-row-reverse">
               <div className="h-full w-full p-20">
                 <div className="flex h-full w-full max-w-xl flex-col justify-around">
                   <h2>banging tunes</h2>
@@ -167,9 +172,7 @@ export default function PinnedSections() {
           </Container>
         </div>
       </div>
-      <div ref={endElement} className="h-96 w-full bg-yellow-700">
-        end
-      </div>
+      <div ref={endElement} className=""></div>
     </div>
   );
 }

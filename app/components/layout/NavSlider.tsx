@@ -110,6 +110,17 @@ const options: Option[] = [
       backgroundColor: "black",
     },
   },
+  {
+    id: 6,
+    title: {
+      text: "DANCE TONIGHT",
+      textTransform: "uppercase",
+      position: "center",
+      textColor: "black",
+    },
+    href: "#",
+    backgroundColor: "white",
+  },
 ];
 
 function ControlButton({ className, ...props }: ControlButtonProps) {
@@ -141,7 +152,7 @@ function Badge(props: DivProps | LinkProps) {
           props.position === "center" &&
             "-transform-y-1/2 left-1/2 top-1/2 -translate-x-1/2",
           props.position === "top-right" && "right-2 top-2",
-          "font-drukTextWide group/link absolute flex items-center justify-center rounded-sm border border-black px-2 py-1 group-hover:bg-white group-hover:text-black",
+          "group/link absolute flex items-center justify-center rounded-sm border border-black px-2 py-1 font-drukTextWide group-hover:bg-white group-hover:text-black",
         )}
       >
         <span className={cn(props.textTransform, "text-sm")}>{props.text}</span>
@@ -155,7 +166,7 @@ function Badge(props: DivProps | LinkProps) {
         props.position === "center" &&
           "-transform-y-1/2 left-1/2 top-1/2 -translate-x-1/2",
         props.position === "top-right" && "right-2 top-2",
-        "font-drukTextWide absolute flex items-center justify-center rounded-sm border border-black px-2 py-1 group-hover:bg-white group-hover:text-black",
+        "absolute flex items-center justify-center rounded-sm border border-black px-2 py-1 font-drukTextWide group-hover:bg-white group-hover:text-black",
       )}
     >
       <span className={cn(props.textTransform, "text-sm")}>{props.text}</span>
@@ -169,9 +180,9 @@ export default function NavSlider() {
   return (
     <div className="relative flex h-full w-full flex-col">
       <div className="mb-5 flex items-end border-b-8 border-double border-black pb-5">
-        <h3 className="font-druk mb-0 inline-block text-6xl uppercase">
+        <h3 className="mb-0 inline-block font-druk text-6xl uppercase">
           the choice
-          <span className="font-drukCondensed mx-3">is</span>
+          <span className="mx-3 font-drukCondensed">is</span>
           yours
         </h3>
         <h6 className="ml-auto inline-block">
@@ -221,9 +232,9 @@ export default function NavSlider() {
                 {option.title && (
                   <p
                     className={cn(
+                      "absolute font-drukTextWide text-2xl",
                       option.title.position === "center" &&
-                        "-transform-y-1/2 left-1/2 top-1/2 -translate-x-1/2",
-                      "font-drukTextWide absolute text-2xl",
+                        "left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center",
                     )}
                   >
                     {option.title.text}

@@ -75,7 +75,6 @@ const squareData = [
 ];
 
 export default function GridHeader() {
-  //   const [state, setState] = useState(false);
   const container = useRef<HTMLElement | any>();
   const list = useRef<HTMLElement | any>();
 

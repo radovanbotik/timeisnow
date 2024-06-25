@@ -39,13 +39,11 @@ export default function PinnedMarquee() {
   );
 
   return (
-    <div className="text-stroke py-4 text-center text-9xl uppercase text-white">
+    <div className="text-stroke py-5 text-center font-druk text-12xl uppercase text-white">
       <div ref={container}>
         <div ref={track} className="flex flex-nowrap">
           <span className="w-full shrink-0 uppercase">- Leave the past -</span>
-          <span className={`w-full shrink-0 uppercase ${drukWide.className}`}>
-            time is now
-          </span>
+          <span className={`w-full shrink-0 uppercase`}>time is now</span>
         </div>
       </div>
     </div>

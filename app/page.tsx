@@ -15,7 +15,8 @@ import GridHeader from "./components/layout/GridHeader";
 import Hero from "./components/v2/Hero";
 import Navigation from "./components/common/Navigation";
 import NavSlider from "./components/layout/NavSlider";
-import PinnedSections from "./components/common/PinnedSections";
+import PinnedSections from "./components/v2/PinnedSections";
+import PinnedNav from "./components/v2/PinnedNav";
 
 export default function Page() {
   return (
@@ -25,12 +26,14 @@ export default function Page() {
       </Container>
       {/* <Container> */}
       <Hero />
-      <Marquee />
+      <PinnedMarquee />
+
       <Container>
         <NavSlider />
       </Container>
       <PinnedSections />
-
+      {/* <Marquee /> */}
+      {/* <PinnedNav /> */}
       {/* </Container> */}
       {/* <Container>
         <Container3D className="px-8 py-8">
