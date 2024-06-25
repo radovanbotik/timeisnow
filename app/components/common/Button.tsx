@@ -9,8 +9,8 @@ export default function Button({
   return (
     <button
       className={cn(
-        className,
         "group/button font-youth relative inline-block w-fit px-6 py-2",
+        className,
       )}
       {...props}
     >

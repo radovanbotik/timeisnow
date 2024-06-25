@@ -2,6 +2,7 @@ import Image from "next/image";
 import ImageFade from "../common/ImageFade";
 import angrypill from "../../../public/assets/images/pill421.png";
 import pill from "../../../public/assets/images/prozak250.png";
+import { Container } from "../layout/Container";
 
 function Images() {
   return (
@@ -38,21 +39,21 @@ function Intro() {
   return (
     <section className="flex h-full w-full justify-between">
       <h1 className="text-[clamp(4.5rem,15vw,12rem)] font-bold uppercase leading-[0.8]">
-        <span className="font-drukText inline-block">leave</span>
-        <span className="font-drukCondensed inline-block indent-2 lg:indent-6">
+        <span className="inline-block font-drukText">leave</span>
+        <span className="inline-block indent-2 font-drukCondensed lg:indent-6">
           the
         </span>
-        <span className="font-drukCondensed inline-block indent-2 lg:indent-6">
+        <span className="inline-block indent-2 font-drukCondensed lg:indent-6">
           past
         </span>
         <br className="block sm:hidden lg:block" />
-        <span className="font-drukText inline-block indent-0 font-black sm:indent-2 lg:indent-0">
+        <span className="inline-block indent-0 font-drukText font-black sm:indent-2 lg:indent-0">
           time
         </span>
-        <span className="font-drukText inline-block indent-2 font-black lg:indent-6">
+        <span className="inline-block indent-2 font-drukText font-black lg:indent-6">
           is
         </span>
-        <span className="font-drukText inline-block indent-2 font-black lg:indent-6">
+        <span className="inline-block indent-2 font-drukText font-black lg:indent-6">
           now
         </span>
       </h1>
@@ -67,9 +68,11 @@ function Intro() {
 
 export default function Hero() {
   return (
-    <div className="mt-16 space-y-10 border-2 border-black py-5">
-      <Intro></Intro>
-      <Images></Images>
+    <div className="mt-16 space-y-10 border-y-4 border-black py-5">
+      <Container>
+        <Intro></Intro>
+        <Images></Images>
+      </Container>
     </div>
   );
 }
