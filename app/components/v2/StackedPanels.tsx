@@ -5,11 +5,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import Button from "../common/Button";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import Image from "next/image";
 import { Container } from "./Container";
-import Shape2 from "@/public/assets/svg/Shape2";
 import { cn } from "@/app/lib/helpers";
+
+import Image from "next/image";
+import amen from "../../../public/assets/images/card1/amen.png";
+import ableton from "../../../public/assets/images/card1/ableton.png";
+import sampler from "../../../public/assets/images/card1/sampler.jpg";
+import echo from "../../../public/assets/images/card1/echo.webp";
+import tr9092 from "../../../public/assets/images/card1/tr9092.png";
+import garage from "../../../public/assets/images/card1/garage.png";
+
 gsap.registerPlugin(ScrollTrigger);
 
 type CardProps = {
@@ -25,6 +31,64 @@ type CardProps = {
 };
 
 function Card({ data }: { data: CardProps }) {
+  const container = useRef<HTMLElement | any>();
+  const title = useRef<HTMLElement | any>();
+  const subtitle = useRef<HTMLElement | any>();
+  const button = useRef<HTMLElement | any>();
+  const image1 = useRef<HTMLElement | any>();
+  const image2 = useRef<HTMLElement | any>();
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top center",
+          // end: "bottom top",
+          toggleActions: "play pause pause none",
+        },
+      });
+      tl.fromTo(
+        title.current,
+        {
+          xPercent: -100,
+          opacity: 0,
+          scale: 3,
+        },
+        {
+          xPercent: 0,
+          opacity: 100,
+          scale: 1,
+        },
+      );
+      tl.fromTo(
+        image1.current,
+        {
+          xPercent: 100,
+          opacity: 0,
+        },
+        {
+          xPercent: 0,
+          opacity: 100,
+        },
+      );
+      tl.fromTo(
+        image2.current,
+        {
+          yPercent: 100,
+          opacity: 0,
+        },
+        {
+          yPercent: 0,
+          opacity: 100,
+        },
+      );
+    },
+    {
+      scope: container.current,
+    },
+  );
+
   return (
     <div
       className={cn(
@@ -32,9 +96,10 @@ function Card({ data }: { data: CardProps }) {
         data.rotate === "left" && "rotate-2",
         data.rotate === "right" && "-rotate-2",
       )}
+      ref={container}
     >
       <div className="flex h-full w-full flex-col rounded-xl border-2 border-black bg-white md:flex-row-reverse">
-        <div className="relative h-full w-full max-w-lg basis-full lg:translate-x-1">
+        {/* <div className="relative h-full w-full max-w-lg basis-full lg:translate-x-1">
           <div className="absolute left-1/2 top-0 isolate h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 lg:top-1/2 lg:h-[600px] lg:w-[600px]">
             <Image
               fill
@@ -44,12 +109,41 @@ function Card({ data }: { data: CardProps }) {
               aria-hidden
             />
           </div>
+        </div> */}
+
+        <div className="relative basis-full">
+          <div
+            className="absolute inset-0 left-0 top-0 ml-20 w-full"
+            ref={image1}
+          >
+            <Image
+              fill
+              alt="gif"
+              src={tr9092}
+              aria-hidden
+              className="object-contain"
+            />
+          </div>
+          <div
+            className="absolute bottom-0 right-0 h-48 w-48 rotate-12"
+            ref={image2}
+          >
+            <Image
+              fill
+              alt="gif"
+              src={echo}
+              aria-hidden
+              className="object-contain"
+            />
+          </div>
         </div>
-        <div className="h-full w-full basis-full px-10 py-20">
+        <div className="h-full w-full basis-full px-5 py-10 lg:px-10 lg:py-20">
           <div className="flex h-full w-full max-w-xl flex-col space-y-5">
-            <h3>{data.title}</h3>
-            <p>{data.subtitle}</p>
-            <Button>
+            <h2 ref={title}>{data.title}</h2>
+            <p className="line-clamp-3 sm:line-clamp-none" ref={subtitle}>
+              {data.subtitle}
+            </p>
+            <Button is3d={true} ref={button}>
               <span className="inline-block">{data.buttonText}</span>
               <span>
                 <ArrowUpRightIcon className="ml-2 inline-block h-3 w-3 stroke-[4px] transition-transform group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5" />
@@ -65,7 +159,7 @@ const rawpanels = [
   {
     id: 1,
     imageUrl: "/assets/gifs/mdma.gif",
-    title: "RIMSHOTS AND THEM TINGS BRUV",
+    title: "RIMSHOTS AND THEM TINGS",
     subtitle:
       "Subtitle and subtitle.this is also subtitle.subtitle andubtitle.this is also subtitle.subtitle and subtitle.this isalso subtitle.subtitle and subtitle.this is alsosubtitle.subtitle and subtitle.this is also subtitle",
     buttonText: "View more",
@@ -87,7 +181,7 @@ const rawpanels = [
   {
     id: 3,
     imageUrl: "/assets/gifs/mdma.gif",
-    title: "BANGERS ALL AROUND MATE",
+    title: "GET YOUR STANK FACE READY",
     subtitle:
       "Subtitle and subtitle.this is also subtitle.subtitle andubtitle.this is also subtitle.subtitle and subtitle.this isalso subtitle.subtitle and subtitle.this is alsosubtitle.subtitle and subtitle.this is also subtitle",
     buttonText: "View more",
@@ -108,8 +202,8 @@ export default function StackedPanels() {
         scrollTrigger: {
           trigger: parent.current,
           start: "top center",
-          end: "bottom top",
-          toggleActions: "restart restart restart restart",
+          // end: "bottom top",
+          toggleActions: "play pause pause none",
         },
       });
       tl.fromTo(
@@ -176,113 +270,10 @@ export default function StackedPanels() {
             </span>
           </h2>
         </div>
-        <div className="h-full w-full flex-col gap-10 px-10 py-20">
+        <div className="h-full w-full flex-col space-y-32 lg:px-10 lg:py-20">
           {rawpanels.map((panel) => (
             <Card key={panel.id} data={panel} />
           ))}
-
-          {/* <div className="panel //bg-transparent relative h-[500px] w-full origin-[top_center] rotate-2">
-            <div className="flex h-full w-full flex-col rounded-3xl border-4 border-black bg-white md:flex-row-reverse">
-              <div className="relative h-full w-full max-w-lg basis-full lg:translate-x-1">
-                <div className="absolute left-1/2 top-0 isolate h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 lg:top-1/2 lg:h-[600px] lg:w-[600px]">
-                  <Image
-                    fill
-                    alt="gif"
-                    src={"/assets/gifs/mdma.gif"}
-                    className="nonagon"
-                    aria-hidden
-                  />
-                </div>
-              </div>
-              <div className="h-full w-full basis-full px-10 py-20">
-                <div className="flex h-full w-full max-w-xl flex-col space-y-5">
-                  <h3>RIMSHOTS AND THEM TINGS BRUV'</h3>
-                  <p>
-                    Subtitle and subtitle.this is also subtitle.subtitle and
-                    subtitle.this is also subtitle.subtitle and subtitle.this is
-                    also subtitle.subtitle and subtitle.this is also
-                    subtitle.subtitle and subtitle.this is also subtitle
-                  </p>
-                  <Button>
-                    <span className="inline-block">View more</span>
-                    <span>
-                      <ArrowUpRightIcon className="ml-2 inline-block h-3 w-3 stroke-[4px] transition-transform group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5" />
-                    </span>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div> */}
-
-          {/* <div className="panel relative h-[600px] w-full origin-[top_center] -rotate-2 bg-transparent">
-            <Container className="h-full w-full">
-              <div className="flex h-full w-full flex-col overflow-hidden rounded-3xl border-4 border-black bg-white md:flex-row-reverse">
-                <div className="h-full w-full p-20">
-                  <div className="flex h-full w-full max-w-xl flex-col justify-around">
-                    <h2>NASTY BASS</h2>
-                    <p>
-                      Subtitle and subtitle.this is also subtitle.subtitle and
-                      subtitle.this is also subtitle.subtitle and subtitle.this
-                      is also subtitle.subtitle and subtitle.this is also
-                      subtitle.subtitle and subtitle.this is also subtitle
-                    </p>
-                    <Button>
-                      <span className="inline-block">View more</span>
-                      <span>
-                        <ArrowUpRightIcon className="ml-2 inline-block h-3 w-3 stroke-[4px] transition-transform group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5" />
-                      </span>
-                    </Button>
-                  </div>
-                </div>
-                <div className="relative -top-10 h-full w-full overflow-hidden">
-                  <div className="absolute inset-0 isolate h-[120%] w-[120%] overflow-hidden">
-                    <Image
-                      fill
-                      alt="gif"
-                      src={"/assets/gifs/mdma.gif"}
-                      aria-hidden
-                    />
-                    <Shape1 />
-                  </div>
-                </div>
-              </div>
-            </Container>
-          </div>
-
-          <div className="panel relative h-[600px] w-full origin-[top_center] bg-transparent">
-            <Container className="h-full w-full">
-              <div className="flex h-full w-full flex-col overflow-hidden rounded-3xl border-4 border-black bg-white md:flex-row-reverse">
-                <div className="h-full w-full p-20">
-                  <div className="flex h-full w-full max-w-xl flex-col justify-around">
-                    <h2>Banging Tunes</h2>
-                    <p>
-                      Subtitle and subtitle.this is also subtitle.subtitle and
-                      subtitle.this is also subtitle.subtitle and subtitle.this
-                      is also subtitle.subtitle and subtitle.this is also
-                      subtitle.subtitle and subtitle.this is also subtitle
-                    </p>
-                    <Button>
-                      <span className="inline-block">View more</span>
-                      <span>
-                        <ArrowUpRightIcon className="ml-2 inline-block h-3 w-3 stroke-[4px] transition-transform group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5" />
-                      </span>
-                    </Button>
-                  </div>
-                </div>
-                <div className="relative -top-10 h-full w-full overflow-hidden">
-                  <div className="absolute inset-0 isolate h-[120%] w-[120%] overflow-hidden">
-                    <Image
-                      fill
-                      alt="gif"
-                      src={"/assets/gifs/mdma.gif"}
-                      aria-hidden
-                    />
-                    <Shape1 />
-                  </div>
-                </div>
-              </div>
-            </Container>
-          </div> */}
         </div>
         <div ref={endElement} className=""></div>
       </div>

@@ -352,7 +352,7 @@ export default function MenuSlider() {
             <ControlButton
               direction="next"
               onClick={() => instance.current?.swiper.slideNext()}
-              className="border border-black bg-black text-white hover:bg-white hover:text-black peer-hover:bg-white peer-hover:text-black"
+              className="border border-black bg-black text-white hover:bg-violet-700 hover:text-white peer-hover:bg-white peer-hover:text-black"
             />
           </div>
         </div>
