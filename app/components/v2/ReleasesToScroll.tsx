@@ -6,7 +6,8 @@ import { useRef } from "react";
 import { releases } from "@/app/lib/data";
 import { Release } from "@/app/lib/types";
 import Image from "next/image";
-import Container3D from "../layout/Container3D";
+import Container3D from "./ShadowWrap";
+import { Container } from "./Container";
 
 function Card({ data }: { data: Release }) {
   return (
@@ -27,7 +28,7 @@ function Card({ data }: { data: Release }) {
   );
 }
 
-export default function ScrollWithText() {
+export default function ReleasesToScroll() {
   const wrap = useRef<HTMLElement | any>();
   const container = useRef<HTMLElement | any>();
 
@@ -42,11 +43,11 @@ export default function ScrollWithText() {
 
       ScrollTrigger.create({
         trigger: wrap.current,
-        pin: true,
+        // pin: true,
         start: "top center",
         end: "+=400px",
         // end: () => `+=${getScrollAmount() * -1}`,
-        pinSpacing: true,
+        pinSpacing: false,
         fastScrollEnd: true,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
@@ -58,32 +59,34 @@ export default function ScrollWithText() {
   );
 
   return (
-    <div
-      className="relative flex h-full w-full items-center justify-center"
-      ref={wrap}
-    >
-      <section className="relative h-96 w-full" ref={container}>
-        <div className="flex w-full gap-10">
-          <div className="w-1/3 shrink-0">
-            <h2>check out these:</h2>
-            <p className="line-clamp-5">
-              whole bunch of text. whole bunch of text. whole bunch of text.
-              whole bunch of text. whole bunch of text. whole bunch of text.
-              whole bunch of text. whole bunch of text. whole bunch of text.
-              whole bunch of text. whole bunch of text. whole bunch of text.
-              whole bunch of text. whole bunch of text. whole bunch of text.
-              whole bunch of text. whole bunch of text. whole bunch of text.
-              whole bunch of text. whole bunch of text. whole bunch of text.
-              whole bunch of text.
-            </p>
+    <Container>
+      <div
+        className="relative flex w-full items-center justify-center overflow-y-clip"
+        ref={wrap}
+      >
+        <section className="relative w-full" ref={container}>
+          <div className="flex w-full gap-10">
+            <div className="w-1/3 shrink-0">
+              <h2>check out these:</h2>
+              <p className="line-clamp-5">
+                whole bunch of text. whole bunch of text. whole bunch of text.
+                whole bunch of text. whole bunch of text. whole bunch of text.
+                whole bunch of text. whole bunch of text. whole bunch of text.
+                whole bunch of text. whole bunch of text. whole bunch of text.
+                whole bunch of text. whole bunch of text. whole bunch of text.
+                whole bunch of text. whole bunch of text. whole bunch of text.
+                whole bunch of text. whole bunch of text. whole bunch of text.
+                whole bunch of text.
+              </p>
+            </div>
+            <div className="inline-flex w-2/3 gap-5 overflow-hidden p-1">
+              {releases.map((release, i) => (
+                <Card key={release.id} data={release} />
+              ))}
+            </div>
           </div>
-          <div className="inline-flex w-2/3 gap-5 overflow-hidden p-1">
-            {releases.map((release, i) => (
-              <Card key={release.id} data={release} />
-            ))}
-          </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </Container>
   );
 }

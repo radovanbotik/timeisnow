@@ -1,5 +1,5 @@
-import { Container } from "../layout/Container";
-import Container3D from "../layout/Container3D";
+import { Container } from "../v2/Container";
+import Container3D from "../v2/ShadowWrap";
 
 const navigation = [
   {

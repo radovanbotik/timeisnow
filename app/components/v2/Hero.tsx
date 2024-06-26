@@ -1,17 +1,10 @@
 "use client";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import Image from "next/image";
 import pill from "../../../public/assets/images/prozak250.png";
-import { Container } from "../layout/Container";
 
-// function Images() {
-//   return (
-//     <section className="flex h-full w-full flex-col lg:flex-row"></section>
-//   );
-// }
 function Intro() {
   const container = useRef<HTMLElement | any>();
   const image = useRef<HTMLElement | any>();
@@ -124,8 +117,8 @@ function Intro() {
 
 export default function Hero() {
   return (
-    <Container className="lex h-[calc(100vh-48px)] max-h-[768px] w-full items-center p-0 pl-0 sm:pl-0 lg:h-[calc(100vh-48px)] lg:pl-0">
-      <Intro />
-    </Container>
+    // <Container className="h-[calc(100vh-48px)] max-h-[768px] w-full items-center p-0 pl-0 sm:pl-0 lg:h-[calc(100vh-48px)] lg:pl-0">
+    <Intro />
+    // </Container>
   );
 }

@@ -6,8 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { drukWide } from "@/app/lib/fonts";
 import "../../../public/assets/images/shallnotfade.jpg";
 import Image from "next/image";
-import { articles as source } from "./News";
+
 import Button from "../common/Button";
+import { articles as source } from "@/app/lib/data";
 
 gsap.registerPlugin(ScrollTrigger);
 

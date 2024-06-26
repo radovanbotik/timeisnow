@@ -11,13 +11,6 @@ import {
   drukXXCondensed,
   youth,
 } from "./lib/fonts";
-import Footer from "./components/common/Footer";
-import Cursor from "./components/common/Cursors";
-import TextCircle from "./components/common/TextCircle";
-import FullBleed from "./components/layout/FullBleed";
-import Marquee from "./components/common/Marquee";
-import { Container } from "./components/layout/Container";
-import Header from "./components/v2/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -38,7 +31,7 @@ export default function RootLayout({
     >
       {/* cursor-none */}
       <body
-        className={`relative mx-auto h-full w-full max-w-screen-2xl overflow-x-hidden selection:bg-black selection:text-white`}
+        className={`relative h-full w-full overflow-x-hidden scroll-smooth selection:bg-black selection:text-white`}
       >
         <div className="relative h-full w-full">{children}</div>
       </body>

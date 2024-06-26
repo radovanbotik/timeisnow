@@ -12,26 +12,26 @@ export default function TextCircle() {
   const container = useRef<HTMLElement | any>();
   const circle = useRef<HTMLElement | any>();
 
-  const rawText = "time - is - now - ";
+  const rawText = "time - is - now - time - is - now - time - is - now - ";
 
   useEffect(() => {
     new CircleType(circle.current);
-    gsap.to(container.current, {
-      rotate: 360,
-      repeat: -1,
-      duration: 5,
-      ease: "none",
-    });
+    // gsap.to(container.current, {
+    //   rotate: 360,
+    //   repeat: -1,
+    //   duration: 10,
+    //   ease: "none",
+    // });
   }, []);
 
   return (
     <div
       ref={container}
-      className={`${itcMachine.className} absolute right-16 top-0 z-10 rounded-full bg-red-500`}
+      className="fixed bottom-16 right-44 z-10 rounded-full font-drukText uppercase"
     >
       <div
         ref={circle}
-        className="inset relative flex items-center justify-center text-3xl"
+        className="inset relative flex items-center justify-center text-2xl"
       >
         {rawText}
       </div>

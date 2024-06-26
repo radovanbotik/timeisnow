@@ -2,16 +2,14 @@
 import { cn } from "@/app/lib/helpers";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef, forwardRef } from "react";
 
 type Props = ComponentPropsWithoutRef<typeof Link>;
 
-export default function NavLink({
-  href,
-  children,
-  className,
-  ...props
-}: Props) {
+const NavLink = forwardRef<HTMLAnchorElement, Props>(function NavLink(
+  { href, children, className, ...props },
+  ref,
+) {
   const pathname = usePathname();
 
   function isActive(href: string) {
@@ -25,14 +23,16 @@ export default function NavLink({
     <Link
       href={href}
       className={cn(
-        "font-drukText text-4xl",
+        "navlink font-drukCondensed text-4xl font-semibold uppercase",
         isActive(href.toString()) && "text-violet-800",
         "hover:text-violet-600",
         className,
       )}
       {...props}
+      ref={ref}
     >
       {children}
     </Link>
   );
-}
+});
+export default NavLink;
