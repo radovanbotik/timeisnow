@@ -90,10 +90,10 @@ export default function ProgressBar() {
   );
 
   return (
-    <div className="flex h-screen flex-col items-center" ref={container}>
+    <div className="flex flex-col items-center" ref={container}>
       {/* <SpeakerWaveIcon className="mb-10 h-60 w-60" /> */}
       <h3 className="text-center">Loading more Interstellar content..</h3>
-      <div className="bar mx-auto flex h-24 w-3/4 gap-2 border-4 border-black p-2">
+      <div className="bar mx-auto flex h-20 w-3/4 gap-2 border-4 border-black p-2">
         <div className="box flex-1 bg-violet-700"></div>
         <div className="box flex-1 bg-violet-700"></div>
         <div className="box flex-1 bg-violet-700"></div>
