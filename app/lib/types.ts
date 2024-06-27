@@ -44,3 +44,25 @@ export type Position =
   | "center-right"
   | "bottom-right"
   | "bottom-left";
+
+export type DiscogsRelease = {
+  country: string;
+  year: string;
+  format: string[];
+  label: string[];
+  type: string;
+  genre: string[];
+  style: string[];
+  id: number;
+  barcode: [];
+  user_data: { in_wantlist: boolean; in_collection: boolean };
+  master_id: number;
+  master_url: string;
+  uri: string;
+  catno: string;
+  title: string;
+  thumb: string;
+  cover_image: string;
+  resource_url: string;
+  community: { want: number; have: number };
+};

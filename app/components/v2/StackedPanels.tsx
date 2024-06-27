@@ -312,7 +312,7 @@ export default function StackedPanels() {
 
   return (
     <Container>
-      <div className="relative mb-40" ref={parent}>
+      <div className="relative" ref={parent}>
         <div className="sticky top-0 grid h-96 w-full place-content-center">
           <h2 className="relative space-x-2">
             <span className="inline-block" ref={wordsLeft}>

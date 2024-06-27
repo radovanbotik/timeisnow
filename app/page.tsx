@@ -4,22 +4,30 @@ import ReleasesToScroll from "./components/v2/ReleasesToScroll";
 import ProgressBar from "./components/v2/ProgressBar";
 import HeroSection from "./components/v2/HeroSection";
 import ToBeFound from "./components/v2/ToBeFound";
-import { getLabel, getReleases, getArtists } from "./lib/loaders";
+import {
+  getLabel,
+  getReleases,
+  getArtists,
+  getLatestReleases,
+  // getRelease,
+} from "./lib/loaders";
 import Gallery from "./components/v2/Gallery";
+import Vendors from "./components/v2/Vendors";
 
 export default async function Page() {
-  // const allArtists = await getArtists();
+  const recentReleases = await getLatestReleases();
 
   return (
     <>
       <HeroSection />
       <MenuSlider />
       <StackedPanels />
+      {/* <Vendors /> */}
       {/* <div className="h-48"></div> */}
       {/* <ProgressBar />
       <div className="h-48" id="spacer"></div> */}
       {/* <ToBeFound /> */}
-      <Gallery />
+      <Gallery data={recentReleases} />
       {/* <ReleasesToScroll /> */}
     </>
   );
