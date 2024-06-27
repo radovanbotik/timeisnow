@@ -13,6 +13,7 @@ import {
 } from "./lib/loaders";
 import Gallery from "./components/v2/Gallery";
 import Vendors from "./components/v2/Vendors";
+import ChooseHero from "./components/v2/ChooseHero";
 
 export default async function Page() {
   const recentReleases = await getLatestReleases();
@@ -28,6 +29,7 @@ export default async function Page() {
       <div className="h-48" id="spacer"></div> */}
       {/* <ToBeFound /> */}
       <Gallery data={recentReleases} />
+      <ChooseHero />
       {/* <ReleasesToScroll /> */}
     </>
   );

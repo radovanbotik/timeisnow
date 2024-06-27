@@ -63,9 +63,10 @@ export default function Gallery({ data }: { data: DiscogsRelease[] }) {
                 release.cover_image !==
                 "https://st.discogs.com/5c97b8c59898ccf83ab43293efe8685dba8f9621/images/spacer.gif",
             )
+            .slice(0, 4)
             .map((release) => (
               <li key={release.id} className="relative">
-                <div className="aspect-h-7 aspect-w-10 group block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+                <div className="aspect-h-7 aspect-w-10 group block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-black focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                   <img
                     src={release.cover_image ?? ""}
                     alt=""
