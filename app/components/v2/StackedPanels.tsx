@@ -28,6 +28,8 @@ type CardProps = {
   imageUrl: string;
   mediaSrc2?: string;
   rotate?: "left" | "right" | "normal";
+  imageLeft?: boolean;
+  imageRight?: boolean;
 };
 
 function Card({ data }: { data: CardProps }) {
@@ -38,8 +40,38 @@ function Card({ data }: { data: CardProps }) {
   const image1 = useRef<HTMLElement | any>();
   const image2 = useRef<HTMLElement | any>();
 
+  const masterTL = useRef<GSAPTimeline>();
+
   useGSAP(
     () => {
+      const imagePosition: "left" | "right" =
+        container.current.dataset.imagePosition;
+      let titleXAnimation;
+      let image1XAnimation;
+
+      switch (imagePosition) {
+        case "left":
+          titleXAnimation = -100;
+          break;
+        case "right":
+          titleXAnimation = 100;
+          break;
+        default:
+          titleXAnimation = 0;
+      }
+
+      switch (imagePosition) {
+        case "left":
+          image1XAnimation = 100;
+          break;
+        case "right":
+          image1XAnimation = -100;
+          break;
+
+        default:
+          image1XAnimation = 0;
+      }
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container.current,
@@ -47,11 +79,19 @@ function Card({ data }: { data: CardProps }) {
           // end: "bottom top",
           toggleActions: "play pause pause none",
         },
+        onComplete: () => {
+          // gsap.to(window, {
+          //   duration: 2,
+          //   scrollTo: "#progressbar",
+          // });
+          // console.log("timeline completed");
+        },
       });
+
       tl.fromTo(
         title.current,
         {
-          xPercent: -100,
+          xPercent: titleXAnimation,
           opacity: 0,
           scale: 3,
         },
@@ -64,7 +104,7 @@ function Card({ data }: { data: CardProps }) {
       tl.fromTo(
         image1.current,
         {
-          xPercent: 100,
+          xPercent: image1XAnimation,
           opacity: 0,
         },
         {
@@ -82,12 +122,19 @@ function Card({ data }: { data: CardProps }) {
           yPercent: 0,
           opacity: 100,
         },
+        "<",
       );
     },
     {
       scope: container.current,
     },
   );
+
+  let imagePosition;
+  (function getImagePosition() {
+    if (data.imageLeft && !data.imageRight) imagePosition = "left";
+    if (!data.imageLeft && data.imageRight) imagePosition = "right";
+  })();
 
   return (
     <div
@@ -97,23 +144,26 @@ function Card({ data }: { data: CardProps }) {
         data.rotate === "right" && "-rotate-2",
       )}
       ref={container}
+      data-image-position={
+        (data.imageRight && data.imageLeft && "sides") ||
+        (imagePosition === "left" && "left") ||
+        (imagePosition === "right" && "right")
+      }
     >
-      <div className="flex h-full w-full flex-col rounded-xl border-2 border-black bg-white md:flex-row-reverse">
-        {/* <div className="relative h-full w-full max-w-lg basis-full lg:translate-x-1">
-          <div className="absolute left-1/2 top-0 isolate h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 lg:top-1/2 lg:h-[600px] lg:w-[600px]">
-            <Image
-              fill
-              alt="gif"
-              src={"/assets/gifs/mdma.gif"}
-              className="nonagon"
-              aria-hidden
-            />
-          </div>
-        </div> */}
-
+      <div
+        className={cn(
+          "flex h-full w-full flex-col rounded-xl border-2 border-black bg-white",
+          imagePosition === "left" && "md:flex-row",
+          imagePosition === "right" && "md:flex-row-reverse",
+        )}
+      >
         <div className="relative basis-full">
           <div
-            className="absolute inset-0 left-0 top-0 ml-20 w-full"
+            className={cn(
+              "absolute inset-0 w-full",
+              imagePosition === "left" && "right-0 top-0 -ml-20",
+              imagePosition === "right" && "left-0 top-0 ml-20",
+            )}
             ref={image1}
           >
             <Image
@@ -155,7 +205,7 @@ function Card({ data }: { data: CardProps }) {
     </div>
   );
 }
-const rawpanels = [
+const rawpanels: CardProps[] = [
   {
     id: 1,
     imageUrl: "/assets/gifs/mdma.gif",
@@ -166,6 +216,7 @@ const rawpanels = [
     href: "#",
     mask: true,
     rotate: "left",
+    imageRight: true,
   },
   {
     id: 2,
@@ -177,6 +228,7 @@ const rawpanels = [
     href: "#",
     mask: true,
     rotate: "right",
+    imageLeft: true,
   },
   {
     id: 3,
@@ -187,6 +239,7 @@ const rawpanels = [
     buttonText: "View more",
     href: "#",
     mask: true,
+    imageRight: true,
   },
 ];
 
@@ -250,7 +303,7 @@ export default function StackedPanels() {
           // markers: true,
           id: "panel-" + i,
           toggleActions: "play none reverse reverse",
-          onUpdate: (self) => console.log(self.progress),
+          // onUpdate: (self) => console.log(self.progress),
         });
       });
     },
@@ -259,7 +312,7 @@ export default function StackedPanels() {
 
   return (
     <Container>
-      <div className="relative" ref={parent}>
+      <div className="relative mb-40" ref={parent}>
         <div className="sticky top-0 grid h-96 w-full place-content-center">
           <h2 className="relative space-x-2">
             <span className="inline-block" ref={wordsLeft}>

@@ -3,6 +3,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { drukWide } from "@/app/lib/fonts";
 import { SpeakerWaveIcon } from "@heroicons/react/24/outline";
 
@@ -58,6 +59,12 @@ export default function ProgressBar() {
           visibility: "hidden",
           duration: 0.01, // just a tiny amount of duration so it's like a toggle since visibility isn't really animatable.
           stagger: 0.5, // stagger the starting time of each subsequent reveal
+          // onComplete: () => {
+          //   gsap.to(window, {
+          //     duration: 2,
+          //     scrollTo: "#spacer",
+          //   });
+          // },
         });
       });
 
@@ -90,7 +97,11 @@ export default function ProgressBar() {
   );
 
   return (
-    <div className="flex flex-col items-center" ref={container}>
+    <div
+      className="flex flex-col items-center"
+      ref={container}
+      id="progressbar"
+    >
       {/* <SpeakerWaveIcon className="mb-10 h-60 w-60" /> */}
       <h3 className="text-center">Loading more Interstellar content..</h3>
       <div className="bar mx-auto flex h-20 w-3/4 gap-2 border-4 border-black p-2">
