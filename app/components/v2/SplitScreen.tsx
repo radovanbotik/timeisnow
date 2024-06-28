@@ -138,7 +138,9 @@ export default function SplitScreen() {
                     <span>{article.date}</span>
                   </h6>
                 </div>
-                <Button className="w-full">CHECK</Button>
+                <Button is3d={true} className="w-full">
+                  CHECK
+                </Button>
               </div>
             </div>
           </div>
