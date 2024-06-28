@@ -93,14 +93,14 @@ const artists = [
 export default function ChooseHero() {
   return (
     <Container>
-      <div className="flex h-screen w-full flex-col bg-pink-300">
+      <div className="flex h-[200vh] w-full flex-col bg-pink-300 md:h-screen">
         {/* TOP */}
         <div className="navigation-top h-5">top</div>
 
         {/* BODY */}
-        <div className="body relative isolate flex h-full w-full justify-around gap-5 p-1">
+        <div className="body relative isolate flex h-full w-full flex-col justify-around gap-5 p-1 md:flex-row">
           <div className="column-left h-full w-4/6 gap-5 bg-pink-600">
-            <div className="flex h-full w-full items-end justify-between gap-5 bg-pink-800 px-5">
+            <div className="flex h-full w-full flex-col items-end justify-between gap-5 bg-pink-800 px-5 md:flex-row">
               <div className="flex h-full w-full flex-col justify-between">
                 <h2 className="text-center">CHOOSE YOUR WARRIOR</h2>
                 <div className="//flex grid h-1/3 w-full grid-cols-3 grid-rows-2 gap-1">
