@@ -93,52 +93,108 @@ const artists = [
 export default function ChooseHero() {
   return (
     <Container>
-      <div className="flex">
-        <div className="relative flex h-[700px] w-2/3">
-          {artists.slice(0, 5).map((artist, i, arr) => (
-            <div
-              key={artist.id}
-              className={cn(
-                "relative flex h-full w-full content-end items-end",
-                i === 0 && "translate-x-[200px]",
-                i === 1 && "translate-x-[300px]",
-                i === 2 && "translate-x-[400px]",
-                i === 3 && "translate-x-[500px]",
-                i === 4 && "translate-x-[600px]",
-              )}
-            >
-              <div
-                className={cn(
-                  // "h-[700px] w-[450px]",
-                  "absolute bottom-0 h-[700px] w-[450px]",
-                  i === 0 && "scale-[30%]",
-                  i === 1 && "scale-[40%]",
-                  i === 2 && "scale-[50%]",
-                  i === 3 && "scale-[60%]",
-                  i === 4 && "scale-[70%]",
-                  // i === 5 && "left-[50%] h-[100%]",
-                )}
-              >
+      <div className="flex h-screen w-full flex-col bg-pink-300">
+        {/* TOP */}
+        <div className="navigation-top h-5">top</div>
+
+        {/* BODY */}
+        <div className="body relative isolate flex h-full w-full justify-around gap-5 p-1">
+          <div className="column-left h-full w-4/6 gap-5 bg-pink-600">
+            <div className="flex h-full w-full items-end justify-between gap-5 bg-pink-800 px-5">
+              <div className="flex h-full w-full flex-col justify-between">
+                <h2 className="text-center">CHOOSE YOUR WARRIOR</h2>
+                <div className="//flex grid h-1/3 w-full grid-cols-3 grid-rows-2 gap-1">
+                  <div className="relative w-full rounded-xl border-2 bg-blue-400">
+                    <Image
+                      fill
+                      src={yosh}
+                      alt="rosh"
+                      className="object-contain object-bottom"
+                    />
+                  </div>
+                  <div className="relative w-full rounded-xl border-2 bg-blue-400">
+                    <Image
+                      fill
+                      src={soulmasstransitsystem}
+                      alt="soulmasstransitsystem"
+                      className="object-contain object-bottom"
+                    />
+                  </div>
+                  <div className="relative w-full rounded-xl border-2 bg-blue-400">
+                    <Image
+                      src={yuqt}
+                      alt="yuqt"
+                      fill
+                      className="object-contain object-bottom"
+                    />
+                  </div>
+                  <div className="relative w-full rounded-xl border-2 bg-blue-400">
+                    <Image
+                      src={groovy}
+                      alt="groovy"
+                      fill
+                      className="object-contain object-bottom"
+                    />
+                  </div>
+                  <div className="relative w-full rounded-xl border-2 bg-blue-400">
+                    <Image
+                      src={djcrisps}
+                      alt="djcrisps"
+                      fill
+                      className="object-contain object-bottom"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative h-full w-full basis-full bg-blue-300">
                 <Image
-                  src={artist.imageUrl}
+                  src={bakey}
+                  alt="bakey"
                   fill
-                  alt={`this is ${artist.artist}`}
-                  className={cn("left-0 object-cover")}
+                  className="object-contain object-bottom"
                 />
               </div>
             </div>
-          ))}
-        </div>
+          </div>
 
-        <div className="w-1/3">
-          <div className="relative flex h-[700px] w-[450px]">
-            <Image
-              src={artists[artists.length - 1].imageUrl}
-              alt={artists[artists.length - 1].artist}
-              className="object-cover"
-            />
+          {/* RIGHT */}
+          <div className="column-right h-full w-2/6 bg-pink-600">
+            <div className="flex h-full flex-col justify-between space-y-5 bg-pink-800 px-5">
+              <h3 className="mb-0 pb-0">producer name</h3>
+              <h6>something beneath</h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+                architecto optio, dicta laborum, delectus praesentium animi nemo
+                omnis magnam possimus perferendis officiis illum libero
+                perspiciatis, aperiam ullam rerum. Culpa, eum sed animi quas
+                delectus sapiente.
+              </p>
+
+              <div>
+                <p>line1</p>
+                <p>line2</p>
+                <p>line3</p>
+                <p>line4</p>
+                <p>line5</p>
+              </div>
+
+              <div className="flex gap-5">
+                <div className="aspect-square w-20 rounded-lg border-2 border-black"></div>
+                <div className="aspect-square w-20 rounded-lg border-2 border-black"></div>
+                <div className="aspect-square w-20 rounded-lg border-2 border-black"></div>
+                <div className="aspect-square w-20 rounded-lg border-2 border-black"></div>
+              </div>
+              <button className="border-2 border-black">select</button>
+            </div>
           </div>
         </div>
+        {/* BODY */}
+
+        {/* BOTTOM */}
+        {/* <div className="navigation-bottom flex h-5 justify-center">
+          <button>select</button>
+        </div> */}
       </div>
     </Container>
   );

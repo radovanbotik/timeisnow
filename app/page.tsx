@@ -16,7 +16,7 @@ import Vendors from "./components/v2/Vendors";
 import ChooseHero from "./components/v2/ChooseHero";
 
 export default async function Page() {
-  const recentReleases = await getLatestReleases();
+  // const recentReleases = await getLatestReleases();
 
   return (
     <>
@@ -28,7 +28,7 @@ export default async function Page() {
       {/* <ProgressBar />
       <div className="h-48" id="spacer"></div> */}
       {/* <ToBeFound /> */}
-      <Gallery data={recentReleases} />
+      {/* <Gallery data={recentReleases} /> */}
       <ChooseHero />
       {/* <ReleasesToScroll /> */}
     </>
