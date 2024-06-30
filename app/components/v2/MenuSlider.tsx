@@ -252,7 +252,7 @@ export default function MenuSlider() {
     // <div className="rounded-4xl mt-24 bg-neutral-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
     <Container>
       <div
-        className="relative flex h-screen w-full flex-col justify-center"
+        className="relative flex w-full flex-col justify-center"
         ref={container}
       >
         <div
@@ -267,7 +267,7 @@ export default function MenuSlider() {
             className="absolute bottom-2 right-0 h-[2px] bg-black"
             ref={underline2}
           ></div>
-          <h3 className="mb-0 inline-block font-druk text-6xl uppercase">
+          <h3 className="mb-0 inline-block uppercase">
             <span className="heading-word-slider inline-block">the choice</span>
             <span className="heading-word-slider mx-3 inline-block font-drukCondensed">
               is
@@ -275,7 +275,7 @@ export default function MenuSlider() {
             <span className="heading-word-slider inline-block">yours</span>
           </h3>
           <Button
-            className="ml-auto inline-block p-0 font-drukText text-2xl uppercase"
+            className="ml-auto inline-block shrink-0 p-0 font-drukText text-2xl uppercase"
             is3d={false}
             ref={eyebrow}
           >
@@ -343,7 +343,7 @@ export default function MenuSlider() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
             doloribus eligendi enim at natus magni
           </p>
-          <div className="group flex gap-2">
+          <div className="group flex items-start gap-2">
             <ControlButton
               direction="prev"
               onClick={() => instance.current?.swiper.slidePrev()}

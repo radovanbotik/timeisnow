@@ -6,7 +6,7 @@ export const Container = forwardRef<
   ComponentPropsWithoutRef<"div">
 >(function Container({ className, children, ...props }, ref) {
   return (
-    <div className={cn("mx-auto max-w-7xl px-6 lg:px-8", className)}>
+    <div className={cn("mx-auto max-w-7xl px-6 lg:px-8", className)} ref={ref}>
       <div className="mx-auto max-w-2xl lg:max-w-none">{children}</div>
     </div>
 

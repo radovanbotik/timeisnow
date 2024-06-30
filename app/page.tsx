@@ -29,7 +29,7 @@ export default async function Page() {
       <div className="h-48" id="spacer"></div> */}
       {/* <ToBeFound /> */}
       <Gallery data={recentReleases} />
-      <ChooseHero />
+      {/* <ChooseHero /> */}
       {/* <ReleasesToScroll /> */}
     </>
   );

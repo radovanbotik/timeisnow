@@ -62,7 +62,7 @@ export default function HeroSection() {
   });
 
   return (
-    <section className="flex h-screen w-full flex-col">
+    <section className="flex w-full flex-col pb-36 pt-24">
       <Navigation />
       <Container className="my-auto" ref={container}>
         <div className="flex flex-col pb-5">

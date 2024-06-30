@@ -17,7 +17,6 @@ import tr9092 from "../../../public/assets/images/card1/tr9092.png";
 import garage from "../../../public/assets/images/card1/garage.png";
 
 gsap.registerPlugin(ScrollTrigger);
-
 type CardProps = {
   id: number;
   title: string;
@@ -31,6 +30,43 @@ type CardProps = {
   imageLeft?: boolean;
   imageRight?: boolean;
 };
+const rawpanels: CardProps[] = [
+  {
+    id: 1,
+    imageUrl: "/assets/gifs/mdma.gif",
+    title: "RIMSHOTS AND THEM TINGS",
+    subtitle:
+      "Subtitle and subtitle.this is also subtitle.subtitle andubtitle.this is also subtitle.subtitle and subtitle.this isalso subtitle.subtitle and subtitle.this is alsosubtitle.subtitle and subtitle.this is also subtitle",
+    buttonText: "View more",
+    href: "#",
+    mask: true,
+    rotate: "left",
+    imageRight: true,
+  },
+  {
+    id: 2,
+    imageUrl: "/assets/gifs/mdma.gif",
+    title: "FILTHY BASSLINES",
+    subtitle:
+      "Subtitle and subtitle.this is also subtitle.subtitle andubtitle.this is also subtitle.subtitle and subtitle.this isalso subtitle.subtitle and subtitle.this is alsosubtitle.subtitle and subtitle.this is also subtitle",
+    buttonText: "Woooah! more",
+    href: "#",
+    mask: true,
+    rotate: "right",
+    imageLeft: true,
+  },
+  {
+    id: 3,
+    imageUrl: "/assets/gifs/mdma.gif",
+    title: "GET YOUR STANK FACE READY",
+    subtitle:
+      "Subtitle and subtitle.this is also subtitle.subtitle andubtitle.this is also subtitle.subtitle and subtitle.this isalso subtitle.subtitle and subtitle.this is alsosubtitle.subtitle and subtitle.this is also subtitle",
+    buttonText: "View more",
+    href: "#",
+    mask: true,
+    imageRight: true,
+  },
+];
 
 function Card({ data }: { data: CardProps }) {
   const container = useRef<HTMLElement | any>();
@@ -39,8 +75,6 @@ function Card({ data }: { data: CardProps }) {
   const button = useRef<HTMLElement | any>();
   const image1 = useRef<HTMLElement | any>();
   const image2 = useRef<HTMLElement | any>();
-
-  const masterTL = useRef<GSAPTimeline>();
 
   useGSAP(
     () => {
@@ -139,7 +173,7 @@ function Card({ data }: { data: CardProps }) {
   return (
     <div
       className={cn(
-        "panel relative h-[500px] w-full origin-[top_center]",
+        "stackedpanel sticky top-20 h-[500px] w-full origin-[top_center]",
         data.rotate === "left" && "rotate-2",
         data.rotate === "right" && "-rotate-2",
       )}
@@ -189,7 +223,7 @@ function Card({ data }: { data: CardProps }) {
         </div>
         <div className="h-full w-full basis-full px-5 py-10 lg:px-10 lg:py-20">
           <div className="flex h-full w-full max-w-xl flex-col space-y-5">
-            <h2 ref={title}>{data.title}</h2>
+            <h3 ref={title}>{data.title}</h3>
             <p className="line-clamp-3 sm:line-clamp-none" ref={subtitle}>
               {data.subtitle}
             </p>
@@ -205,46 +239,9 @@ function Card({ data }: { data: CardProps }) {
     </div>
   );
 }
-const rawpanels: CardProps[] = [
-  {
-    id: 1,
-    imageUrl: "/assets/gifs/mdma.gif",
-    title: "RIMSHOTS AND THEM TINGS",
-    subtitle:
-      "Subtitle and subtitle.this is also subtitle.subtitle andubtitle.this is also subtitle.subtitle and subtitle.this isalso subtitle.subtitle and subtitle.this is alsosubtitle.subtitle and subtitle.this is also subtitle",
-    buttonText: "View more",
-    href: "#",
-    mask: true,
-    rotate: "left",
-    imageRight: true,
-  },
-  {
-    id: 2,
-    imageUrl: "/assets/gifs/mdma.gif",
-    title: "FILTHY BASSLINES",
-    subtitle:
-      "Subtitle and subtitle.this is also subtitle.subtitle andubtitle.this is also subtitle.subtitle and subtitle.this isalso subtitle.subtitle and subtitle.this is alsosubtitle.subtitle and subtitle.this is also subtitle",
-    buttonText: "Woooah! more",
-    href: "#",
-    mask: true,
-    rotate: "right",
-    imageLeft: true,
-  },
-  {
-    id: 3,
-    imageUrl: "/assets/gifs/mdma.gif",
-    title: "GET YOUR STANK FACE READY",
-    subtitle:
-      "Subtitle and subtitle.this is also subtitle.subtitle andubtitle.this is also subtitle.subtitle and subtitle.this isalso subtitle.subtitle and subtitle.this is alsosubtitle.subtitle and subtitle.this is also subtitle",
-    buttonText: "View more",
-    href: "#",
-    mask: true,
-    imageRight: true,
-  },
-];
 
 export default function StackedPanels() {
-  const parent = useRef<HTMLElement | any>();
+  const panelsParent = useRef<HTMLElement | any>();
   const endElement = useRef<HTMLElement | any>();
   const wordsLeft = useRef<HTMLElement | any>();
   const wordsRight = useRef<HTMLElement | any>();
@@ -253,10 +250,10 @@ export default function StackedPanels() {
     () => {
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: parent.current,
+          trigger: panelsParent.current,
           start: "top center",
           // end: "bottom top",
-          toggleActions: "play pause pause none",
+          // toggleActions: "play pause pause none",
         },
       });
       tl.fromTo(
@@ -285,45 +282,27 @@ export default function StackedPanels() {
           scale: 1,
         },
       );
-
-      const panels = gsap.utils.toArray(".panel") as HTMLElement[];
-      panels.forEach((panel, i, array) => {
-        ScrollTrigger.create({
-          trigger: panel,
-          start: "center 50%",
-          end: "top bottom",
-          endTrigger: endElement.current,
-          animation:
-            panels[i - 1] &&
-            gsap.to(array[i - 1], {
-              filter: "blur(2px)",
-            }),
-          pin: true,
-          pinSpacing: false,
-          // markers: true,
-          id: "panel-" + i,
-          toggleActions: "play none reverse reverse",
-          // onUpdate: (self) => console.log(self.progress),
-        });
-      });
     },
-    { scope: parent.current },
+    { scope: panelsParent.current },
   );
 
   return (
     <Container>
-      <div className="relative" ref={parent}>
-        <div className="sticky top-0 grid h-96 w-full place-content-center">
-          <h2 className="relative space-x-2">
+      <div className="relative">
+        <div
+          className="sticky top-0 grid h-96 w-full place-content-center"
+          ref={panelsParent}
+        >
+          <h3 className="relative space-x-2">
             <span className="inline-block" ref={wordsLeft}>
               CONTENT
             </span>
             <span className="inline-block" ref={wordsRight}>
               BENEATH
             </span>
-          </h2>
+          </h3>
         </div>
-        <div className="h-full w-full flex-col space-y-32 lg:px-10 lg:py-20">
+        <div className="relative h-full w-full flex-col space-y-32 lg:px-10 lg:py-20">
           {rawpanels.map((panel) => (
             <Card key={panel.id} data={panel} />
           ))}
