@@ -21,6 +21,8 @@ import { Container } from "./Container";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Button from "../common/Button";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 type ControlButtonProps = ComponentPropsWithoutRef<"button"> & {
   direction: "prev" | "next";
@@ -178,7 +180,7 @@ function Badge(props: DivProps | LinkProps) {
   );
 }
 
-export default function MenuSlider() {
+export default function MenuSlider({ id }: { id: string }) {
   const instance = useRef<SwiperRef>(null);
   const container = useRef<HTMLElement | any>();
   const eyebrow = useRef<HTMLElement | any>();
@@ -193,7 +195,7 @@ export default function MenuSlider() {
         scrollTrigger: {
           trigger: container.current,
           start: "top center",
-          toggleActions: "restart pause pause none",
+          toggleActions: "play none none none",
         },
       });
 
@@ -211,6 +213,7 @@ export default function MenuSlider() {
           right: "100%",
         },
         { right: 0, ease: "power1.inOut" },
+        "<",
       );
       tl.fromTo(
         underline2.current,
@@ -218,6 +221,7 @@ export default function MenuSlider() {
           left: "100%",
         },
         { left: 0, ease: "power1.inOut" },
+        "<",
       );
       tl.fromTo(
         eyebrow.current,
@@ -226,6 +230,7 @@ export default function MenuSlider() {
           opacity: 0,
         },
         { xPercent: 0, opacity: 1 },
+        "<",
       );
       tl.fromTo(
         controlPanel.current,
@@ -245,16 +250,13 @@ export default function MenuSlider() {
         0,
       );
     },
-    { scope: container.current },
+    { scope: container },
   );
 
   return (
     // <div className="rounded-4xl mt-24 bg-neutral-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
-    <Container>
-      <div
-        className="relative flex w-full flex-col justify-center"
-        ref={container}
-      >
+    <Container ref={container} id={id}>
+      <div className="containers relative flex w-full flex-col justify-center overflow-hidden">
         <div
           className={cn("relative mb-5 flex items-end pb-5")}
           ref={titleWrap}

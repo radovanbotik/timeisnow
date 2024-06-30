@@ -6,6 +6,8 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
 export default function HeroSection() {
@@ -62,7 +64,7 @@ export default function HeroSection() {
   });
 
   return (
-    <section className="flex w-full flex-col pb-36 pt-24">
+    <section className="flex w-full flex-col py-48 md:pb-36 md:pt-24">
       <Navigation />
       <Container className="my-auto" ref={container}>
         <div className="flex flex-col pb-5">
@@ -85,7 +87,7 @@ export default function HeroSection() {
                 gsap.to(window, {
                   duration: 0.5,
                   // scrollTo: window.innerHeight + window.innerHeight / 2,
-                  scrollTo: window.innerHeight,
+                  scrollTo: { y: "#slider", offsetY: 50 },
                 });
               }}
               ref={button}

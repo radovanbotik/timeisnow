@@ -15,8 +15,8 @@ import sampler from "../../../public/assets/images/card1/sampler.jpg";
 import echo from "../../../public/assets/images/card1/echo.webp";
 import tr9092 from "../../../public/assets/images/card1/tr9092.png";
 import garage from "../../../public/assets/images/card1/garage.png";
-
 gsap.registerPlugin(ScrollTrigger);
+
 type CardProps = {
   id: number;
   title: string;
@@ -52,7 +52,7 @@ const rawpanels: CardProps[] = [
     buttonText: "Woooah! more",
     href: "#",
     mask: true,
-    rotate: "right",
+    rotate: "left",
     imageLeft: true,
   },
   {
@@ -186,7 +186,7 @@ function Card({ data }: { data: CardProps }) {
     >
       <div
         className={cn(
-          "flex h-full w-full flex-col rounded-xl border-2 border-black bg-white",
+          "flex h-full w-full flex-col rounded-lg border-2 border-black bg-white",
           imagePosition === "left" && "md:flex-row",
           imagePosition === "right" && "md:flex-row-reverse",
         )}
@@ -195,8 +195,8 @@ function Card({ data }: { data: CardProps }) {
           <div
             className={cn(
               "absolute inset-0 w-full",
-              imagePosition === "left" && "right-0 top-0 -ml-20",
-              imagePosition === "right" && "left-0 top-0 ml-20",
+              imagePosition === "left" && "right-0 top-0 -ml-0 md:-ml-20",
+              imagePosition === "right" && "left-0 top-0 ml-0 md:ml-20",
             )}
             ref={image1}
           >
@@ -240,7 +240,7 @@ function Card({ data }: { data: CardProps }) {
   );
 }
 
-export default function StackedPanels() {
+export default function StackedPanels({ id }: { id: string }) {
   const panelsParent = useRef<HTMLElement | any>();
   const endElement = useRef<HTMLElement | any>();
   const wordsLeft = useRef<HTMLElement | any>();
@@ -288,7 +288,7 @@ export default function StackedPanels() {
 
   return (
     <Container>
-      <div className="relative">
+      <div className="relative" id={id}>
         <div
           className="sticky top-0 grid h-96 w-full place-content-center"
           ref={panelsParent}

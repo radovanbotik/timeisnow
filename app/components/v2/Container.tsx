@@ -4,9 +4,13 @@ import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
 export const Container = forwardRef<
   ElementRef<"div">,
   ComponentPropsWithoutRef<"div">
->(function Container({ className, children, ...props }, ref) {
+>(function Container({ className, children, id, ...props }, ref) {
   return (
-    <div className={cn("mx-auto max-w-7xl px-6 lg:px-8", className)} ref={ref}>
+    <div
+      className={cn("mx-auto max-w-7xl px-6 lg:px-8", className)}
+      ref={ref}
+      id={id}
+    >
       <div className="mx-auto max-w-2xl lg:max-w-none">{children}</div>
     </div>
 

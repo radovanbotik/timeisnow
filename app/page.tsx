@@ -19,18 +19,16 @@ export default async function Page() {
   const recentReleases = await getLatestReleases();
 
   return (
-    <>
+    <div>
       <HeroSection />
-      <MenuSlider />
-      <StackedPanels />
+      <MenuSlider id={"slider"} />
+      <StackedPanels id={"panels"} />
       {/* <Vendors /> */}
-      {/* <div className="h-48"></div> */}
       {/* <ProgressBar />
-      <div className="h-48" id="spacer"></div> */}
       {/* <ToBeFound /> */}
       <Gallery data={recentReleases} />
       {/* <ChooseHero /> */}
       {/* <ReleasesToScroll /> */}
-    </>
+    </div>
   );
 }
