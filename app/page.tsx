@@ -9,6 +9,7 @@ import {
   getReleases,
   getArtists,
   getLatestReleases,
+  fetchReleases,
   // getRelease,
 } from "./lib/loaders";
 import Gallery from "./components/v2/Gallery";
@@ -16,17 +17,19 @@ import Vendors from "./components/v2/Vendors";
 import ChooseHero from "./components/v2/ChooseHero";
 
 export default async function Page() {
-  const recentReleases = await getLatestReleases();
+  // const recentReleases = await getLatestReleases();
+  const releases = await fetchReleases();
+  console.log(releases);
 
   return (
     <div>
-      <HeroSection />
-      <MenuSlider id={"slider"} />
-      <StackedPanels id={"panels"} />
+      {/* <HeroSection /> */}
+      {/* <MenuSlider id={"slider"} /> */}
+      {/* <StackedPanels id={"panels"} /> */}
       {/* <Vendors /> */}
       {/* <ProgressBar />
       {/* <ToBeFound /> */}
-      <Gallery data={recentReleases} />
+      {/* <Gallery data={recentReleases} /> */}
       {/* <ChooseHero /> */}
       {/* <ReleasesToScroll /> */}
     </div>

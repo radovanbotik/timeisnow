@@ -31,9 +31,12 @@ export default function RootLayout({
     >
       {/* cursor-none */}
       <body
-        className={`relative h-full w-full overflow-x-hidden scroll-smooth selection:bg-black selection:text-white`}
+        className={`relative h-full w-full overflow-x-hidden scroll-smooth bg-black text-white selection:bg-black selection:text-white`}
       >
-        <div className="relative h-full w-full">{children}</div>
+        <div className="relative h-full w-full">
+          <Navigation />
+          {children}
+        </div>
       </body>
     </html>
   );

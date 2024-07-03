@@ -1,6 +1,8 @@
 "use server";
 import { unstable_noStore as noStore } from "next/cache";
 import { DiscogsRelease } from "./types";
+import { sanityFetch } from "../sanity/client";
+import { SanityDocument } from "next-sanity";
 noStore();
 
 const CONSUMER_KEY = process.env.CONSUMER_KEY;
@@ -113,3 +115,16 @@ export async function getLatestReleases() {
 //   const { images } = await fetchData(url.href);
 //   return images.find((image) => image.type === "primary");
 // }
+
+export async function fetchReleases() {
+  const QUERY = `*[_type=='release']{_id,title,slug,catno,date,genre,style,image,format,artist[]->{
+  artistName,slug,image
+}}|order(date desc)`;
+  return await sanityFetch<SanityDocument[]>({ query: QUERY });
+}
+
+export async function fetchRelease(slug: string) {
+  console.log(slug);
+  const QUERY = `*[_type=='release' && slug.current=='${slug}'][0]`;
+  return await sanityFetch<SanityDocument[]>({ query: QUERY });
+}
