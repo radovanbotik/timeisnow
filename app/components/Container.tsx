@@ -1,17 +1,16 @@
-import { cn } from "@/app/lib/helpers";
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
+import { cn } from "../lib/helpers";
 
-export const Container = forwardRef<
-  ElementRef<"div">,
-  ComponentPropsWithoutRef<"div">
->(function Container({ className, children, id, ...props }, ref) {
-  return (
-    <div
-      className={cn("mx-auto max-w-7xl px-6 lg:px-8", className)}
-      ref={ref}
-      id={id}
-    >
-      <div className="mx-auto max-w-2xl lg:max-w-none">{children}</div>
-    </div>
-  );
-});
+const styles = {
+  xs: "mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-2",
+  sm: "mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:max-w-4xl lg:px-12",
+  md: "mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:max-w-5xl lg:px-8",
+  lg: "mx-auto px-4 sm:px-6 md:max-w-3xl md:px-4 lg:max-w-7xl lg:px-8",
+};
+
+export function Container({
+  size = "lg",
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<"div"> & { size?: keyof typeof styles }) {
+  return <div className={cn(styles[size], className)} {...props} />;
+}

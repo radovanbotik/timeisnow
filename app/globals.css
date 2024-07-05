@@ -6,40 +6,70 @@
 
 @layer base {
   h1 {
-    @apply mb-4 font-drukText text-7xl font-bold uppercase tracking-tighter group-hover:shadow-[inset_0_-24px_0_0_rgba(109,40,217,1)] md:text-9xl;
+    @apply mb-[3.25rem] mt-[1.625] text-[5.625rem] font-bold uppercase leading-[6.5rem] group-hover:shadow-[inset_0_-24px_0_0_rgba(109,40,217,1)];
   }
 
   h2 {
-    @apply mb-4 font-druk text-5xl font-bold uppercase group-hover:shadow-[inset_0_-20px_0_0_rgba(109,40,217,1)] md:text-8xl;
+    @apply mb-[1.625rem] mt-[1.625rem] text-[1.75rem] font-bold uppercase leading-[3.25rem] group-hover:shadow-[inset_0_-20px_0_0_rgba(109,40,217,1)] lg:text-[3.1875rem];
   }
 
   h3 {
-    @apply mb-8 font-druk text-4xl font-bold uppercase md:text-7xl;
+    @apply mb-[0rem] mt-[1.625rem] text-[1.75rem] font-bold uppercase leading-[3.25rem];
   }
 
   h4 {
-    @apply mb-1 font-druk text-4xl font-bold uppercase text-black/90 md:text-6xl;
+    @apply mb-[0rem] mt-[1.625rem] text-[1rem] font-bold uppercase leading-[1.625rem];
   }
 
   h5 {
-    @apply font-druk text-2xl font-bold uppercase md:text-4xl;
+    @apply mb-[0rem] mt-[1.625rem] text-[1rem] font-bold uppercase leading-[1.625rem];
   }
 
   h6 {
-    @apply font-druk text-lg font-bold uppercase leading-[1.4] tracking-widest text-black/60 md:text-xl;
+    @apply mb-[0rem] mt-[1.625rem] text-[1rem] font-bold uppercase leading-[1.625rem];
   }
 
-  p {
-    @apply font-youth;
+  p,
+  ul,
+  ol,
+  pre,
+  table,
+  blockquote {
+    @apply mb-[1.625rem] mt-[0rem];
   }
 
-  body {
-    /* @apply cursor-[url('../public/assets/cursor/cursor85.png'),auto] text-sm md:text-base; */
+  ul ul,
+  ol ol,
+  ul ol,
+  ol ul {
+    @apply mb-[0rem] mt-[0rem];
   }
+
+  hr,
+  .hr {
+    @apply mx-px border-[1px] border-solid;
+  }
+
   a,
-  button {
-    /* @apply cursor-[url('../public/assets/cursor/cursor85.png'),auto]; */
-    /* @apply cursor-none; */
+  b,
+  i,
+  strong,
+  em,
+  small,
+  code {
+    @apply leading-[0];
+  }
+
+  sub,
+  sup {
+    @apply relative align-baseline leading-[0];
+  }
+
+  sup {
+    @apply -top-[0.5em];
+  }
+  sub {
+    @apply -bottom-[0.25em];
   }
 }
 
@@ -104,4 +134,22 @@
   background-color: #ffffff;
   border-radius: 4px;
   border: 4px none #ffffff;
+}
+
+/* https://scroll-driven-animations.style/demos/reverse-scroll/waapi/ */
+@keyframes adjust-position {
+  /* Start position: shift entire column up, but not so that it goes out of view */
+  from {
+    transform: translateY(calc(-100% + 100vh));
+  }
+
+  /* End position: shift entire column down, but not so that it goes out of view */
+  to {
+    transform: translateY(calc(100% - 100vh));
+  }
+}
+
+.column-reversed {
+  animation: adjust-position linear forwards;
+  animation-timeline: scroll(root block);
 }

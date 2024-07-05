@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navigation from "./components/common/Navigation";
 import {
   druk,
   drukText,
@@ -11,6 +10,7 @@ import {
   drukXXCondensed,
   youth,
 } from "./lib/fonts";
+import Navigation from "./components/Navigation";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -31,10 +31,10 @@ export default function RootLayout({
     >
       {/* cursor-none */}
       <body
-        className={`relative h-full w-full overflow-x-hidden scroll-smooth bg-black text-white selection:bg-black selection:text-white`}
+        className={`relative overflow-x-hidden scroll-smooth selection:bg-black selection:text-white`}
       >
-        <div className="relative h-full w-full">
-          <Navigation />
+        <div className="relative min-h-screen w-full bg-gradient-to-t from-gray-100 to-gray-300">
+          {/* <Navigation /> */}
           {children}
         </div>
       </body>

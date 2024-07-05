@@ -37,7 +37,11 @@ const config: Config = {
         drukXCondensed: ["var(--font-druk-Xcondensed)"],
         drukXXCondensed: ["var(--font-druk-XXcondensed)"],
       },
-      maxWidth: {},
+      maxWidth: {
+        "8xl": "1366px",
+        "9xl": "1440px",
+        "10xl": "1600px",
+      },
     },
   },
   plugins: [

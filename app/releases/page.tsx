@@ -1,4 +1,4 @@
-import Gallery from "../components/v2/Gallery";
+import Gallery from "../components/Gallery";
 import { fetchReleases } from "../lib/loaders";
 
 export default async function Page() {
