@@ -34,7 +34,7 @@ export default function RootLayout({
         className={`relative overflow-x-hidden scroll-smooth selection:bg-black selection:text-white`}
       >
         <div className="relative min-h-screen w-full bg-gradient-to-t from-gray-100 to-gray-300">
-          {/* <Navigation /> */}
+          <Navigation />
           {children}
         </div>
       </body>

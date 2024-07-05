@@ -139,10 +139,10 @@ function Timers({
                   }}
                 ></div>
               </div>
-              <span className="hidden text-lg leading-[0.95] tracking-wider sm:line-clamp-1">
+              <span className="hidden text-lg leading-[0.95] sm:line-clamp-1">
                 {title}
               </span>
-              <span className="hidden text-lg leading-[0.95] tracking-wider sm:line-clamp-1">
+              <span className="hidden text-lg leading-[0.95] sm:line-clamp-1">
                 {artist.length > 1
                   ? artist.map((a) => a.artistName).join(", ")
                   : artist[0].artistName}
@@ -208,8 +208,8 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
                   {/* IMAGE */}
                   <div className="group flex flex-col self-center sm:flex-row">
                     <div className="relative order-1 aspect-square w-64 shrink-0 cursor-pointer shadow-xl sm:order-2 sm:w-[60vw] sm:max-w-lg lg:w-[440px] xl:w-[32rem]">
-                      <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/10 p-6 opacity-0 backdrop-blur-[2px] group-hover:opacity-100">
-                        <PlayIcon className="h-8 w-8 translate-x-[2px] text-white md:h-12 md:w-12" />
+                      <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/10 p-6 opacity-0 shadow-lg backdrop-blur-[2px] group-hover:opacity-100">
+                        <PlayIcon className="h-8 w-8 translate-x-[2px] text-white/50 md:h-12 md:w-12" />
                       </div>
                       <Image
                         src={
@@ -222,9 +222,7 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
                       />
                     </div>
                     <h6 className="z-20 order-2 self-center font-semibold text-white sm:order-1 sm:rotate-180 sm:self-end sm:indent-5 sm:[writing-mode:vertical-lr] md:-ml-10">
-                      <span className="uppercase text-violet-700">
-                        {catno}{" "}
-                      </span>
+                      <span className="uppercase text-black">{catno} </span>
                       <span className="capitalize">Released - </span>
                       <span>
                         {new Date(date).toLocaleDateString(undefined, {
@@ -238,15 +236,21 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
                   {/* DETAILS */}
                   <div className="relative self-center text-center lg:z-10 lg:-ml-24 lg:text-start">
                     <span
-                      className="bold mt-2.5 block text-2xl uppercase text-white sm:text-3xl sm:text-transparent md:text-4xl lg:text-5xl xl:text-6xl"
+                      className="bold //sm:text-transparent mt-2.5 block font-drukTextWide text-2xl uppercase text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
                       style={{
-                        WebkitTextStrokeWidth: "2px",
-                        WebkitTextStrokeColor: "white",
+                        WebkitTextStrokeWidth: "1px",
+                        WebkitTextStrokeColor: "black",
                       }}
                     >
                       {title}
                     </span>
-                    <span className="bold mb-2.5 block text-lg uppercase text-white sm:truncate sm:whitespace-nowrap sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl">
+                    <span
+                      className="bold mb-2.5 block font-drukTextWide text-lg uppercase text-white sm:truncate sm:whitespace-nowrap sm:text-xl md:text-2xl lg:mb-5 lg:text-4xl xl:text-5xl"
+                      style={{
+                        WebkitTextStrokeWidth: "1px",
+                        WebkitTextStrokeColor: "black",
+                      }}
+                    >
                       {artist.length > 1
                         ? artist.map((a) => a.artistName).join(", ")
                         : artist[0].artistName}
@@ -255,7 +259,7 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
                     <div className="flex flex-col gap-5 sm:flex-row">
                       <Link
                         href={`/releases/${slug.current}`}
-                        className="apperance-none inline-block bg-violet-700 px-10 py-5 font-semibold uppercase text-white md:px-12 md:py-6"
+                        className="apperance-none inline-block bg-black px-10 py-5 font-semibold uppercase text-white md:px-12 md:py-6"
                       >
                         view release
                       </Link>

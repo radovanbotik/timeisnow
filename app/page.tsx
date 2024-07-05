@@ -55,9 +55,9 @@ export default async function Page() {
   return (
     <div>
       <HeroSection data={releases.slice(0, 4)} />
-      <LatestReleases />
-      <Spacer />
-      <News />
+      {/* <LatestReleases /> */}
+      {/* <Spacer /> */}
+      {/* <News /> */}
       {/* <ReverseScrollingColumns data={releases} /> */}
     </div>
   );

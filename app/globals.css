@@ -71,6 +71,9 @@
   sub {
     @apply -bottom-[0.25em];
   }
+  body {
+    @apply font-drukText;
+  }
 }
 
 @layer utilities {
