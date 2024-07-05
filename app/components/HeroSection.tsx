@@ -22,8 +22,15 @@ import "swiper/css/effect-fade";
 
 import { cn } from "../lib/helpers";
 import Image from "next/image";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  PlayIcon,
+} from "@heroicons/react/24/outline";
 import { Container } from "./Container";
+import { ReleaseProps } from "../page";
+import { urlFor } from "../sanity/helpers";
+import Link from "next/link";
 
 type Slide = {
   _id: string;
@@ -42,7 +49,7 @@ type UI = {
   cta2href: string;
 };
 
-const TIMEOUT = 2500;
+const TIMEOUT = 5000;
 const slides: Slide[] = [
   {
     _id: "a",
@@ -105,73 +112,40 @@ function Button({
 }
 
 function Timers({
+  data,
   realIndex,
   progress,
 }: {
   realIndex: number;
   progress: number;
+  data: ReleaseProps[];
 }) {
-  const timers: {
-    _id: string;
-    artists: string[];
-    title: string;
-    index: number;
-  }[] = [
-    {
-      _id: "a",
-      artists: ["Lorem Lorem"],
-      title: "Lorem LoremLorem Lorem",
-      index: 0,
-    },
-    {
-      _id: "b",
-      artists: ["Lorem Lorem", "Lorem Lorem"],
-      title: "Lorem LoremLorem Lorem",
-      index: 1,
-    },
-    {
-      _id: "c",
-      artists: ["Lorem Lorem", "Lorem Lorem"],
-      title: "Lorem LoremLorem Lorem",
-      index: 2,
-    },
-    {
-      _id: "d",
-      artists: ["Lorem Lorem", "Lorem Lorem"],
-      title: "Lorem LoremLorem Lorem Lorem Lorem ",
-      index: 3,
-    },
-  ];
-
   useEffect(() => {}, [progress]);
-  const progressBarStyles =
-    "[&::-webkit-progress-bar]:bg-transparent [&::-webkit-progress-value]:bg-white [&::-moz-progress-bar]:bg-white";
 
   return (
     <div className="absolute left-1/2 top-20 z-10 h-20 w-full -translate-x-1/2 overflow-hidden">
       <Container>
         <ul className="grid w-full grid-cols-1 gap-5 uppercase text-white md:grid-cols-4">
-          {timers.map((timer, i, arr) => (
+          {data.map(({ _id, artist, title }, i, arr) => (
             <li
-              key={timer._id}
-              className={cn(
-                realIndex === timer.index ? "block" : "hidden",
-                "md:block",
-              )}
+              key={_id}
+              className={cn(realIndex === i ? "block" : "hidden", "md:block")}
             >
-              <div className="relative h-2 w-full border border-white">
+              <div className="relative mb-4 h-2 w-full border border-white">
                 <div
                   className="absolute inset-0 rotate-180 bg-white"
                   style={{
-                    clipPath: `${realIndex === timer.index ? `polygon(${progress * 100}% 0, 100% 0, 100% 100%, ${progress * 100}% 100%)` : "polygon(0 0, 0 0, 0 100%, 0 100%)"}`,
+                    clipPath: `${realIndex === i ? `polygon(${progress * 100}% 0, 100% 0, 100% 100%, ${progress * 100}% 100%)` : "polygon(0 0, 0 0, 0 100%, 0 100%)"}`,
                   }}
                 ></div>
               </div>
-              <span className="hidden sm:line-clamp-1">{timer.title}</span>
-              <span className="hidden sm:line-clamp-1">
-                {timer.artists.length > 1
-                  ? timer.artists.join(", ")
-                  : timer.artists[0]}
+              <span className="hidden text-lg leading-[0.95] tracking-wider sm:line-clamp-1">
+                {title}
+              </span>
+              <span className="hidden text-lg leading-[0.95] tracking-wider sm:line-clamp-1">
+                {artist.length > 1
+                  ? artist.map((a) => a.artistName).join(", ")
+                  : artist[0].artistName}
               </span>
             </li>
           ))}
@@ -181,23 +155,23 @@ function Timers({
   );
 }
 
-export default function HeroSection() {
+export default function HeroSection({ data }: { data: ReleaseProps[] }) {
   const swiperInstance = useRef<SwiperRef>(null);
   const [realIndex, setRealIndex] = useState<number>(0);
   const [progress, setProgress] = useState(1);
 
   return (
     <section className="relative">
-      <Timers realIndex={realIndex} progress={progress} />
+      <Timers realIndex={realIndex} progress={progress} data={data} />
       <Swiper
         modules={[Pagination, Navigation, Keyboard, EffectFade, Autoplay]}
         loop={true}
         grabCursor={true}
         effect={"fade"}
         fadeEffect={{ crossFade: true }}
-        // autoplay={{
-        //   delay: TIMEOUT,
-        // }}
+        autoplay={{
+          delay: TIMEOUT,
+        }}
         onAutoplayTimeLeft={(swiper, timeleft, percentage) =>
           setProgress(percentage)
         }
@@ -208,16 +182,18 @@ export default function HeroSection() {
         className="relative isolate h-full !w-full text-black"
         ref={swiperInstance}
       >
-        {slides.map((object, i) => (
+        {data.map(({ _id, image, title, catno, date, artist, slug }, i) => (
           <SwiperSlide
-            key={object._id}
+            key={_id}
             className="pointer-events-none !isolate flex h-full w-full items-center justify-center !overflow-hidden"
           >
             {/* BACKGROUND */}
             <div className="absolute inset-0 origin-top-left scale-[1.5] blur-[6px] brightness-[0.6]">
               <Image
-                src={object.image}
-                alt={object.title}
+                src={
+                  urlFor(image)?.url() || "https://via.placeholder.com/550x310"
+                }
+                alt={title}
                 fill
                 className="pointer-events-none object-cover"
               />
@@ -230,34 +206,37 @@ export default function HeroSection() {
               <Container size="md">
                 <div className="//items-center isolate flex min-h-dvh flex-col justify-center p-5 pt-32 sm:pt-40 lg:flex-row lg:items-end lg:justify-start">
                   {/* IMAGE */}
-                  <div className="flex flex-col self-center sm:flex-row">
-                    <div className="relative order-1 aspect-square w-64 shrink-0 sm:order-2 sm:w-[60vw] sm:max-w-lg lg:w-[440px] xl:w-[32rem]">
+                  <div className="group flex flex-col self-center sm:flex-row">
+                    <div className="relative order-1 aspect-square w-64 shrink-0 cursor-pointer shadow-xl sm:order-2 sm:w-[60vw] sm:max-w-lg lg:w-[440px] xl:w-[32rem]">
+                      <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/10 p-6 opacity-0 backdrop-blur-[2px] group-hover:opacity-100">
+                        <PlayIcon className="h-8 w-8 translate-x-[2px] text-white md:h-12 md:w-12" />
+                      </div>
                       <Image
-                        src={object.image}
-                        alt={object.title}
+                        src={
+                          urlFor(image)?.url() ||
+                          "https://via.placeholder.com/550x310"
+                        }
+                        alt={title}
                         fill
                         className="pointer-events-none object-cover"
                       />
                     </div>
                     <h6 className="z-20 order-2 self-center font-semibold text-white sm:order-1 sm:rotate-180 sm:self-end sm:indent-5 sm:[writing-mode:vertical-lr] md:-ml-10">
                       <span className="uppercase text-violet-700">
-                        {object.catno}{" "}
+                        {catno}{" "}
                       </span>
                       <span className="capitalize">Released - </span>
                       <span>
-                        {new Date(object.releaseDate).toLocaleDateString(
-                          undefined,
-                          {
-                            month: "long",
-                            day: "numeric",
-                            year: "numeric",
-                          },
-                        )}
+                        {new Date(date).toLocaleDateString(undefined, {
+                          month: "long",
+                          day: "numeric",
+                          year: "numeric",
+                        })}
                       </span>
                     </h6>
                   </div>
                   {/* DETAILS */}
-                  <div className="relative self-center sm:text-center lg:z-10 lg:-ml-24 lg:text-start">
+                  <div className="relative self-center text-center lg:z-10 lg:-ml-24 lg:text-start">
                     <span
                       className="bold mt-2.5 block text-2xl uppercase text-white sm:text-3xl sm:text-transparent md:text-4xl lg:text-5xl xl:text-6xl"
                       style={{
@@ -265,19 +244,22 @@ export default function HeroSection() {
                         WebkitTextStrokeColor: "white",
                       }}
                     >
-                      {object.title}
+                      {title}
                     </span>
-                    <span className="bold mb-2.5 block text-xl uppercase text-white sm:truncate sm:whitespace-nowrap sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
-                      {object.artists.length > 1
-                        ? object.artists.join(", ")
-                        : object.artists[0]}
+                    <span className="bold mb-2.5 block text-lg uppercase text-white sm:truncate sm:whitespace-nowrap sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl">
+                      {artist.length > 1
+                        ? artist.map((a) => a.artistName).join(", ")
+                        : artist[0].artistName}
                     </span>
 
                     <div className="flex flex-col gap-5 sm:flex-row">
-                      <button className="inline-block bg-violet-700 px-9 py-3 font-semibold uppercase text-white md:px-12 md:py-4">
+                      <Link
+                        href={`/releases/${slug.current}`}
+                        className="apperance-none inline-block bg-violet-700 px-10 py-5 font-semibold uppercase text-white md:px-12 md:py-6"
+                      >
                         view release
-                      </button>
-                      <button className="inline-block border border-white px-9 py-3 font-semibold uppercase text-white md:px-12 md:py-4">
+                      </Link>
+                      <button className="inline-block border border-white px-10 py-5 font-semibold uppercase leading-[0] text-white md:px-12 md:py-6">
                         play music
                       </button>
                     </div>

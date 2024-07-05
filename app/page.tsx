@@ -25,7 +25,7 @@ export type ReleaseProps = {
   }[];
   title: string;
   slug: { current: string; _type: string };
-  date: null | string;
+  date: string;
   style: string[];
   format: string;
   _id: string;
@@ -54,8 +54,7 @@ export default async function Page() {
 
   return (
     <div>
-      {/* <Hero /> */}
-      <HeroSection />
+      <HeroSection data={releases.slice(0, 4)} />
       <LatestReleases />
       <Spacer />
       <News />
