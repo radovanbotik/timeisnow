@@ -12,26 +12,74 @@ import Link from "next/link";
 
 function SocialLinks() {
   return (
-    <div className="static right-0 top-28 mr-10 hidden flex-row items-center justify-center gap-5 sm:flex lg:absolute lg:flex-col">
-      <div className="inline-flex h-5 w-5 items-center justify-center">
-        <Instagram />
-      </div>
-      <div className="inline-flex h-5 w-5 items-center justify-center">
-        <Spotify />
-      </div>
-      <div className="inline-flex h-5 w-5 items-center justify-center">
-        <Beatport />
-      </div>
-      <div className="inline-flex h-5 w-5 items-center justify-center">
-        <Bandcamp />
-      </div>
-      <div className="inline-flex h-5 w-5 items-center justify-center">
-        <Discogs />
-      </div>
-      <div className="inline-flex h-5 w-5 items-center justify-center">
-        <Soundcloud />
-      </div>
-    </div>
+    <ul className="static right-0 top-28 mr-10 hidden flex-row items-center justify-center gap-5 pr-1.5 sm:flex lg:absolute lg:flex-col">
+      <li>
+        <a
+          href="https://www.instagram.com/timeisnowbristol/"
+          className="inline-flex h-5 w-5 items-center justify-center"
+          aria-label="Time is now on Instagram"
+          title="Time is now on Instagram"
+          target="_blank"
+        >
+          <Instagram />
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://open.spotify.com/user/1evdlrdvh69emi4mhzjn2d41d?si=WIPD4y-NT5-Gbs60IpXG1A&nd=1&dlsi=9183607e4cd64989"
+          className="inline-flex h-5 w-5 items-center justify-center"
+          aria-label="Time is now on Spotify"
+          title="Time is now on Spotify"
+          target="_blank"
+        >
+          <Spotify />
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.beatport.com/label/time-is-now-records/83657"
+          className="inline-flex h-5 w-5 items-center justify-center"
+          aria-label="Time is now on Beatport"
+          title="Time is now on Beatport"
+          target="_blank"
+        >
+          <Beatport />
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://shallnotfade.bandcamp.com/subscribe"
+          className="inline-flex h-5 w-5 items-center justify-center"
+          aria-label="Time is now on Bandcamp"
+          title="Time is now on Bandcamp"
+          target="_blank"
+        >
+          <Bandcamp />
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.discogs.com/label/1739622-Timeisnow?page=1"
+          className="inline-flex h-5 w-5 items-center justify-center"
+          aria-label="Time is now on Discogs"
+          title="Time is now on Discogs"
+          target="_blank"
+        >
+          <Discogs />
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://soundcloud.com/shallnotfade"
+          className="inline-flex h-5 w-5 items-center justify-center"
+          aria-label="Time is now on Soundcloud"
+          title="Time is now on Soundcloud"
+          target="_blank"
+        >
+          <Soundcloud />
+        </a>
+      </li>
+    </ul>
   );
 }
 

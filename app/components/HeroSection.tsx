@@ -221,9 +221,9 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
                         className="pointer-events-none object-cover"
                       />
                     </div>
-                    <h6 className="z-20 order-2 self-center font-semibold text-white sm:order-1 sm:rotate-180 sm:self-end sm:indent-5 sm:[writing-mode:vertical-lr] md:-ml-10">
-                      <span className="uppercase text-black">{catno} </span>
-                      <span className="capitalize">Released - </span>
+                    <h6 className="z-20 order-2 self-center font-semibold italic text-neutral-200 sm:order-1 sm:rotate-180 sm:self-end sm:indent-5 sm:[writing-mode:vertical-lr] md:-ml-10">
+                      <span className="uppercase text-black">{catno}</span>
+                      <span className="capitalize"> - Released - </span>
                       <span>
                         {new Date(date).toLocaleDateString(undefined, {
                           month: "long",

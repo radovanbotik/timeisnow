@@ -156,3 +156,8 @@
   animation: adjust-position linear forwards;
   animation-timeline: scroll(root block);
 }
+
+.image-reflect {
+  -webkit-box-reflect: below 0.5em
+    linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.25));
+}
