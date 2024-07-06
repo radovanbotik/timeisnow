@@ -57,7 +57,7 @@ export const post1: Post = {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil tempore fugiat voluptatum officia enim sunt, harum dolorum, necessitatibus voluptatem rerum optio?<a href='#'>Incidunt inventore nostrum provident est fugiat quos</a>, reprehenderit dolore ipsam enim dicta nemo illo officia veniam nihil. Cumque veritatis, est eius voluptates nisi illum esse expedita, a ea illo quaerat reprehenderit architecto asperiores deserunt cupiditate sequi minus minima? Voluptate rem voluptatibus neque est architecto ab non maxime nesciunt ducimus cumque. Amet modi magni laboriosam neque minus labore laudantium tempore soluta ullam maiores perspiciatis.",
   image: {
     imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://geo-media.beatport.com/image_size/1400x1400/6840be38-d690-472b-af67-0f32adad0ec7.jpg",
     alt: "image",
   },
   author: {
@@ -65,7 +65,7 @@ export const post1: Post = {
     role: "Co-Founder / CTO",
     href: "#",
     imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://geo-media.beatport.com/image_size/1400x1400/6840be38-d690-472b-af67-0f32adad0ec7.jpg",
   },
 };
 export const post2: Post = {
@@ -80,7 +80,7 @@ export const post2: Post = {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil tempore fugiat voluptatum officia enim sunt, harum dolorum, necessitatibus voluptatem rerum optio?<a href='#'>Incidunt inventore nostrum provident est fugiat quos</a>, reprehenderit dolore ipsam enim dicta nemo illo officia veniam nihil. Cumque veritatis, est eius voluptates nisi illum esse expedita, a ea illo quaerat reprehenderit architecto asperiores deserunt cupiditate sequi minus minima? Voluptate rem voluptatibus neque est architecto ab non maxime nesciunt ducimus cumque. Amet modi magni laboriosam neque minus labore laudantium tempore soluta ullam maiores perspiciatis.",
   image: {
     imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://geo-media.beatport.com/image_size/1400x1400/6840be38-d690-472b-af67-0f32adad0ec7.jpg",
     alt: "image",
   },
   author: {
@@ -88,7 +88,7 @@ export const post2: Post = {
     role: "Co-Founder / CTO",
     href: "#",
     imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://geo-media.beatport.com/image_size/1400x1400/6840be38-d690-472b-af67-0f32adad0ec7.jpg",
   },
 };
 export const post3: Post = {
@@ -103,7 +103,7 @@ export const post3: Post = {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil tempore fugiat voluptatum officia enim sunt, harum dolorum, necessitatibus voluptatem rerum optio?<a href='#'>Incidunt inventore nostrum provident est fugiat quos</a>, reprehenderit dolore ipsam enim dicta nemo illo officia veniam nihil. Cumque veritatis, est eius voluptates nisi illum esse expedita, a ea illo quaerat reprehenderit architecto asperiores deserunt cupiditate sequi minus minima? Voluptate rem voluptatibus neque est architecto ab non maxime nesciunt ducimus cumque. Amet modi magni laboriosam neque minus labore laudantium tempore soluta ullam maiores perspiciatis.",
   image: {
     imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://geo-media.beatport.com/image_size/1400x1400/6840be38-d690-472b-af67-0f32adad0ec7.jpg",
     alt: "image",
   },
   author: {
@@ -111,7 +111,7 @@ export const post3: Post = {
     role: "Co-Founder / CTO",
     href: "#",
     imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://geo-media.beatport.com/image_size/1400x1400/6840be38-d690-472b-af67-0f32adad0ec7.jpg",
   },
 };
 export const post4: Post = {
@@ -127,7 +127,7 @@ export const post4: Post = {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil tempore fugiat voluptatum officia enim sunt, harum dolorum, necessitatibus voluptatem rerum optio?<a href='#'>Incidunt inventore nostrum provident est fugiat quos</a>, reprehenderit dolore ipsam enim dicta nemo illo officia veniam nihil. Cumque veritatis, est eius voluptates nisi illum esse expedita, a ea illo quaerat reprehenderit architecto asperiores deserunt cupiditate sequi minus minima? Voluptate rem voluptatibus neque est architecto ab non maxime nesciunt ducimus cumque. Amet modi magni laboriosam neque minus labore laudantium tempore soluta ullam maiores perspiciatis.",
   image: {
     imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://geo-media.beatport.com/image_size/1400x1400/6840be38-d690-472b-af67-0f32adad0ec7.jpg",
     alt: "image",
   },
   author: {
@@ -135,14 +135,14 @@ export const post4: Post = {
     role: "Co-Founder / CTO",
     href: "#",
     imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://geo-media.beatport.com/image_size/1400x1400/6840be38-d690-472b-af67-0f32adad0ec7.jpg",
   },
   externalSource: {
     title: "This is title of article from external source. | ExternalSource",
     source: "externalsource",
     image: {
       imageUrl:
-        "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+        "https://geo-media.beatport.com/image_size/1400x1400/6840be38-d690-472b-af67-0f32adad0ec7.jpg",
       alt: "this is image.",
     },
   },
@@ -160,7 +160,7 @@ export const post5: Post = {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil tempore fugiat voluptatum officia enim sunt, harum dolorum, necessitatibus voluptatem rerum optio?<a href='#'>Incidunt inventore nostrum provident est fugiat quos</a>, reprehenderit dolore ipsam enim dicta nemo illo officia veniam nihil. Cumque veritatis, est eius voluptates nisi illum esse expedita, a ea illo quaerat reprehenderit architecto asperiores deserunt cupiditate sequi minus minima? Voluptate rem voluptatibus neque est architecto ab non maxime nesciunt ducimus cumque. Amet modi magni laboriosam neque minus labore laudantium tempore soluta ullam maiores perspiciatis.",
   image: {
     imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://geo-media.beatport.com/image_size/1400x1400/6840be38-d690-472b-af67-0f32adad0ec7.jpg",
     alt: "image",
   },
   author: {
@@ -168,7 +168,7 @@ export const post5: Post = {
     role: "Co-Founder / CTO",
     href: "#",
     imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://geo-media.beatport.com/image_size/1400x1400/6840be38-d690-472b-af67-0f32adad0ec7.jpg",
   },
   imagePreview: {
     images: [

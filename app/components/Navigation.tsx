@@ -9,6 +9,8 @@ import { Container } from "./Container";
 import { Bars2Icon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import Link from "next/link";
+import logo from "../../public/assets/logo/logolight150.png";
+import Image from "next/image";
 
 function SocialLinks() {
   return (
@@ -97,12 +99,11 @@ export default function Navigation() {
             <div className="flex lg:flex-1">
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">TIME IS NOW</span>
-                <h3 className="m-0">TIME IS NOW LABEL</h3>
-                {/* <img
-                  alt=""
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                <Image
+                  alt="Time is now bristol"
+                  src={logo}
                   className="h-8 w-auto"
-                /> */}
+                />
               </Link>
             </div>
             <SocialLinks />

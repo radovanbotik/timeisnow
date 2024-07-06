@@ -14,9 +14,10 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className="pb-5 sm:flex sm:items-center sm:justify-between">
-      <h3 className="//text-base //font-semibold //leading-6 text-gray-900">
+      <h2 className="inline-block shrink-0 font-drukCondensed text-8xl uppercase text-gray-800">
         {children}
-      </h3>
+      </h2>
+      <div className="shrink-1 h-[2px] w-full bg-black sm:ml-10"></div>
       {href && (
         <div className="mt-3 sm:ml-4 sm:mt-0">
           <Link
