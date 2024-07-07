@@ -10,6 +10,7 @@ import CoverFlow from "./components/CoverFlow";
 import CoverFlowSection from "./components/CoverFlowSection";
 import UpcomingReleases from "./components/UpcomingReleases";
 import Merch from "./components/Merch";
+import LatestReleasesSlider from "./components/LatestReleasesSlider";
 
 export type ReleaseProps = {
   artist: {
@@ -59,10 +60,10 @@ export default async function Page() {
   return (
     <main className="">
       <HeroSection data={releases.slice(0, 4)} />
-      <UpcomingReleases />
+      {/* <UpcomingReleases /> */}
       <News />
-      <Merch />
-      {/* <LatestReleases /> */}
+      {/* <Merch /> */}
+      <LatestReleases />
       {/* <Spacer /> */}
       {/* <CoverFlowSection data={releases} /> */}
       {/* <CoverFlow data={releases} /> */}

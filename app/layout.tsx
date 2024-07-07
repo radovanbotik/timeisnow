@@ -11,6 +11,7 @@ import {
   youth,
 } from "./lib/fonts";
 import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -36,6 +37,7 @@ export default function RootLayout({
         <div className="relative min-h-screen w-full">
           <Navigation />
           {children}
+          <Footer />
         </div>
       </body>
     </html>

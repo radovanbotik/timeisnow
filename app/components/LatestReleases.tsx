@@ -6,7 +6,7 @@ export default function LatestReleases() {
   return (
     <section>
       <Container>
-        <SectionHeading>Latest releases:</SectionHeading>
+        <SectionHeading>OUR MERCH:</SectionHeading>
       </Container>
       <LatestReleasesSlider />
     </section>

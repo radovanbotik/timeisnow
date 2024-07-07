@@ -200,7 +200,7 @@ function SmallCard({ data }: { data: Post }) {
 // CHART ////////////////////////////////////////
 function TopStories({ data }: { data: Props }) {
   return (
-    <div className="//ml-[65px] sticky top-10 isolate z-10 mx-auto mb-10 flow-root min-h-[475px] w-80 max-w-lg rounded-md bg-violet-600 p-5 text-white sm:w-[410px] lg:ml-0 lg:min-h-[600px] lg:w-[768px] lg:overflow-hidden lg:rounded-3xl">
+    <div className="//ml-[65px] //sm:w-80 sticky top-10 isolate z-10 mx-auto mb-10 flow-root min-h-[475px] w-full max-w-lg rounded-md bg-violet-600 p-5 text-white sm:w-[410px] lg:ml-0 lg:min-h-[600px] lg:w-[768px] lg:overflow-hidden lg:rounded-3xl">
       <span
         className={`absolute top-0 -z-10 hidden rotate-180 font-drukCondensed uppercase text-violet-900 sm:-left-24 sm:inline-block sm:text-8xl lg:hidden`}
         style={{ writingMode: "vertical-rl" }}
@@ -257,10 +257,10 @@ export default function News() {
   return (
     <section>
       <Container>
-        <SectionHeading>new stories</SectionHeading>
+        <SectionHeading>new stories:</SectionHeading>
         <article>
           {/* <div className="aspect-[3/2] w-full bg-red-300 lg:aspect-[3/1]"></div> */}
-          <div className="mt-20 flex flex-col lg:flex-row">
+          <div className="mt-0 flex flex-col lg:flex-row">
             <div className="inline-block grow-0 lg:order-2">
               <TopStories data={data} />
             </div>
