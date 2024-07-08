@@ -1,10 +1,16 @@
-export default function Bandcamp() {
+import { cn } from "@/app/lib/helpers";
+
+export default function Bandcamp({ className }: { className?: string }) {
   return (
     <svg
-      fill="white"
+      className={cn("fill-current", className)}
+      // fill="currentColor"
+      // fill="white"
       xmlns="http://www.w3.org/2000/svg"
+      width="auto"
+      height="auto"
       viewBox="0 0 450.689 450.69"
-      //   xml:space="preserve"
+      xmlSpace="preserve"
     >
       <g>
         <g>
@@ -60,7 +66,7 @@ export default function Bandcamp() {
                C441.072,314.09,436.312,323.292,426.17,323.292z"
           />
         </g>
-        <polygon points="0,251.739 181.402,251.739 251.965,99.074 70.561,99.074 	" />
+        <polygon points="0,251.739 181.402,251.739 251.965,99.074 70.561,99.074" />
         <g>
           <path
             d="M301.692,136.215c-12.59,0.208-23.315,5.368-31.155,16.712h-0.417V99.072h-18.157V247.22h17.131v-13.412h0.41

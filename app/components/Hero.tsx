@@ -49,7 +49,7 @@ const media = [
   {
     _id: 1,
     video:
-      "https://delivery.twentythree.com/9891396/57423095/video_hd?uuid=02a3fa46-7f98-0c5c-b909-a51a88a58f58&revision=2&domain=bandcamp.23video.com&Expires=1720126800&Signature=0N%7esPlqm8%2dlrVo8At1sT9kHanVC4EpJ8QnKJtAJiZP%7exx%2dEmhq5GSvjKGyDO7GCp8h6AU7wgo%7ec%7eNUe81NOvVAGA48trdIImdUnL2UcI%7e%2dtzmbXCVNechumPzrsoCVJcRcR6Ww8G1P7wMIRd9PL8O%2dHvyhwbXFuuHPtLucaERe%7ec5YgpgzzcsrkAR8rsSjsutyjN9VRvsKDAAovFoF92DtoU%7e64FCkZhCh5p4fxNaaZI4%2dckXXRYeLQF4mdUE2tGJpRc99wTgqO7YgII3dD6n82OeWdK3DqsfO6o06u0YjLf3V%2dFzX2PV%7eFmLie%7eEoD%2dbRcJXO8ekb2aqewUiJi4yg%5f%5f&Key-Pair-Id=K2RKIY3YYBD5LB",
+      "https://bandcamp.23video.com/9891472.ihtml/player.html?token=42e96102fe7a02550302676a42d3bf9c&source=embed&photo_id=57423095",
   },
   {
     _id: 2,
@@ -59,7 +59,7 @@ const media = [
   {
     _id: 3,
     video:
-      "https://delivery.twentythree.com/9891396/57423095/video_hd?uuid=02a3fa46-7f98-0c5c-b909-a51a88a58f58&revision=2&domain=bandcamp.23video.com&Expires=1720126800&Signature=0N%7esPlqm8%2dlrVo8At1sT9kHanVC4EpJ8QnKJtAJiZP%7exx%2dEmhq5GSvjKGyDO7GCp8h6AU7wgo%7ec%7eNUe81NOvVAGA48trdIImdUnL2UcI%7e%2dtzmbXCVNechumPzrsoCVJcRcR6Ww8G1P7wMIRd9PL8O%2dHvyhwbXFuuHPtLucaERe%7ec5YgpgzzcsrkAR8rsSjsutyjN9VRvsKDAAovFoF92DtoU%7e64FCkZhCh5p4fxNaaZI4%2dckXXRYeLQF4mdUE2tGJpRc99wTgqO7YgII3dD6n82OeWdK3DqsfO6o06u0YjLf3V%2dFzX2PV%7eFmLie%7eEoD%2dbRcJXO8ekb2aqewUiJi4yg%5f%5f&Key-Pair-Id=K2RKIY3YYBD5LB",
+      "https://bandcamp.23video.com/9891472.ihtml/player.html?token=42e96102fe7a02550302676a42d3bf9c&source=embed&photo_id=57423095",
   },
 ];
 
@@ -107,12 +107,6 @@ export default function Hero() {
                 className="w-full object-cover"
               />
             </video>
-            {/* <Image
-              src={i % 2 ? image_dummy : image_dummy_version}
-              alt={image.alt}
-              fill
-              className="pointer-events-none object-cover"
-            /> */}
           </SwiperSlide>
         ))}
 

@@ -72,20 +72,20 @@ export default function Footer() {
   return (
     <footer
       aria-labelledby="footer-heading"
-      className="bg-white pt-16 text-gray-800 sm:pt-24 lg:pt-32"
+      className="pt-16 text-gray-800 sm:pt-24 lg:pt-32"
     >
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
       <Container>
         <div className="//xl:grid //xl:grid-cols-3 //xl:gap-8">
-          <div className="flex items-end justify-between">
-            <span className="inline-block font-drukCondensed text-12xl italic leading-[0.8]">
+          <div className="//items-end flex flex-col items-center justify-between sm:flex-row">
+            <span className="mb-5 inline-block font-drukCondensed text-12xl text-8xl italic leading-[0.8] sm:mb-0 md:text-10xl">
               TIME IS NOW
             </span>
 
-            <div className="self-end">
-              <Image alt="Company name" src={logo} className="mb-8" />
+            <div className="//self-end">
+              {/* <Image alt="Company name" src={logo} className="mb-8" /> */}
               <p className="text-sm leading-6 text-gray-600">
                 <span className="block">
                   Bristol based independent record label by shallnotfade

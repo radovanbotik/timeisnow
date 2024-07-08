@@ -23,8 +23,10 @@ import "swiper/css/effect-fade";
 import { cn } from "../lib/helpers";
 import Image from "next/image";
 import {
+  ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
+  ChevronUpIcon,
   PlayIcon,
 } from "@heroicons/react/24/outline";
 import { Container } from "./Container";
@@ -101,7 +103,7 @@ function Button({
   return (
     <button
       className={cn(
-        "absolute top-1/2 z-10 hidden -translate-y-1/2 place-content-center rounded-full bg-black/10 p-2 backdrop-blur-sm sm:grid",
+        "//top-1/2 //-translate-y-1/2 //rounded-full //bg-gray-800/10 //backdrop-blur-sm z-10 place-content-center p-1 sm:grid",
         className,
       )}
       {...props}
@@ -125,15 +127,15 @@ function Timers({
   return (
     <div className="absolute left-1/2 top-20 z-10 h-20 w-full -translate-x-1/2 overflow-hidden">
       <Container>
-        <ul className="grid w-full grid-cols-1 gap-5 uppercase text-white md:grid-cols-4">
+        <ul className="grid w-full grid-cols-1 gap-5 uppercase text-gray-800 md:grid-cols-4">
           {data.map(({ _id, artist, title }, i, arr) => (
             <li
               key={_id}
               className={cn(realIndex === i ? "block" : "hidden", "md:block")}
             >
-              <div className="relative mb-4 h-2 w-full border border-white">
+              <div className="relative mb-4 h-2 w-full border border-gray-800">
                 <div
-                  className="absolute inset-0 rotate-180 bg-white"
+                  className="absolute inset-0 rotate-180 bg-gray-800"
                   style={{
                     clipPath: `${realIndex === i ? `polygon(${progress * 100}% 0, 100% 0, 100% 100%, ${progress * 100}% 100%)` : "polygon(0 0, 0 0, 0 100%, 0 100%)"}`,
                   }}
@@ -179,7 +181,7 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
         keyboard={{
           enabled: true,
         }}
-        className="relative isolate h-full !w-full text-black"
+        className="relative isolate h-full !w-full text-gray-800"
         ref={swiperInstance}
       >
         {data.map(({ _id, image, title, catno, date, artist, slug }, i) => (
@@ -188,7 +190,7 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
             className="pointer-events-none !isolate flex h-full w-full items-center justify-center !overflow-hidden"
           >
             {/* BACKGROUND */}
-            <div className="absolute inset-0 origin-top-left scale-[1.5] blur-[6px] brightness-[0.6]">
+            {/* <div className="absolute inset-0 origin-top-left scale-[1.5] blur-[6px] brightness-[0.6]">
               <Image
                 src={
                   urlFor(image)?.url() || "https://via.placeholder.com/550x310"
@@ -197,9 +199,9 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
                 fill
                 className="pointer-events-none object-cover"
               />
-              <div className="pointer pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
-              <div className="pointer pointer-events-none absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-black/30 to-transparent"></div>
-            </div>
+              <div className="pointer pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800/10 to-transparent"></div>
+              <div className="pointer pointer-events-none absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-gray-800/30 to-transparent"></div>
+            </div> */}
 
             {/* FOREGROUND */}
             <div className="relative z-20 h-full w-full">
@@ -208,8 +210,8 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
                   {/* IMAGE */}
                   <div className="group flex flex-col self-center sm:flex-row">
                     <div className="relative order-1 aspect-square w-64 shrink-0 cursor-pointer shadow-xl sm:order-2 sm:w-[60vw] sm:max-w-lg lg:w-[440px] xl:w-[32rem]">
-                      <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/10 p-6 opacity-0 shadow-lg backdrop-blur-[2px] group-hover:opacity-100">
-                        <PlayIcon className="h-8 w-8 translate-x-[2px] text-white/50 md:h-12 md:w-12" />
+                      <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gray-800/10 p-6 opacity-0 shadow-lg backdrop-blur-[2px] group-hover:opacity-100">
+                        <PlayIcon className="h-8 w-8 translate-x-[2px] text-gray-800/50 md:h-12 md:w-12" />
                       </div>
                       <Image
                         src={
@@ -221,8 +223,8 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
                         className="pointer-events-none object-cover"
                       />
                     </div>
-                    <h6 className="z-20 order-2 self-center font-semibold italic text-neutral-200 sm:order-1 sm:rotate-180 sm:self-end sm:indent-5 sm:[writing-mode:vertical-lr] md:-ml-10">
-                      <span className="uppercase text-black">{catno}</span>
+                    <h6 className="z-20 order-2 self-center font-semibold italic text-gray-800 sm:order-1 sm:rotate-180 sm:self-end sm:indent-5 sm:[writing-mode:vertical-lr] md:-ml-10">
+                      <span className="uppercase text-gray-800">{catno}</span>
                       <span className="capitalize"> - Released - </span>
                       <span>
                         {new Date(date).toLocaleDateString(undefined, {
@@ -236,7 +238,7 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
                   {/* DETAILS */}
                   <div className="relative self-center text-center lg:z-10 lg:-ml-24 lg:text-start">
                     <span
-                      className="bold //sm:text-transparent mt-2.5 block font-drukTextWide text-2xl uppercase text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
+                      className="bold //sm:text-transparent mt-2.5 block font-drukTextWide text-2xl uppercase text-gray-800 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
                       style={{
                         WebkitTextStrokeWidth: "1px",
                         WebkitTextStrokeColor: "black",
@@ -245,7 +247,7 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
                       {title}
                     </span>
                     <span
-                      className="bold mb-2.5 block font-drukTextWide text-lg uppercase text-white sm:truncate sm:whitespace-nowrap sm:text-xl md:text-2xl lg:mb-5 lg:text-4xl xl:text-5xl"
+                      className="bold space-nowrap text-gray-303 text-l1 mb-2.5 block font-drukTextWide uppercase sm:truncate sm:text-xl sm:text-gray-100 md:text-2xl lg:mb-5 lg:text-4xl xl:text-5xl"
                       style={{
                         WebkitTextStrokeWidth: "1px",
                         WebkitTextStrokeColor: "black",
@@ -259,11 +261,11 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
                     <div className="flex flex-col gap-5 sm:flex-row">
                       <Link
                         href={`/releases/${slug.current}`}
-                        className="apperance-none inline-block bg-black px-10 py-5 font-semibold uppercase text-white md:px-12 md:py-6"
+                        className="apperance-none inline-block bg-gray-800 px-10 py-5 font-semibold uppercase text-gray-100 md:px-12 md:py-6"
                       >
                         view release
                       </Link>
-                      <button className="inline-block border border-white px-10 py-5 font-semibold uppercase leading-[0] text-white md:px-12 md:py-6">
+                      <button className="inline-block border border-gray-800 px-10 py-5 font-semibold uppercase leading-[0] text-gray-800 md:px-12 md:py-6">
                         play music
                       </button>
                     </div>
@@ -274,18 +276,57 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
           </SwiperSlide>
         ))}
       </Swiper>
+      {/* XS */}
       <Button
         onClick={() => swiperInstance.current?.swiper.slidePrev()}
-        className="left-10"
+        className="absolute left-2 top-1/2 inline-block -translate-y-1/2 bg-gray-800 lg:hidden"
       >
-        <ChevronLeftIcon className="h-6 w-6 -translate-x-px text-white" />
+        <ChevronLeftIcon className="h-6 w-6 -translate-x-px text-gray-100" />
       </Button>
       <Button
         onClick={() => swiperInstance.current?.swiper.slideNext()}
-        className="right-10"
+        className="absolute right-2 top-1/2 inline-block -translate-y-1/2 bg-gray-800 lg:hidden"
       >
-        <ChevronRightIcon className="h-6 w-6 translate-x-px text-white" />
+        <ChevronRightIcon className="h-6 w-6 translate-x-px text-gray-100" />
       </Button>
+
+      <div className="absolute bottom-10 right-20 z-10 hidden items-center gap-5 lg:flex lg:flex-row">
+        <div className="hidden text-center font-druk text-5xl italic text-gray-800 lg:flex lg:flex-row lg:justify-center">
+          <div>
+            <span>
+              {(realIndex + 1).toLocaleString("en-US", {
+                minimumIntegerDigits: 2,
+                useGrouping: false,
+              })}
+            </span>
+          </div>
+          <div className="mx-2">
+            <span>-</span>
+          </div>
+          <div>
+            <span>
+              {data.length.toLocaleString("en-US", {
+                minimumIntegerDigits: 2,
+                useGrouping: false,
+              })}
+            </span>
+          </div>
+        </div>
+        <div className="hidden flex-col justify-between lg:flex">
+          <Button
+            onClick={() => swiperInstance.current?.swiper.slidePrev()}
+            className="hidden lg:block"
+          >
+            <ChevronUpIcon className="h-5 w-5 text-gray-800" />
+          </Button>
+          <Button
+            onClick={() => swiperInstance.current?.swiper.slideNext()}
+            className="hidden lg:block"
+          >
+            <ChevronDownIcon className="h-5 w-5 text-gray-800" />
+          </Button>
+        </div>
+      </div>
     </section>
   );
 }

@@ -4,11 +4,11 @@ import SectionHeading from "./SectionHeading";
 
 export default function LatestReleases() {
   return (
-    <section>
-      <Container>
+    <section className="mt-16 sm:mt-24 lg:mt-32">
+      <Container size="lg">
         <SectionHeading>OUR MERCH:</SectionHeading>
+        <LatestReleasesSlider />
       </Container>
-      <LatestReleasesSlider />
     </section>
   );
 }

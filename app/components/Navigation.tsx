@@ -14,7 +14,7 @@ import Image from "next/image";
 
 function SocialLinks() {
   return (
-    <ul className="static right-0 top-28 mr-10 hidden flex-row items-center justify-center gap-5 pr-1.5 sm:flex lg:absolute lg:flex-col">
+    <ul className="//lg:absolute //lg:flex-col //mr-10 //right-0 /hidden static top-28 m-0 mx-auto flex-row items-center justify-center gap-5 pr-1.5 sm:flex">
       <li>
         <a
           href="https://www.instagram.com/timeisnowbristol/"
@@ -23,7 +23,7 @@ function SocialLinks() {
           title="Time is now on Instagram"
           target="_blank"
         >
-          <Instagram />
+          <Instagram className="text-gray-800" />
         </a>
       </li>
       <li>
@@ -34,7 +34,7 @@ function SocialLinks() {
           title="Time is now on Spotify"
           target="_blank"
         >
-          <Spotify />
+          <Spotify className="text-gray-800" />
         </a>
       </li>
       <li>
@@ -45,7 +45,7 @@ function SocialLinks() {
           title="Time is now on Beatport"
           target="_blank"
         >
-          <Beatport />
+          <Beatport className="text-gray-800" />
         </a>
       </li>
       <li>
@@ -56,7 +56,7 @@ function SocialLinks() {
           title="Time is now on Bandcamp"
           target="_blank"
         >
-          <Bandcamp />
+          <Bandcamp className="text-gray-800" />
         </a>
       </li>
       <li>
@@ -67,7 +67,7 @@ function SocialLinks() {
           title="Time is now on Discogs"
           target="_blank"
         >
-          <Discogs />
+          <Discogs className="text-gray-800" />
         </a>
       </li>
       <li>
@@ -78,7 +78,7 @@ function SocialLinks() {
           title="Time is now on Soundcloud"
           target="_blank"
         >
-          <Soundcloud />
+          <Soundcloud className="text-gray-800" />
         </a>
       </li>
     </ul>
@@ -89,29 +89,32 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="//bg-black/20 fixed top-0 z-50 h-20 w-full backdrop-blur-sm lg:backdrop-blur-none">
+    <header className="fixed top-0 z-50 h-20 w-full backdrop-blur-sm lg:backdrop-blur-sm">
       <nav
         aria-label="Global"
         className="box relative flex h-full w-full items-center"
       >
         <Container className="relative w-full">
-          <div className="flex justify-between">
-            <div className="flex lg:flex-1">
+          <div className="flex items-center justify-between">
+            <div className="//lg:flex-1 flex">
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">TIME IS NOW</span>
-                <Image
+                <span className="font-drukCondensed text-3xl italic text-gray-800">
+                  TIME IS NOW
+                </span>
+                {/* <Image
                   alt="Time is now bristol"
                   src={logo}
                   className="h-8 w-auto"
-                />
+                /> */}
               </Link>
             </div>
-            <SocialLinks />
+            {/* <SocialLinks /> */}
             <div className="flex">
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className="ml-auto inline-flex items-center justify-center rounded-md p-2.5 text-white"
+                className="ml-auto inline-flex items-center justify-center rounded-md p-2.5 text-gray-800"
               >
                 <span className="sr-only">Open main menu</span>
                 <Bars2Icon aria-hidden="true" className="h-6 w-6" />

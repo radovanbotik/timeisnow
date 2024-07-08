@@ -115,70 +115,66 @@ export default function LatestReleasesSlider() {
   const [isStart, setIsStart] = useState(false);
 
   return (
-    <div>
-      <Container>
-        <Swiper
-          slidesPerView={"auto"}
-          onSlideChange={(swiper) => setRealIndex(swiper.realIndex)}
-          // slidesOffsetBefore={240}
-          // slidesOffsetAfter={160}
-          spaceBetween={20}
-          freeMode={true}
-          watchSlidesProgress={true}
-          // onReachBeginning={() => setIsStart(true)}
-          // onReachEnd={() => setIsEnded(true)}
-          // onFromEdge={() => {
-          //   setIsEnded(false);
-          //   setIsStart(false);
-          // }}
-          modules={[Navigation, FreeMode]}
-          className="relative isolate w-full"
-          ref={instance}
+    <Swiper
+      slidesPerView={"auto"}
+      onSlideChange={(swiper) => setRealIndex(swiper.realIndex)}
+      // slidesOffsetBefore={240}
+      // slidesOffsetAfter={160}
+      spaceBetween={20}
+      freeMode={true}
+      watchSlidesProgress={true}
+      // onReachBeginning={() => setIsStart(true)}
+      // onReachEnd={() => setIsEnded(true)}
+      // onFromEdge={() => {
+      //   setIsEnded(false);
+      //   setIsStart(false);
+      // }}
+      modules={[Navigation, FreeMode]}
+      className="relative isolate w-full"
+      ref={instance}
+    >
+      {options.map((option, i) => (
+        <SwiperSlide
+          key={option.id}
+          className="relative !w-[300px]"
+          datatype-i={i}
         >
-          {options.map((option, i) => (
-            <SwiperSlide
-              key={option.id}
-              className="relative !w-[300px]"
-              datatype-i={i}
-            >
-              <div className="group transition-transform duration-300 hover:scale-[0.98]">
-                <div className="relative aspect-[2/3] w-full overflow-hidden rounded-xl border border-neutral-200">
-                  <Image
-                    src={option.backgroundImage.imageUrl}
-                    alt={option.backgroundImage.altText}
-                    fill
-                    className="image object-cover object-right-bottom"
-                  />
-                  <div className="pointer pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100"></div>
-                  <div className="pointer pointer-events-none absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100"></div>
-                  {/* <Link href={option.href} className="absolute inset-0" /> */}
-                </div>
-              </div>
-              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-black/20 p-2 backdrop-blur-sm">
-                <PlusIcon className="h-4 w-4 text-gray-900" />
-              </div>
-            </SwiperSlide>
-          ))}
-          {/* {!isStart && ( */}
-          <ControlButton
-            direction="prev"
-            onClick={() => instance.current?.swiper.slidePrev()}
-            className="peer absolute left-5 top-1/2 -translate-y-1/2"
-          >
-            <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
-          </ControlButton>
-          {/* )} */}
-          {/* {!isEnded && ( */}
-          <ControlButton
-            direction="next"
-            onClick={() => instance.current?.swiper.slideNext()}
-            className="absolute right-5 top-1/2 -translate-y-1/2"
-          >
-            <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
-          </ControlButton>
-          {/* )} */}
-        </Swiper>
-      </Container>
-    </div>
+          <div className="group transition-transform duration-300 hover:scale-[0.98]">
+            <div className="relative aspect-[2/3] w-full overflow-hidden rounded-xl border border-neutral-200">
+              <Image
+                src={option.backgroundImage.imageUrl}
+                alt={option.backgroundImage.altText}
+                fill
+                className="image object-cover object-right-bottom"
+              />
+              <div className="pointer pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100"></div>
+              <div className="pointer pointer-events-none absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100"></div>
+              {/* <Link href={option.href} className="absolute inset-0" /> */}
+            </div>
+          </div>
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-black/20 p-2 backdrop-blur-sm">
+            <PlusIcon className="h-4 w-4 text-gray-900" />
+          </div>
+        </SwiperSlide>
+      ))}
+      {/* {!isStart && ( */}
+      <ControlButton
+        direction="prev"
+        onClick={() => instance.current?.swiper.slidePrev()}
+        className="peer absolute left-5 top-1/2 -translate-y-1/2"
+      >
+        <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
+      </ControlButton>
+      {/* )} */}
+      {/* {!isEnded && ( */}
+      <ControlButton
+        direction="next"
+        onClick={() => instance.current?.swiper.slideNext()}
+        className="absolute right-5 top-1/2 -translate-y-1/2"
+      >
+        <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
+      </ControlButton>
+      {/* )} */}
+    </Swiper>
   );
 }

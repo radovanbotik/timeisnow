@@ -14,7 +14,7 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className="pb-5 sm:flex sm:items-center sm:justify-between">
-      <h2 className="inline-block shrink-0 font-drukCondensed text-8xl uppercase italic text-gray-800">
+      <h2 className="inline-block shrink-0 font-drukCondensed text-7xl uppercase italic text-gray-800">
         {children}
       </h2>
       {/* <div className="shrink-1 h-[2px] w-full bg-black sm:ml-10"></div> */}

@@ -1,7 +1,9 @@
-export default function Discogs() {
+import { cn } from "@/app/lib/helpers";
+
+export default function Discogs({ className }: { className?: string }) {
   return (
     <svg
-      fill="white"
+      className={cn("fill-current", className)}
       viewBox="0 0 24 24"
       role="img"
       xmlns="http://www.w3.org/2000/svg"

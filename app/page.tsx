@@ -11,6 +11,10 @@ import CoverFlowSection from "./components/CoverFlowSection";
 import UpcomingReleases from "./components/UpcomingReleases";
 import Merch from "./components/Merch";
 import LatestReleasesSlider from "./components/LatestReleasesSlider";
+import image from "../public/assets/images/prozak500.png";
+import { Container } from "./components/Container";
+import Image from "next/image";
+import { post1 } from "./components/dummy";
 
 export type ReleaseProps = {
   artist: {
@@ -61,7 +65,51 @@ export default async function Page() {
     <main className="">
       <HeroSection data={releases.slice(0, 4)} />
       {/* <UpcomingReleases /> */}
+      {/* <Hero /> */}
+      <Spacer>
+        <Container size="md">
+          <div className="flex h-full w-full items-center justify-center">
+            <Container className="xs">
+              <h1
+                className="font-drukCondensed italic text-transparent"
+                style={{
+                  WebkitTextStrokeWidth: "1px",
+                  WebkitTextStrokeColor: "black",
+                }}
+              >
+                Bristol based independent record label by shallnotfade
+              </h1>
+              <h2 className="font-drukCondensed italic text-gray-800">
+                - Breakthrough Label winner at DJ Mag Awards 2022
+              </h2>
+            </Container>
+          </div>
+          <div className="absolute bottom-0 right-0 aspect-[1/2] w-24 overflow-hidden sm:w-60 md:w-44 lg:w-48 xl:w-52">
+            <Image
+              fill
+              src={image}
+              alt={"pill"}
+              className="translate-y-1/4 object-contain"
+            />
+          </div>
+        </Container>
+      </Spacer>
       <News />
+      <Spacer>
+        <div className="absolute inset-0 origin-top-left scale-[1.5] blur-[6px] brightness-[0.6]">
+          <Image
+            src={
+              post1.image.imageUrl
+              // urlFor(image)?.url() || "https://via.placeholder.com/550x310"
+            }
+            alt={post1.title}
+            fill
+            className="pointer-events-none object-cover"
+          />
+          <div className="pointer pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800/10 to-transparent"></div>
+          <div className="pointer pointer-events-none absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-gray-800/30 to-transparent"></div>
+        </div>
+      </Spacer>
       {/* <Merch /> */}
       <LatestReleases />
       {/* <Spacer /> */}

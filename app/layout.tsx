@@ -32,7 +32,7 @@ export default function RootLayout({
     >
       {/* cursor-none */}
       <body
-        className={`relative overflow-x-hidden scroll-smooth selection:bg-black selection:text-white`}
+        className={`relative overflow-x-hidden scroll-smooth bg-gray-200 selection:bg-black selection:text-white`}
       >
         <div className="relative min-h-screen w-full">
           <Navigation />
