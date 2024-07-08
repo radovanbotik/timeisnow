@@ -289,6 +289,9 @@ export default function News({ realdata }: { realdata: ReleaseProps[] }) {
               <li>
                 <SmallCard data={posts[1]} />
               </li>
+              <li>
+                <SmallCard data={posts[2]} />
+              </li>
             </ul>
           </div>
           <div className="inline-block grow-0">

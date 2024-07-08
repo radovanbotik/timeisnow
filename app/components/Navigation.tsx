@@ -22,10 +22,10 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const navigation = [
   { name: "Dashboard", href: "#", current: true },
-  { name: "News", href: "#", current: false },
-  { name: "Releases", href: "#", current: false },
-  { name: "Artists", href: "#", current: false },
-  { name: "Merch", href: "#", current: false },
+  { name: "News", href: "/news", current: false },
+  { name: "Releases", href: "/releases", current: false },
+  { name: "Artists", href: "/artists", current: false },
+  { name: "Merch", href: "/merch", current: false },
   // { name: "Reports", href: "#", current: false },
 ];
 
@@ -77,7 +77,7 @@ function Drawer({
               <div className="flex h-full flex-col overflow-y-scroll bg-gray-100 py-6 shadow-xl">
                 <div className="px-4 sm:px-6">
                   <div className="flex items-start justify-between">
-                    <DialogTitle className="text-base font-semibold leading-6 text-gray-900">
+                    <DialogTitle className="!m-0 text-base font-semibold leading-6 text-gray-900">
                       <Link href="/">
                         <span className="sr-only">TIME IS NOW</span>
                         <span className="bg-black pl-2 pr-8 font-druk text-2xl text-gray-50">
@@ -147,7 +147,7 @@ export default function Navigation() {
 
   return (
     <>
-      <header className="fixed top-0 isolate z-40 h-10 w-full" ref={container}>
+      <header className="fixed top-0 isolate z-40 h-20 w-full" ref={container}>
         <nav
           aria-label="Global"
           className="box relative z-0 flex h-full w-full items-center backdrop-blur-sm lg:backdrop-blur-sm"

@@ -108,7 +108,7 @@ function ControlButton({ className, children, ...props }: ControlButtonProps) {
   );
 }
 
-export default function LatestReleasesSlider() {
+export default function MerchSlider() {
   const instance = useRef<SwiperRef>(null);
   const [realIndex, setRealIndex] = useState<number>(0);
   const [isEnded, setIsEnded] = useState(false);
@@ -130,7 +130,7 @@ export default function LatestReleasesSlider() {
       //   setIsStart(false);
       // }}
       modules={[Navigation, FreeMode]}
-      className="relative isolate w-full"
+      className="relative isolate w-full cursor-grab active:cursor-grabbing"
       ref={instance}
     >
       {options.map((option, i) => (

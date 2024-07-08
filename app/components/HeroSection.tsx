@@ -238,7 +238,7 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
 
             {/* FOREGROUND */}
             <div className="relative z-20 h-full w-full">
-              <Container size="md">
+              <Container size="lg">
                 <div className="//items-center isolate flex min-h-dvh flex-col justify-center p-5 pt-32 sm:pt-40 lg:flex-row lg:items-end lg:justify-start">
                   {/* IMAGE */}
                   <div className="group flex flex-col self-center drop-shadow-md sm:flex-row">

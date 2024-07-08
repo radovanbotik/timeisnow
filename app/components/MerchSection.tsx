@@ -1,13 +1,13 @@
 import { Container } from "./Container";
-import LatestReleasesSlider from "./LatestReleasesSlider";
+import MerchSlider from "./MerchSlider";
 import SectionHeading from "./SectionHeading";
 
-export default function LatestReleases() {
+export default function MerchSection() {
   return (
     <section className="mt-16 sm:mt-24 lg:mt-32">
-      <Container size="lg">
+      <Container size="md">
         <SectionHeading>OUR MERCH:</SectionHeading>
-        <LatestReleasesSlider />
+        <MerchSlider />
       </Container>
     </section>
   );
