@@ -99,8 +99,11 @@ export default function Navigation() {
             <div className="//lg:flex-1 flex">
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">TIME IS NOW</span>
-                <span className="font-drukCondensed text-3xl italic text-gray-800">
-                  TIME IS NOW
+                <span className="bg-black pl-2 pr-8 font-druk text-2xl text-gray-50">
+                  <span className="font-drukWide uppercase">Time</span>
+                  <span className="font-drukText text-2xl uppercase">
+                    is now
+                  </span>
                 </span>
                 {/* <Image
                   alt="Time is now bristol"

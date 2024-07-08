@@ -62,7 +62,10 @@ export default async function Page() {
     "https://delivery.twentythree.com/9891396/57423095/video_hd?uuid=02a3fa46-7f98-0c5c-b909-a51a88a58f58&revision=2&domain=bandcamp.23video.com&Expires=1720126800&Signature=0N%7esPlqm8%2dlrVo8At1sT9kHanVC4EpJ8QnKJtAJiZP%7exx%2dEmhq5GSvjKGyDO7GCp8h6AU7wgo%7ec%7eNUe81NOvVAGA48trdIImdUnL2UcI%7e%2dtzmbXCVNechumPzrsoCVJcRcR6Ww8G1P7wMIRd9PL8O%2dHvyhwbXFuuHPtLucaERe%7ec5YgpgzzcsrkAR8rsSjsutyjN9VRvsKDAAovFoF92DtoU%7e64FCkZhCh5p4fxNaaZI4%2dckXXRYeLQF4mdUE2tGJpRc99wTgqO7YgII3dD6n82OeWdK3DqsfO6o06u0YjLf3V%2dFzX2PV%7eFmLie%7eEoD%2dbRcJXO8ekb2aqewUiJi4yg%5f%5f&Key-Pair-Id=K2RKIY3YYBD5LB";
 
   return (
-    <main className="">
+    <main className="relative isolate">
+      <div className="fixed inset-0 left-0 top-20 z-10 flex h-full w-full justify-center">
+        <div className="mx-auto h-full w-full max-w-7xl border-l border-l-black"></div>
+      </div>
       <HeroSection data={releases.slice(0, 4)} />
       {/* <UpcomingReleases /> */}
       {/* <Hero /> */}
@@ -75,11 +78,19 @@ export default async function Page() {
                 style={{
                   WebkitTextStrokeWidth: "1px",
                   WebkitTextStrokeColor: "black",
+                  textShadow: "2px 2px black",
                 }}
               >
                 Bristol based independent record label by shallnotfade
               </h1>
-              <h2 className="font-drukCondensed italic text-gray-800">
+              <h2
+                className="font-drukCondensed italic text-gray-200"
+                style={{
+                  WebkitTextStrokeWidth: "1px",
+                  WebkitTextStrokeColor: "black",
+                  textShadow: "2px 2px black",
+                }}
+              >
                 - Breakthrough Label winner at DJ Mag Awards 2022
               </h2>
             </Container>
@@ -96,18 +107,25 @@ export default async function Page() {
       </Spacer>
       <News />
       <Spacer>
-        <div className="absolute inset-0 origin-top-left scale-[1.5] blur-[6px] brightness-[0.6]">
-          <Image
-            src={
-              post1.image.imageUrl
-              // urlFor(image)?.url() || "https://via.placeholder.com/550x310"
-            }
-            alt={post1.title}
-            fill
-            className="pointer-events-none object-cover"
-          />
-          <div className="pointer pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800/10 to-transparent"></div>
-          <div className="pointer pointer-events-none absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-gray-800/30 to-transparent"></div>
+        <div className="relative isolate flex h-full w-full items-center justify-center">
+          <div className="absolute inset-0 -z-10 origin-top-left scale-[1.5] blur-[6px] brightness-[0.6]">
+            <Image
+              src={
+                post1.image.imageUrl
+                // urlFor(image)?.url() || "https://via.placeholder.com/550x310"
+              }
+              alt={post1.title}
+              fill
+              className="pointer-events-none object-cover"
+            />
+            <div className="pointer pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800/10 to-transparent"></div>
+            <div className="pointer pointer-events-none absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-gray-800/30 to-transparent"></div>
+          </div>
+          <h2 className="text-center font-druk text-white">
+            <span className="">bubblers</span>
+            <span className="mx-2">by</span>
+            <span>eli murphy</span>
+          </h2>
         </div>
       </Spacer>
       {/* <Merch /> */}

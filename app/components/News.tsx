@@ -52,7 +52,7 @@ function ContentBig({ data }: { data: Post }) {
           {data.title}
         </a>
       </h2>
-      <p className={`text-gray-800`}>{data.description}</p>
+      <p className={`text-black`}>{data.description}</p>
       <div className="relative inline-block pt-1 text-xs uppercase tracking-wide">
         <div className="inline-block">
           <a
@@ -83,25 +83,24 @@ function ContentBig({ data }: { data: Post }) {
 
 function BigCard({ data }: { data: Post }) {
   return (
-    <div className="//border-b-8 group static isolate mx-auto w-full max-w-lg cursor-pointer border-gray-200 pb-16 backdrop-blur-sm hover:bg-gray-100 lg:py-5">
+    <div className="//border-b-8 group static isolate mx-auto w-full max-w-lg cursor-pointer border-gray-200 p-4 pb-16 backdrop-blur-sm hover:bg-gray-100 lg:py-5">
       <ThumbnailBig data={data} />
       <ContentBig data={data} />
     </div>
   );
 }
 
-// CARD //////////////////////////////////////////
 function Content({ data }: { data: Post }) {
   return (
     <div className="flex w-full items-center">
       <span
-        className="mr-5 hidden rotate-180 border-l border-gray-500 pl-1 text-xs uppercase tracking-wide text-gray-500 md:block"
+        className="mr-5 hidden rotate-180 border-l border-gray-500 pl-1 text-xs uppercase tracking-wide text-black md:block"
         style={{ writingMode: "vertical-lr", textOrientation: "sideways" }}
       >
         {data.category.title}
       </span>
       <div className="max-w-64 sm:max-w-80">
-        <span className="mb-1.5 block w-fit border-b border-gray-500 text-xs tracking-wide text-gray-400 md:hidden">
+        <span className="mb-1.5 block w-fit border-b border-gray-500 text-xs tracking-wide text-black md:hidden">
           {data.category.title}
         </span>
         <h2 className="text-xl font-bold md:text-2xl">
@@ -186,7 +185,7 @@ function Thumbnail({ data }: { data: Post }) {
 
 function SmallCard({ data }: { data: Post }) {
   return (
-    <div className="//last-of-type:border-b-0 group relative mx-auto flex w-full max-w-lg items-center justify-between border-b border-gray-200 py-4 text-black hover:cursor-pointer hover:bg-gray-100 md:px-2 lg:py-5">
+    <div className="//last-of-type:border-b-0 group relative mx-auto flex w-full max-w-lg items-center justify-between border-b border-gray-200 p-4 text-black hover:cursor-pointer hover:bg-gray-100 md:px-2 lg:py-5">
       <Content data={data} />
       <Thumbnail data={data} />
     </div>
@@ -195,7 +194,7 @@ function SmallCard({ data }: { data: Post }) {
 
 function TopStories({ data }: { data: Props }) {
   return (
-    <div className="//ml-[65px] //sm:w-80 sticky top-10 isolate z-10 mx-auto mb-10 mt-10 flow-root min-h-[475px] w-full max-w-lg rounded-md bg-gray-500 p-5 text-gray-50 sm:w-[410px] lg:ml-0 lg:min-h-[600px] lg:w-[768px] lg:overflow-hidden lg:rounded-3xl">
+    <div className="//ml-[65px] //sm:w-80 sticky top-10 isolate z-10 mx-auto mb-10 mt-10 flow-root min-h-[475px] w-full max-w-lg rounded-md bg-black p-5 text-gray-50 sm:w-[410px] lg:ml-0 lg:min-h-[600px] lg:w-[768px] lg:overflow-hidden lg:rounded-3xl">
       <span
         className={`absolute top-0 -z-10 hidden rotate-180 font-drukCondensed uppercase text-gray-900 sm:-left-24 sm:inline-block sm:text-8xl lg:hidden`}
         style={{ writingMode: "vertical-rl" }}
@@ -211,7 +210,7 @@ function TopStories({ data }: { data: Props }) {
         {data.posts.map((post) => (
           <li
             key={post.id}
-            className="//pb-5 mb-5 border-b border-b-gray-400 pl-7 before:absolute before:-left-[4px] before:ml-3.5 before:grid before:h-6 before:w-6 before:place-content-center before:rounded-full before:bg-gray-800 before:text-center before:font-drukText before:text-sm before:text-gray-300 before:content-[counter(li)] before:[counter-increment:li] last:mb-0 last:border-b-0 last:pb-0"
+            className="//pb-5 mb-5 border-b border-b-gray-400 pl-7 before:absolute before:-left-[4px] before:ml-3.5 before:grid before:h-6 before:w-6 before:place-content-center before:rounded-full before:bg-black before:text-center before:font-drukText before:text-sm before:text-gray-300 before:content-[counter(li)] before:[counter-increment:li] last:mb-0 last:border-b-0 last:pb-0"
           >
             <a href={post.href} className="hover:text-gray-100">
               <h3 className="mb-1 text-lg font-medium leading-tight tracking-wide">
@@ -253,7 +252,13 @@ export default function News() {
   return (
     <section className="pt-16 sm:pt-24 lg:pt-32">
       <Container>
-        <SectionHeading>new stories:</SectionHeading>
+        {/* <SectionHeading>
+          <span>latest news - </span>
+          {new Date().toLocaleDateString(undefined, {
+            day: "2-digit",
+            month: "long",
+          })}
+        </SectionHeading> */}
         <article>
           {/* <div className="aspect-[3/2] w-full bg-red-300 lg:aspect-[3/1]"></div> */}
           <div className="mt-0 flex flex-col lg:flex-row">
