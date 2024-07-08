@@ -7,6 +7,7 @@ import image from "../public/assets/images/prozak500.png";
 import { Container } from "./components/Container";
 import Image from "next/image";
 import { post1 } from "./components/dummy";
+import { GridPattern } from "./components/GridPattern";
 
 export type ReleaseProps = {
   artist: {
@@ -54,8 +55,21 @@ export default async function Page() {
     <div className="relative isolate">
       <div className="fixed inset-0 left-0 top-20 -z-10 flex h-full w-full justify-center">
         <div className="mx-auto h-full w-full max-w-7xl border-l border-l-black"></div>
-        {/* <div className="absolute left-0 top-0 h-full w-20 bg-pink-300"></div> */}
       </div>
+      {/* <div className="absolute inset-0 rounded-2xl transition duration-300 [mask-image:linear-gradient(white,transparent)] group-hover:opacity-50">
+        <GridPattern
+          width={3}
+          height={3}
+          x="75%"
+          y="200"
+          squares={[
+            [0, 1],
+            [1, 3],
+          ]}
+          className="dark:fill-white/1 dark:stroke-white/2.5 //skew-y-[-18deg] absolute inset-x-0 inset-y-[-30%] h-[160%] w-full fill-black/[0.02] stroke-black/10"
+        />
+      </div> */}
+
       <HeroSection data={releases.slice(0, 4)} />
       <Spacer className="border-b border-black">
         <Container size="md" className="">
