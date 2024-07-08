@@ -1,6 +1,3 @@
-import Image from "next/image";
-import { Container } from "./Container";
-import logo from "../../public/assets/logo/logolight150.png";
 import Bandcamp from "@/public/assets/svg/Bandcamp";
 import Beatport from "@/public/assets/svg/Beatport";
 import Discogs from "@/public/assets/svg/Discogs";
@@ -8,7 +5,7 @@ import Instagram from "@/public/assets/svg/Instagram";
 import Soundcloud from "@/public/assets/svg/Soundcloud";
 import Spotify from "@/public/assets/svg/Spotify";
 
-function SocialLinks() {
+export default function SocialLinksList() {
   return (
     <ul className="mb-0 flex space-x-6">
       <li>
@@ -78,49 +75,5 @@ function SocialLinks() {
         </a>
       </li>
     </ul>
-  );
-}
-
-export default function Footer() {
-  return (
-    <footer
-      aria-labelledby="footer-heading"
-      className="pt-16 text-black sm:pt-24 lg:pt-32"
-    >
-      <h2 id="footer-heading" className="sr-only">
-        Footer
-      </h2>
-      <Container>
-        <div className="//xl:grid //xl:grid-cols-3 //xl:gap-8">
-          <div className="//items-end flex flex-col items-center justify-between sm:flex-row">
-            <span className="mb-5 inline-block font-drukCondensed text-12xl text-8xl italic leading-[0.8] sm:mb-0 md:text-10xl">
-              TIME IS NOW
-            </span>
-
-            <div className="lg:self-end">
-              {/* <Image alt="Company name" src={logo} className="mb-8" /> */}
-              <p className="text-sm leading-6 text-black">
-                <span className="block">
-                  Bristol based independent record label by shallnotfade
-                </span>
-                <span className="block">
-                  Breakthrough Label winner @ DJ Mag Awards 2022
-                </span>
-              </p>
-
-              <div className="flex space-x-6">
-                <SocialLinks />
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* COPYRIGHT */}
-        <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
-          <p className="text-center text-xs leading-5 text-gray-500 sm:text-start">
-            &copy; 2024 Time Is Now, Inc. All rights reserved.
-          </p>
-        </div>
-      </Container>
-    </footer>
   );
 }

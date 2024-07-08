@@ -282,7 +282,7 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
                       {title}
                     </span>
                     <span
-                      className="bold space-nowrap text-gray-303 text-l1 mb-2.5 block font-drukTextWide uppercase sm:truncate sm:text-xl sm:text-gray-100 md:text-2xl lg:mb-5 lg:text-4xl xl:text-5xl"
+                      className="bold space-nowrap text-l1 mb-2.5 block font-drukTextWide uppercase text-gray-100 sm:truncate sm:text-xl md:text-2xl lg:mb-5 lg:text-4xl xl:text-5xl"
                       style={{
                         WebkitTextStrokeWidth: "1px",
                         WebkitTextStrokeColor: "black",
@@ -330,7 +330,7 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
         <div className="hidden text-center font-druk text-5xl italic text-black lg:flex lg:flex-row lg:justify-center">
           <div>
             <span
-              className="text-gray-200"
+              className="text-gray-100"
               style={{
                 WebkitTextStrokeWidth: "1px",
                 WebkitTextStrokeColor: "black",
@@ -344,7 +344,7 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
             </span>
           </div>
           <div
-            className="mx-2 text-gray-200"
+            className="mx-2 text-gray-100"
             style={{
               WebkitTextStrokeWidth: "1px",
               WebkitTextStrokeColor: "black",
@@ -355,7 +355,7 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
           </div>
           <div>
             <span
-              className="text-gray-200"
+              className="text-gray-100"
               style={{
                 WebkitTextStrokeWidth: "1px",
                 WebkitTextStrokeColor: "black",

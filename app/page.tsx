@@ -103,7 +103,7 @@ export default async function Page() {
           </div>
         </Container>
       </Spacer>
-      <News />
+      <News realdata={releases} />
       <Spacer>
         <div className="relative isolate flex h-full w-full items-center justify-center">
           <div className="absolute inset-0 -z-10 origin-top-left scale-[1.5] blur-[6px] brightness-[0.6]">

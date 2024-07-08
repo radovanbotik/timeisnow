@@ -6,6 +6,7 @@ import { Post } from "./dummy";
 import { posts } from "./dummy";
 import Image from "next/image";
 import mesh from "../../public/assets/images/mesh.jpg";
+import { ReleaseProps } from "../page";
 
 type Props = {
   title: string;
@@ -193,7 +194,7 @@ function SmallCard({ data }: { data: Post }) {
   );
 }
 
-function TopStories({ data }: { data: Props }) {
+function NewReleases({ data }: { data: ReleaseProps[] }) {
   return (
     <div className="//ml-[65px] //sm:w-80 sticky top-10 isolate z-10 mx-auto mb-10 mt-10 flow-root min-h-[475px] w-full max-w-lg rounded-md bg-black p-5 text-gray-50 sm:w-[410px] lg:ml-0 lg:min-h-[600px] lg:w-[768px] lg:overflow-hidden lg:rounded-sm">
       <div className="absolute inset-0 -z-10 origin-top-left">
@@ -210,34 +211,40 @@ function TopStories({ data }: { data: Props }) {
         className={`absolute top-0 -z-10 hidden rotate-180 font-drukCondensed uppercase text-gray-900 sm:-left-24 sm:inline-block sm:text-8xl lg:hidden`}
         style={{ writingMode: "vertical-rl" }}
       >
-        {data.title}
+        Newest Releases
+        {/* {data.title} */}
       </span>
       {/* TITLE, "TOP STORIES" */}
       <div className="mb-5 ml-6 flex justify-between font-drukWide uppercase text-gray-200">
-        <span>{data.title}</span>
+        {/* <span>{data.title}</span> */}
+        <span>Newest Releases</span>
       </div>
       {/* INDIVIDUAL STORIES */}
       <ol className="z-10 w-full [counter-reset:li] lg:mt-5 lg:w-[320px]">
-        {data.posts.map((post) => (
+        {data.slice(0, 6).map((release) => (
           <li
-            key={post.id}
-            className="//pb-5 mb-5 border-b border-b-gray-400 pl-7 before:absolute before:-left-[4px] before:ml-3.5 before:grid before:h-6 before:w-6 before:place-content-center before:rounded-full before:bg-black before:text-center before:font-drukText before:text-sm before:text-gray-300 before:content-[counter(li)] before:[counter-increment:li] last:mb-0 last:border-b-0 last:pb-0"
+            key={release._id}
+            className="//pb-5 mb-5 border-b border-b-gray-400 pl-7 before:absolute before:-left-[4px] before:ml-3.5 before:grid before:h-6 before:w-6 before:place-items-center before:rounded-full before:bg-black before:text-center before:font-drukText before:text-sm before:text-gray-300 before:content-[counter(li)] before:[counter-increment:li] last:mb-0 last:border-b-0 last:pb-0"
           >
-            <a href={post.href} className="hover:text-gray-100">
+            <a href={release.slug.current} className="hover:text-gray-100">
               <h3 className="mb-1 text-lg font-medium leading-tight tracking-wide">
-                {post.title}
+                <span>{release.title}</span>
+                <span className="mx-2 text-base">-</span>
+                <span>
+                  {release.artist.length > 1
+                    ? release.artist.map((a) => a.artistName).join(", ")
+                    : release.artist[0].artistName}
+                </span>
               </h3>
             </a>
             <p className="inline-block text-xs uppercase text-gray-300">
-              <span className="mr-2 hover:text-gray-100">
-                {post.author.name}
-              </span>
-              <time dateTime={post.datetime}>{post.date}</time>
+              <span className="mr-2 hover:text-gray-100">{release.catno}</span>
+              <time dateTime={release.date}>{release.date}</time>
               <span>
                 <span className="mx-2">|</span>
                 <a
-                  href={post.href}
-                  aria-label={post.description}
+                  href={release.slug.current}
+                  aria-label={release.slug.current}
                   className="group/comments hover:text-gray-100"
                 >
                   <ChatBubbleLeftIcon className="mr-2 inline h-3.5 w-3.5 -translate-y-[0.5px]" />
@@ -252,13 +259,14 @@ function TopStories({ data }: { data: Props }) {
         className={`pointer-events-none absolute -right-14 bottom-14 z-10 hidden rotate-180 font-drukCondensed text-10xl uppercase text-white/80 lg:block`}
         style={{ writingMode: "vertical-rl" }}
       >
-        {data.title}
+        newest releases
+        {/* {data.title} */}
       </span>
     </div>
   );
 }
 
-export default function News() {
+export default function News({ realdata }: { realdata: ReleaseProps[] }) {
   const data: Props = { title: "New Releases", posts: posts };
   return (
     <section className="pt-16 sm:pt-24 lg:pt-32">
@@ -270,25 +278,24 @@ export default function News() {
             month: "long",
           })}
         </SectionHeading> */}
-        <article>
-          {/* <div className="aspect-[3/2] w-full bg-red-300 lg:aspect-[3/1]"></div> */}
-          <div className="mt-0 flex flex-col lg:flex-row">
-            <div className="inline-block w-full">
-              <BigCard data={posts[0]} />
-              <ul>
-                <li>
-                  <SmallCard data={posts[0]} />
-                </li>
-                <li>
-                  <SmallCard data={posts[1]} />
-                </li>
-              </ul>
-            </div>
-            <div className="inline-block grow-0">
-              <TopStories data={data} />
-            </div>
+        {/* <div className="aspect-[3/2] w-full bg-red-300 lg:aspect-[3/1]"></div> */}
+        <div className="mt-0 flex flex-col lg:flex-row">
+          <div className="inline-block w-full">
+            <BigCard data={posts[0]} />
+            <ul>
+              <li>
+                <SmallCard data={posts[0]} />
+              </li>
+              <li>
+                <SmallCard data={posts[1]} />
+              </li>
+            </ul>
           </div>
-        </article>
+          <div className="inline-block grow-0">
+            <NewReleases data={realdata} />
+          </div>
+        </div>
+        {/* <button className="mx-auto block text-xl uppercase">get more</button> */}
       </Container>
     </section>
   );
