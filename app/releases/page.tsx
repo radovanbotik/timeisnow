@@ -1,4 +1,5 @@
 import Gallery from "../components/Gallery";
+import ReverseScrollingColumns from "../components/ReverseScrollingColumns";
 import { fetchReleases } from "../lib/loaders";
 
 export default async function Page() {
@@ -6,7 +7,8 @@ export default async function Page() {
 
   return (
     <>
-      <Gallery data={releases} />
+      {/* <Gallery data={releases} /> */}
+      <ReverseScrollingColumns data={releases} />
     </>
   );
 }

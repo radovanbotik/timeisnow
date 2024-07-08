@@ -7,8 +7,6 @@ export default function Bandcamp({ className }: { className?: string }) {
       // fill="currentColor"
       // fill="white"
       xmlns="http://www.w3.org/2000/svg"
-      width="auto"
-      height="auto"
       viewBox="0 0 450.689 450.69"
       xmlSpace="preserve"
     >

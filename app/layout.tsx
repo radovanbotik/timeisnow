@@ -30,15 +30,12 @@ export default function RootLayout({
       lang="en"
       className={` ${druk.variable} ${drukText.variable} ${drukWide.variable} ${drukTextWide.variable} ${drukCondensed.variable} ${drukXCondensed.variable} ${drukXXCondensed.variable} ${youth.variable}`}
     >
-      {/* cursor-none */}
       <body
-        className={`relative overflow-x-hidden scroll-smooth bg-gray-200 selection:bg-black selection:text-white`}
+        className={`relative overflow-x-hidden scroll-smooth bg-gray-100 selection:bg-gray-800 selection:text-gray-100`}
       >
-        <div className="relative min-h-screen w-full">
-          <Navigation />
-          {children}
-          <Footer />
-        </div>
+        <Navigation />
+        {children}
+        <Footer />
       </body>
     </html>
   );

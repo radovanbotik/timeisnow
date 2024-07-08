@@ -1,16 +1,8 @@
 import { sanityFetch } from "./sanity/client";
-import ReverseScrollingColumns from "./components/ReverseScrollingColumns";
-import Hero from "./components/Hero";
-import Categories from "./components/Categories";
 import LatestReleases from "./components/LatestReleases";
 import Spacer from "./components/Spacer";
 import News from "./components/News";
 import HeroSection from "./components/HeroSection";
-import CoverFlow from "./components/CoverFlow";
-import CoverFlowSection from "./components/CoverFlowSection";
-import UpcomingReleases from "./components/UpcomingReleases";
-import Merch from "./components/Merch";
-import LatestReleasesSlider from "./components/LatestReleasesSlider";
 import image from "../public/assets/images/prozak500.png";
 import { Container } from "./components/Container";
 import Image from "next/image";
@@ -58,21 +50,18 @@ export default async function Page() {
     query: QUERY,
   })) as ReleaseProps[];
 
-  const videoUrl =
-    "https://delivery.twentythree.com/9891396/57423095/video_hd?uuid=02a3fa46-7f98-0c5c-b909-a51a88a58f58&revision=2&domain=bandcamp.23video.com&Expires=1720126800&Signature=0N%7esPlqm8%2dlrVo8At1sT9kHanVC4EpJ8QnKJtAJiZP%7exx%2dEmhq5GSvjKGyDO7GCp8h6AU7wgo%7ec%7eNUe81NOvVAGA48trdIImdUnL2UcI%7e%2dtzmbXCVNechumPzrsoCVJcRcR6Ww8G1P7wMIRd9PL8O%2dHvyhwbXFuuHPtLucaERe%7ec5YgpgzzcsrkAR8rsSjsutyjN9VRvsKDAAovFoF92DtoU%7e64FCkZhCh5p4fxNaaZI4%2dckXXRYeLQF4mdUE2tGJpRc99wTgqO7YgII3dD6n82OeWdK3DqsfO6o06u0YjLf3V%2dFzX2PV%7eFmLie%7eEoD%2dbRcJXO8ekb2aqewUiJi4yg%5f%5f&Key-Pair-Id=K2RKIY3YYBD5LB";
-
   return (
-    <main className="relative isolate">
-      <div className="fixed inset-0 left-0 top-20 z-10 flex h-full w-full justify-center">
+    <div className="relative isolate">
+      <div className="fixed inset-0 left-0 top-20 -z-10 flex h-full w-full justify-center">
         <div className="mx-auto h-full w-full max-w-7xl border-l border-l-black"></div>
+        {/* <div className="absolute left-0 top-0 h-full w-20 bg-pink-300"></div> */}
       </div>
       <HeroSection data={releases.slice(0, 4)} />
-      {/* <UpcomingReleases /> */}
-      {/* <Hero /> */}
-      <Spacer>
-        <Container size="md">
-          <div className="flex h-full w-full items-center justify-center">
-            <Container className="xs">
+      <Spacer className="border-b border-black">
+        <Container size="md" className="">
+          <div className="relative flex h-full w-full items-center justify-center lg:justify-start">
+            {/* <Container className="xs"> */}
+            <div className="max-w-3xl">
               <h1
                 className="font-drukCondensed italic text-transparent"
                 style={{
@@ -93,9 +82,18 @@ export default async function Page() {
               >
                 - Breakthrough Label winner at DJ Mag Awards 2022
               </h2>
-            </Container>
+            </div>
+            {/* </Container> */}
+            {/* <span
+              className="mr-5 hidden rotate-180 border-l border-gray-500 font-drukXCondensed text-6xl uppercase tracking-wide text-black md:block"
+              style={{
+                writingMode: "vertical-lr",
+              }}
+            >
+              TIME IS NOW
+            </span> */}
           </div>
-          <div className="absolute bottom-0 right-0 aspect-[1/2] w-24 overflow-hidden sm:w-60 md:w-44 lg:w-48 xl:w-52">
+          <div className="absolute bottom-0 right-0 aspect-[1/2] w-36 overflow-hidden sm:w-44 md:w-44 lg:w-48 xl:w-52">
             <Image
               fill
               src={image}
@@ -128,13 +126,7 @@ export default async function Page() {
           </h2>
         </div>
       </Spacer>
-      {/* <Merch /> */}
       <LatestReleases />
-      {/* <Spacer /> */}
-      {/* <CoverFlowSection data={releases} /> */}
-      {/* <CoverFlow data={releases} /> */}
-      {/* <News /> */}
-      {/* <ReverseScrollingColumns data={releases} /> */}
-    </main>
+    </div>
   );
 }

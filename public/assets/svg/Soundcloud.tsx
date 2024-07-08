@@ -7,7 +7,7 @@ export default function Soundcloud({ className }: { className?: string }) {
       xmlns="http://www.w3.org/2000/svg"
       className={cn("fill-current", className)}
     >
-      <g stroke="none" stroke-width="1" fill="none" fillRule="evenodd">
+      <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g
           id="Dribbble-Light-Preview"
           transform="translate(-60.000000, -7483.000000)"

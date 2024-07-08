@@ -5,6 +5,7 @@ import { ChatBubbleLeftIcon } from "@heroicons/react/24/outline";
 import { Post } from "./dummy";
 import { posts } from "./dummy";
 import Image from "next/image";
+import mesh from "../../public/assets/images/mesh.jpg";
 
 type Props = {
   title: string;
@@ -83,7 +84,7 @@ function ContentBig({ data }: { data: Post }) {
 
 function BigCard({ data }: { data: Post }) {
   return (
-    <div className="//border-b-8 group static isolate mx-auto w-full max-w-lg cursor-pointer border-gray-200 p-4 pb-16 backdrop-blur-sm hover:bg-gray-100 lg:py-5">
+    <div className="//border-gray-200 //border-b-8 group relative isolate mx-auto w-full max-w-lg cursor-pointer p-4 pb-16 backdrop-blur-sm hover:bg-gray-200 lg:py-5">
       <ThumbnailBig data={data} />
       <ContentBig data={data} />
     </div>
@@ -185,7 +186,7 @@ function Thumbnail({ data }: { data: Post }) {
 
 function SmallCard({ data }: { data: Post }) {
   return (
-    <div className="//last-of-type:border-b-0 group relative mx-auto flex w-full max-w-lg items-center justify-between border-b border-gray-200 p-4 text-black hover:cursor-pointer hover:bg-gray-100 md:px-2 lg:py-5">
+    <div className="//last-of-type:border-b-0 group relative mx-auto flex w-full max-w-lg items-center justify-between border-b border-gray-200 p-4 text-black hover:cursor-pointer hover:bg-gray-200 md:px-2 lg:py-5">
       <Content data={data} />
       <Thumbnail data={data} />
     </div>
@@ -194,7 +195,17 @@ function SmallCard({ data }: { data: Post }) {
 
 function TopStories({ data }: { data: Props }) {
   return (
-    <div className="//ml-[65px] //sm:w-80 sticky top-10 isolate z-10 mx-auto mb-10 mt-10 flow-root min-h-[475px] w-full max-w-lg rounded-md bg-black p-5 text-gray-50 sm:w-[410px] lg:ml-0 lg:min-h-[600px] lg:w-[768px] lg:overflow-hidden lg:rounded-3xl">
+    <div className="//ml-[65px] //sm:w-80 sticky top-10 isolate z-10 mx-auto mb-10 mt-10 flow-root min-h-[475px] w-full max-w-lg rounded-md bg-black p-5 text-gray-50 sm:w-[410px] lg:ml-0 lg:min-h-[600px] lg:w-[768px] lg:overflow-hidden lg:rounded-sm">
+      <div className="absolute inset-0 -z-10 origin-top-left">
+        <Image
+          src={mesh}
+          alt={"no use"}
+          fill
+          className="pointer-events-none object-cover"
+        />
+        <div className="pointer pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+        <div className="pointer pointer-events-none absolute bottom-0 left-0 h-1/3 w-full bg-gradient-to-t from-black/30 to-transparent"></div>
+      </div>
       <span
         className={`absolute top-0 -z-10 hidden rotate-180 font-drukCondensed uppercase text-gray-900 sm:-left-24 sm:inline-block sm:text-8xl lg:hidden`}
         style={{ writingMode: "vertical-rl" }}
@@ -238,7 +249,7 @@ function TopStories({ data }: { data: Props }) {
         ))}
       </ol>
       <span
-        className={`pointer-events-none absolute -right-14 bottom-14 z-10 hidden rotate-180 font-drukCondensed text-10xl uppercase text-gray-900/30 lg:block`}
+        className={`pointer-events-none absolute -right-14 bottom-14 z-10 hidden rotate-180 font-drukCondensed text-10xl uppercase text-white/80 lg:block`}
         style={{ writingMode: "vertical-rl" }}
       >
         {data.title}

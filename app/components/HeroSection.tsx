@@ -33,6 +33,13 @@ import { Container } from "./Container";
 import { ReleaseProps } from "../page";
 import { urlFor } from "../sanity/helpers";
 import Link from "next/link";
+import mesh from "../../public/assets/images/mesh.jpg";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type Slide = {
   _id: string;
@@ -133,7 +140,7 @@ function Timers({
               key={_id}
               className={cn(realIndex === i ? "block" : "hidden", "md:block")}
             >
-              <div className="relative mb-4 h-2 w-full border border-black">
+              <div className="relative mb-2 h-2 w-full border border-black">
                 <div
                   className="absolute inset-0 rotate-180 bg-black"
                   style={{
@@ -141,10 +148,10 @@ function Timers({
                   }}
                 ></div>
               </div>
-              <span className="hidden text-lg leading-[0.95] sm:line-clamp-1">
+              <span className="hidden text-lg leading-[0.95] tracking-tighter sm:line-clamp-1">
                 {title}
               </span>
-              <span className="hidden text-lg leading-[0.95] sm:line-clamp-1">
+              <span className="hidden text-lg leading-[0.95] tracking-tighter sm:line-clamp-1">
                 {artist.length > 1
                   ? artist.map((a) => a.artistName).join(", ")
                   : artist[0].artistName}
@@ -161,6 +168,31 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
   const swiperInstance = useRef<SwiperRef>(null);
   const [realIndex, setRealIndex] = useState<number>(0);
   const [progress, setProgress] = useState(1);
+  const container = useRef();
+
+  // useGSAP(
+  //   () => {
+  //     const slides = gsap.utils.toArray("[data-id='heroslide']");
+
+  //     slides.forEach((slide) => {
+  //       ScrollTrigger.create({
+  //         trigger: slide,
+  //         animation: gsap.fromTo(
+  //           slide,
+  //           {
+  //             opacity: 0,
+  //           },
+  //           {
+  //             opacity: 100,
+  //             duration: 200,
+  //             scrollTrigger: {},
+  //           },
+  //         ),
+  //       });
+  //     });
+  //   },
+  //   { scope: swiperInstance.current },
+  // );
 
   return (
     <section className="relative">
@@ -187,7 +219,8 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
         {data.map(({ _id, image, title, catno, date, artist, slug }, i) => (
           <SwiperSlide
             key={_id}
-            className="pointer-events-none !isolate flex h-full w-full items-center justify-center !overflow-hidden"
+            className="!isolate flex h-full w-full cursor-grab items-center justify-center !overflow-hidden active:cursor-grabbing"
+            data-id={"heroslide"}
           >
             {/* BACKGROUND */}
             {/* <div className="absolute inset-0 origin-top-left scale-[1.5] blur-[6px] brightness-[0.6]">
@@ -208,8 +241,8 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
               <Container size="md">
                 <div className="//items-center isolate flex min-h-dvh flex-col justify-center p-5 pt-32 sm:pt-40 lg:flex-row lg:items-end lg:justify-start">
                   {/* IMAGE */}
-                  <div className="group flex flex-col self-center sm:flex-row">
-                    <div className="relative order-1 aspect-square w-64 shrink-0 cursor-pointer shadow-xl sm:order-2 sm:w-[60vw] sm:max-w-lg lg:w-[440px] xl:w-[32rem]">
+                  <div className="group flex flex-col self-center drop-shadow-md sm:flex-row">
+                    <div className="relative order-1 aspect-square w-64 shrink-0 cursor-pointer sm:order-2 sm:w-[60vw] sm:max-w-lg lg:w-[440px] xl:w-[32rem]">
                       <div className="absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/10 p-6 opacity-0 shadow-lg backdrop-blur-[2px] group-hover:opacity-100">
                         <PlayIcon className="h-8 w-8 translate-x-[2px] text-black/50 md:h-12 md:w-12" />
                       </div>
@@ -222,6 +255,7 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
                         fill
                         className="pointer-events-none object-cover"
                       />
+                      <div className="pointer pointer-events-none absolute inset-0 bg-gradient-to-l from-black/10 via-transparent to-transparent"></div>
                     </div>
                     <h6 className="z-20 order-2 self-center font-semibold italic text-black sm:order-1 sm:rotate-180 sm:self-end sm:indent-5 sm:[writing-mode:vertical-lr] md:-ml-10">
                       <span className="uppercase text-black">{catno}</span>
@@ -263,11 +297,11 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
                     <div className="flex flex-col gap-5 sm:flex-row">
                       <Link
                         href={`/releases/${slug.current}`}
-                        className="apperance-none inline-block bg-black px-10 py-5 font-semibold uppercase text-gray-100 md:px-12 md:py-6"
+                        className="apperance-none inline-block bg-black px-10 py-5 font-semibold uppercase text-gray-100 shadow-xl md:px-12 md:py-6"
                       >
                         view release
                       </Link>
-                      <button className="inline-block border border-black px-10 py-5 font-semibold uppercase leading-[0] text-black md:px-12 md:py-6">
+                      <button className="inline-block border border-black px-10 py-5 font-semibold uppercase leading-[0] text-black shadow-xl md:px-12 md:py-6">
                         play music
                       </button>
                     </div>
@@ -295,18 +329,39 @@ export default function HeroSection({ data }: { data: ReleaseProps[] }) {
       <div className="absolute bottom-5 right-40 z-10 hidden items-center gap-5 lg:flex lg:flex-row">
         <div className="hidden text-center font-druk text-5xl italic text-black lg:flex lg:flex-row lg:justify-center">
           <div>
-            <span>
+            <span
+              className="text-gray-200"
+              style={{
+                WebkitTextStrokeWidth: "1px",
+                WebkitTextStrokeColor: "black",
+                textShadow: "2px 2px black",
+              }}
+            >
               {(realIndex + 1).toLocaleString("en-US", {
                 minimumIntegerDigits: 2,
                 useGrouping: false,
               })}
             </span>
           </div>
-          <div className="mx-2">
+          <div
+            className="mx-2 text-gray-200"
+            style={{
+              WebkitTextStrokeWidth: "1px",
+              WebkitTextStrokeColor: "black",
+              textShadow: "2px 2px black",
+            }}
+          >
             <span>-</span>
           </div>
           <div>
-            <span>
+            <span
+              className="text-gray-200"
+              style={{
+                WebkitTextStrokeWidth: "1px",
+                WebkitTextStrokeColor: "black",
+                textShadow: "2px 2px black",
+              }}
+            >
               {data.length.toLocaleString("en-US", {
                 minimumIntegerDigits: 2,
                 useGrouping: false,
